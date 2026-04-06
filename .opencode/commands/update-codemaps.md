@@ -1,6 +1,6 @@
 ---
 description: Update codemaps for codebase navigation
-agent: everything-claude-code:doc-updater
+agent: VF-Claude-Plugin:doc-updater
 subtask: true
 ---
 

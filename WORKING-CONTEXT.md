@@ -11,7 +11,7 @@ Public ECC plugin repo for agents, skills, commands, hooks, rules, install surfa
 - Default branch: `main`
 - Public release surface is aligned at `v1.10.0`
 - Public catalog truth is `39` agents, `73` commands, and `179` skills
-- Public plugin slug is now `ecc`; legacy `everything-claude-code` install paths remain supported for compatibility
+- Public plugin slug is now `ecc`; legacy `VF-Claude-Plugin` install paths remain supported for compatibility
 - Release discussion: `#1272`
 - ECC 2.0 exists in-tree and builds, but it is still alpha rather than GA
 - Main active operational work:
@@ -50,10 +50,10 @@ Public ECC plugin repo for agents, skills, commands, hooks, rules, install surfa
 ## Open PR Classification
 
 - Closed on 2026-04-01 under backlog hygiene / merge policy:
-  - `#1069` `feat: add everything-claude-code ECC bundle`
-  - `#1068` `feat: add everything-claude-code-conventions ECC bundle`
-  - `#1080` `feat: add everything-claude-code ECC bundle`
-  - `#1079` `feat: add everything-claude-code-conventions ECC bundle`
+  - `#1069` `feat: add VF-Claude-Plugin ECC bundle`
+  - `#1068` `feat: add VF-Claude-Plugin-conventions ECC bundle`
+  - `#1080` `feat: add VF-Claude-Plugin ECC bundle`
+  - `#1079` `feat: add VF-Claude-Plugin-conventions ECC bundle`
   - `#1064` `chore(deps-dev): bump @eslint/js from 9.39.2 to 10.0.1`
   - `#1063` `chore(deps-dev): bump eslint from 9.39.2 to 10.1.0`
 - Closed on 2026-04-01 because the content is sourced from external ecosystems and should only land via manual ECC-native re-port:

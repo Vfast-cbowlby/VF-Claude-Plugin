@@ -1,6 +1,6 @@
 ---
 description: Analyze instincts and suggest or generate evolved structures
-agent: everything-claude-code:build
+agent: VF-Claude-Plugin:build
 ---
 
 # Evolve Command

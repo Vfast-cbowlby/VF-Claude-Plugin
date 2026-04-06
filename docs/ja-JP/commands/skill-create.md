@@ -171,4 +171,4 @@ src/
 
 ---
 
-*[Everything Claude Code](https://github.com/affaan-m/everything-claude-code)の一部*
+*[VF Claude Plugin](https://github.com/affaan-m/VF-Claude-Plugin)の一部*

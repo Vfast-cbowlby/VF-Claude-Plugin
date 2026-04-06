@@ -1,4 +1,4 @@
-# Everything Claude Code (ECC) — 智能体指令
+# VF Claude Plugin (ECC) — 智能体指令
 
 这是一个**生产就绪的 AI 编码插件**，提供 47 个专业代理、181 项技能、79 条命令以及自动化钩子工作流，用于软件开发。
 

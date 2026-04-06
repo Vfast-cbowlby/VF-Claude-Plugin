@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Sync Everything Claude Code (ECC) assets into a local Codex CLI setup.
+# Sync VF Claude Plugin (ECC) assets into a local Codex CLI setup.
 # - Backs up ~/.codex config and AGENTS.md
 # - Merges ECC AGENTS.md into existing AGENTS.md (marker-based, preserves user content)
 # - Generates prompt files from commands/*.md

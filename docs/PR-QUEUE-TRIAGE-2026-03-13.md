@@ -3,7 +3,7 @@
 ## Snapshot
 
 This document records a live GitHub triage snapshot for the
-`everything-claude-code` pull-request queue as of `2026-03-13T08:33:31Z`.
+`VF-Claude-Plugin` pull-request queue as of `2026-03-13T08:33:31Z`.
 
 Sources used:
 

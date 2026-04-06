@@ -173,4 +173,4 @@ src/
 
 ***
 
-*属于 [Everything Claude Code](https://github.com/affaan-m/everything-claude-code)*
+*属于 [VF Claude Plugin](https://github.com/affaan-m/VF-Claude-Plugin)*

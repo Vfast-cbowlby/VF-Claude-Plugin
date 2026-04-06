@@ -1,6 +1,6 @@
 ---
 description: Generate and run E2E tests with Playwright
-agent: everything-claude-code:e2e-runner
+agent: VF-Claude-Plugin:e2e-runner
 subtask: true
 ---
 

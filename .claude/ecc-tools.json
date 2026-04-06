@@ -3,7 +3,7 @@
   "schemaVersion": "1.0",
   "generatedBy": "ecc-tools",
   "generatedAt": "2026-03-20T12:07:36.496Z",
-  "repo": "https://github.com/affaan-m/everything-claude-code",
+  "repo": "https://github.com/affaan-m/VF-Claude-Plugin",
   "profiles": {
     "requested": "full",
     "recommended": "full",
@@ -134,19 +134,19 @@
     "enterprise-controls"
   ],
   "managedFiles": [
-    ".claude/skills/everything-claude-code/SKILL.md",
-    ".agents/skills/everything-claude-code/SKILL.md",
-    ".agents/skills/everything-claude-code/agents/openai.yaml",
+    ".claude/skills/VF-Claude-Plugin/SKILL.md",
+    ".agents/skills/VF-Claude-Plugin/SKILL.md",
+    ".agents/skills/VF-Claude-Plugin/agents/openai.yaml",
     ".claude/identity.json",
     ".codex/config.toml",
     ".codex/AGENTS.md",
     ".codex/agents/explorer.toml",
     ".codex/agents/reviewer.toml",
     ".codex/agents/docs-researcher.toml",
-    ".claude/homunculus/instincts/inherited/everything-claude-code-instincts.yaml",
-    ".claude/rules/everything-claude-code-guardrails.md",
-    ".claude/research/everything-claude-code-research-playbook.md",
-    ".claude/team/everything-claude-code-team-config.json",
+    ".claude/homunculus/instincts/inherited/VF-Claude-Plugin-instincts.yaml",
+    ".claude/rules/VF-Claude-Plugin-guardrails.md",
+    ".claude/research/VF-Claude-Plugin-research-playbook.md",
+    ".claude/team/VF-Claude-Plugin-team-config.json",
     ".claude/enterprise/controls.md",
     ".claude/commands/database-migration.md",
     ".claude/commands/feature-development.md",
@@ -154,25 +154,25 @@
   ],
   "packageFiles": {
     "runtime-core": [
-      ".claude/skills/everything-claude-code/SKILL.md",
-      ".agents/skills/everything-claude-code/SKILL.md",
-      ".agents/skills/everything-claude-code/agents/openai.yaml",
+      ".claude/skills/VF-Claude-Plugin/SKILL.md",
+      ".agents/skills/VF-Claude-Plugin/SKILL.md",
+      ".agents/skills/VF-Claude-Plugin/agents/openai.yaml",
       ".claude/identity.json",
       ".codex/config.toml",
       ".codex/AGENTS.md",
       ".codex/agents/explorer.toml",
       ".codex/agents/reviewer.toml",
       ".codex/agents/docs-researcher.toml",
-      ".claude/homunculus/instincts/inherited/everything-claude-code-instincts.yaml"
+      ".claude/homunculus/instincts/inherited/VF-Claude-Plugin-instincts.yaml"
     ],
     "agentshield-pack": [
-      ".claude/rules/everything-claude-code-guardrails.md"
+      ".claude/rules/VF-Claude-Plugin-guardrails.md"
     ],
     "research-pack": [
-      ".claude/research/everything-claude-code-research-playbook.md"
+      ".claude/research/VF-Claude-Plugin-research-playbook.md"
     ],
     "team-config-sync": [
-      ".claude/team/everything-claude-code-team-config.json"
+      ".claude/team/VF-Claude-Plugin-team-config.json"
     ],
     "enterprise-controls": [
       ".claude/enterprise/controls.md"
@@ -185,25 +185,25 @@
   },
   "moduleFiles": {
     "runtime-core": [
-      ".claude/skills/everything-claude-code/SKILL.md",
-      ".agents/skills/everything-claude-code/SKILL.md",
-      ".agents/skills/everything-claude-code/agents/openai.yaml",
+      ".claude/skills/VF-Claude-Plugin/SKILL.md",
+      ".agents/skills/VF-Claude-Plugin/SKILL.md",
+      ".agents/skills/VF-Claude-Plugin/agents/openai.yaml",
       ".claude/identity.json",
       ".codex/config.toml",
       ".codex/AGENTS.md",
       ".codex/agents/explorer.toml",
       ".codex/agents/reviewer.toml",
       ".codex/agents/docs-researcher.toml",
-      ".claude/homunculus/instincts/inherited/everything-claude-code-instincts.yaml"
+      ".claude/homunculus/instincts/inherited/VF-Claude-Plugin-instincts.yaml"
     ],
     "agentshield-pack": [
-      ".claude/rules/everything-claude-code-guardrails.md"
+      ".claude/rules/VF-Claude-Plugin-guardrails.md"
     ],
     "research-pack": [
-      ".claude/research/everything-claude-code-research-playbook.md"
+      ".claude/research/VF-Claude-Plugin-research-playbook.md"
     ],
     "team-config-sync": [
-      ".claude/team/everything-claude-code-team-config.json"
+      ".claude/team/VF-Claude-Plugin-team-config.json"
     ],
     "enterprise-controls": [
       ".claude/enterprise/controls.md"
@@ -217,17 +217,17 @@
   "files": [
     {
       "moduleId": "runtime-core",
-      "path": ".claude/skills/everything-claude-code/SKILL.md",
+      "path": ".claude/skills/VF-Claude-Plugin/SKILL.md",
       "description": "Repository-specific Claude Code skill generated from git history."
     },
     {
       "moduleId": "runtime-core",
-      "path": ".agents/skills/everything-claude-code/SKILL.md",
+      "path": ".agents/skills/VF-Claude-Plugin/SKILL.md",
       "description": "Codex-facing copy of the generated repository skill."
     },
     {
       "moduleId": "runtime-core",
-      "path": ".agents/skills/everything-claude-code/agents/openai.yaml",
+      "path": ".agents/skills/VF-Claude-Plugin/agents/openai.yaml",
       "description": "Codex skill metadata so the repo skill appears cleanly in the skill interface."
     },
     {
@@ -262,22 +262,22 @@
     },
     {
       "moduleId": "runtime-core",
-      "path": ".claude/homunculus/instincts/inherited/everything-claude-code-instincts.yaml",
+      "path": ".claude/homunculus/instincts/inherited/VF-Claude-Plugin-instincts.yaml",
       "description": "Continuous-learning instincts derived from repository patterns."
     },
     {
       "moduleId": "agentshield-pack",
-      "path": ".claude/rules/everything-claude-code-guardrails.md",
+      "path": ".claude/rules/VF-Claude-Plugin-guardrails.md",
       "description": "Repository guardrails distilled from analysis for security and workflow review."
     },
     {
       "moduleId": "research-pack",
-      "path": ".claude/research/everything-claude-code-research-playbook.md",
+      "path": ".claude/research/VF-Claude-Plugin-research-playbook.md",
       "description": "Research workflow playbook for source attribution and long-context tasks."
     },
     {
       "moduleId": "team-config-sync",
-      "path": ".claude/team/everything-claude-code-team-config.json",
+      "path": ".claude/team/VF-Claude-Plugin-team-config.json",
       "description": "Team config scaffold that points collaborators at the shared ECC bundle."
     },
     {
@@ -317,7 +317,7 @@
   ],
   "adapters": {
     "claudeCode": {
-      "skillPath": ".claude/skills/everything-claude-code/SKILL.md",
+      "skillPath": ".claude/skills/VF-Claude-Plugin/SKILL.md",
       "identityPath": ".claude/identity.json",
       "commandPaths": [
         ".claude/commands/database-migration.md",
@@ -328,7 +328,7 @@
     "codex": {
       "configPath": ".codex/config.toml",
       "agentsGuidePath": ".codex/AGENTS.md",
-      "skillPath": ".agents/skills/everything-claude-code/SKILL.md"
+      "skillPath": ".agents/skills/VF-Claude-Plugin/SKILL.md"
     }
   }
 }

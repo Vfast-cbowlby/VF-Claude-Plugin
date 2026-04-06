@@ -1,4 +1,4 @@
-# Node.js Rules for everything-claude-code
+# Node.js Rules for VF-Claude-Plugin
 
 > Project-specific rules for the ECC codebase. Extends common rules.
 

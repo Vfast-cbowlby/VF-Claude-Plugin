@@ -1,15 +1,15 @@
 ---
-name: everything-claude-code-conventions
-description: Development conventions and patterns for everything-claude-code. JavaScript project with conventional commits.
+name: VF-Claude-Plugin-conventions
+description: Development conventions and patterns for VF-Claude-Plugin. JavaScript project with conventional commits.
 ---
 
-# Everything Claude Code Conventions
+# VF Claude Plugin Conventions
 
-> Generated from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) on 2026-03-20
+> Generated from [affaan-m/VF-Claude-Plugin](https://github.com/affaan-m/VF-Claude-Plugin) on 2026-03-20
 
 ## Overview
 
-This skill teaches Claude the development patterns and conventions used in everything-claude-code.
+This skill teaches Claude the development patterns and conventions used in VF-Claude-Plugin.
 
 ## Tech Stack
 

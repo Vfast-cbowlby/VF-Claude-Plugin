@@ -8,7 +8,7 @@ Windows CI lane is already merged via `#417`.
 
 ## Current Snapshot
 
-- `everything-claude-code` has finished the orchestration, Codex baseline, and
+- `VF-Claude-Plugin` has finished the orchestration, Codex baseline, and
   Windows CI recovery lane.
 - The next open ECC Phase 1 items are:
   - review `#399`
@@ -20,12 +20,12 @@ Windows CI lane is already merged via `#417`.
 - `applications/` is not a standalone git repo. It lives inside the parent
   workspace repo at `<ECC_ROOT>`.
 
-## Repo: `everything-claude-code`
+## Repo: `VF-Claude-Plugin`
 
 ### Prompt A — PR `#399` Review and Merge Readiness
 
 ```text
-Work in: <ECC_ROOT>/everything-claude-code
+Work in: <ECC_ROOT>/VF-Claude-Plugin
 
 Goal:
 Review PR #399 ("fix(observe): 5-layer automated session guard to prevent
@@ -58,7 +58,7 @@ Deliverables:
 ### Prompt B — Roadmap Issues Extraction
 
 ```text
-Work in: <ECC_ROOT>/everything-claude-code
+Work in: <ECC_ROOT>/VF-Claude-Plugin
 
 Goal:
 Convert recurring discussion pressure from the mega plan into concrete GitHub
@@ -91,7 +91,7 @@ Deliverables:
 ### Prompt C — ECC 2.0 Discovery and Adapter Spec
 
 ```text
-Work in: <ECC_ROOT>/everything-claude-code
+Work in: <ECC_ROOT>/VF-Claude-Plugin
 
 Goal:
 Turn the existing ECC 2.0 vision into a first concrete discovery doc focused on

@@ -1,10 +1,10 @@
 **Idioma:** [English](../../README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | Português (Brasil) | [Türkçe](../tr/README.md)
 
-# Everything Claude Code
+# VF Claude Plugin
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/stargazers)
-[![Forks](https://img.shields.io/github/forks/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/network/members)
-[![Contributors](https://img.shields.io/github/contributors/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/affaan-m/VF-Claude-Plugin?style=flat)](https://github.com/affaan-m/VF-Claude-Plugin/stargazers)
+[![Forks](https://img.shields.io/github/forks/affaan-m/VF-Claude-Plugin?style=flat)](https://github.com/affaan-m/VF-Claude-Plugin/network/members)
+[![Contributors](https://img.shields.io/github/contributors/affaan-m/VF-Claude-Plugin?style=flat)](https://github.com/affaan-m/VF-Claude-Plugin/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -46,12 +46,12 @@ Este repositório contém apenas o código. Os guias explicam tudo.
 <tr>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2012378465664745795">
-<img src="../../assets/images/guides/shorthand-guide.png" alt="The Shorthand Guide to Everything Claude Code" />
+<img src="../../assets/images/guides/shorthand-guide.png" alt="The Shorthand Guide to VF Claude Plugin" />
 </a>
 </td>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2014040193557471352">
-<img src="../../assets/images/guides/longform-guide.png" alt="The Longform Guide to Everything Claude Code" />
+<img src="../../assets/images/guides/longform-guide.png" alt="The Longform Guide to VF Claude Plugin" />
 </a>
 </td>
 <td width="33%">
@@ -112,7 +112,7 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Adicionar marketplace
-/plugin marketplace add https://github.com/affaan-m/everything-claude-code
+/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
 
 # Instalar plugin
 /plugin install ecc@ecc
@@ -124,8 +124,8 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Clone o repositório primeiro
-git clone https://github.com/affaan-m/everything-claude-code.git
-cd everything-claude-code
+git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+cd VF-Claude-Plugin
 
 # Instalar dependências (escolha seu gerenciador de pacotes)
 npm install        # ou: pnpm install | yarn install | bun install
@@ -215,7 +215,7 @@ export ECC_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 ## O Que Está Incluído
 
 ```
-everything-claude-code/
+VF-Claude-Plugin/
 |-- agents/           # 28 subagentes especializados para delegação
 |-- skills/           # Definições de fluxo de trabalho e conhecimento de domínio
 |-- commands/         # Comandos slash para execução rápida
@@ -301,7 +301,7 @@ claude --version
 
 ```bash
 # Adicionar este repositório como marketplace
-/plugin marketplace add https://github.com/affaan-m/everything-claude-code
+/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
 
 # Instalar o plugin
 /plugin install ecc@ecc
@@ -315,7 +315,7 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/everything-claude-code"
+        "repo": "affaan-m/VF-Claude-Plugin"
       }
     }
   },
@@ -329,16 +329,16 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
 >
 > ```bash
 > # Clone o repositório primeiro
-> git clone https://github.com/affaan-m/everything-claude-code.git
+> git clone https://github.com/affaan-m/VF-Claude-Plugin.git
 >
 > # Opção A: Regras no nível do usuário (aplica a todos os projetos)
 > mkdir -p ~/.claude/rules
-> cp -r everything-claude-code/rules/common/* ~/.claude/rules/
-> cp -r everything-claude-code/rules/typescript/* ~/.claude/rules/   # escolha sua stack
+> cp -r VF-Claude-Plugin/rules/common/* ~/.claude/rules/
+> cp -r VF-Claude-Plugin/rules/typescript/* ~/.claude/rules/   # escolha sua stack
 >
 > # Opção B: Regras no nível do projeto (aplica apenas ao projeto atual)
 > mkdir -p .claude/rules
-> cp -r everything-claude-code/rules/common/* .claude/rules/
+> cp -r VF-Claude-Plugin/rules/common/* .claude/rules/
 > ```
 
 ---
@@ -347,20 +347,20 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/affaan-m/everything-claude-code.git
+git clone https://github.com/affaan-m/VF-Claude-Plugin.git
 
 # Copiar agentes para sua config Claude
-cp everything-claude-code/agents/*.md ~/.claude/agents/
+cp VF-Claude-Plugin/agents/*.md ~/.claude/agents/
 
 # Copiar regras (comuns + específicas da linguagem)
-cp -r everything-claude-code/rules/common/* ~/.claude/rules/
-cp -r everything-claude-code/rules/typescript/* ~/.claude/rules/
+cp -r VF-Claude-Plugin/rules/common/* ~/.claude/rules/
+cp -r VF-Claude-Plugin/rules/typescript/* ~/.claude/rules/
 
 # Copiar comandos
-cp everything-claude-code/commands/*.md ~/.claude/commands/
+cp VF-Claude-Plugin/commands/*.md ~/.claude/commands/
 
 # Copiar skills (core vs nicho)
-cp -r everything-claude-code/.agents/skills/* ~/.claude/skills/
+cp -r VF-Claude-Plugin/.agents/skills/* ~/.claude/skills/
 ```
 
 ---

@@ -28,7 +28,7 @@ The active Claude Code installation is near-minimal:
 
 ---
 
-## This Repo (`everything-claude-code` v1.9.0)
+## This Repo (`VF-Claude-Plugin` v1.9.0)
 
 | Component | Repo |
 |-----------|------|

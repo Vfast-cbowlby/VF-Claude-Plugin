@@ -33,7 +33,7 @@
 * `ai-regression-testing` — AI 回归测试工作流 (#433)
 * `claude-devfleet` — 多代理编排 (#505)
 * `blueprint` — 多会话构建规划
-* `everything-claude-code` — 自引用 ECC 技能 (#335)
+* `VF-Claude-Plugin` — 自引用 ECC 技能 (#335)
 * `prompt-optimizer` — 提示优化技能 (#418)
 * 8 个 Evos 操作领域技能 (#290)
 * 3 个 Laravel 技能 (#420)

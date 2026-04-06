@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * NanoClaw v2 — Barebones Agent REPL for Everything Claude Code
+ * NanoClaw v2 — Barebones Agent REPL for VF Claude Plugin
  *
  * Zero external dependencies. Session-aware REPL around `claude -p`.
  */

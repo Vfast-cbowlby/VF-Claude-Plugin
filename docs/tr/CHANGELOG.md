@@ -33,7 +33,7 @@
 - `ai-regression-testing` — AI regresyon test iş akışları (#433)
 - `claude-devfleet` — Çok ajanlı orkestrasyon (#505)
 - `blueprint` — Çok oturumlu yapı planlaması
-- `everything-claude-code` — Öz-referansiyel ECC becerisi (#335)
+- `VF-Claude-Plugin` — Öz-referansiyel ECC becerisi (#335)
 - `prompt-optimizer` — Prompt optimizasyon becerisi (#418)
 - 8 Evos operasyonel alan becerisi (#290)
 - 3 Laravel becerisi (#420)

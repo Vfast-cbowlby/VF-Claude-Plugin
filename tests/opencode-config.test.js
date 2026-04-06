@@ -89,7 +89,7 @@ if (
       }
 
       assert.ok(
-        match[1].startsWith('everything-claude-code:'),
+        match[1].startsWith('VF-Claude-Plugin:'),
         `Expected plugin-scoped agent id in ${entry}, got: ${match[1]}`
       );
     }

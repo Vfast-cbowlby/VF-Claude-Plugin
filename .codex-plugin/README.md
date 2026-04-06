@@ -1,6 +1,6 @@
 # .codex-plugin — Codex Native Plugin for ECC
 
-This directory contains the **Codex plugin manifest** for Everything Claude Code.
+This directory contains the **Codex plugin manifest** for VF Claude Plugin.
 
 ## Structure
 
@@ -22,7 +22,7 @@ Codex plugin support is currently in preview. Once generally available:
 
 ```bash
 # Install from Codex CLI
-codex plugin install affaan-m/everything-claude-code
+codex plugin install affaan-m/VF-Claude-Plugin
 
 # Or reference locally during development
 codex plugin install ./

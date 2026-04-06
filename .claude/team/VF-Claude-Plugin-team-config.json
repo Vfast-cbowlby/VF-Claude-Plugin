@@ -3,8 +3,8 @@
   "generatedBy": "ecc-tools",
   "profile": "full",
   "sharedSkills": [
-    ".claude/skills/everything-claude-code/SKILL.md",
-    ".agents/skills/everything-claude-code/SKILL.md"
+    ".claude/skills/VF-Claude-Plugin/SKILL.md",
+    ".agents/skills/VF-Claude-Plugin/SKILL.md"
   ],
   "commandFiles": [
     ".claude/commands/database-migration.md",

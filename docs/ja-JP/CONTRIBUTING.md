@@ -1,4 +1,4 @@
-# Everything Claude Codeに貢献する
+# VF Claude Pluginに貢献する
 
 貢献いただきありがとうございます！このリポジトリはClaude Codeユーザーのためのコミュニティリソースです。
 
@@ -53,8 +53,8 @@
 
 ```bash
 # 1. Fork とクローン
-gh repo fork affaan-m/everything-claude-code --clone
-cd everything-claude-code
+gh repo fork affaan-m/VF-Claude-Plugin --clone
+cd VF-Claude-Plugin
 
 # 2. ブランチを作成
 git checkout -b feat/my-contribution
@@ -422,7 +422,7 @@ docs: improve contributing guide
 
 ## 質問がありますか？
 
-- **Issues:** [github.com/affaan-m/everything-claude-code/issues](https://github.com/affaan-m/everything-claude-code/issues)
+- **Issues:** [github.com/affaan-m/VF-Claude-Plugin/issues](https://github.com/affaan-m/VF-Claude-Plugin/issues)
 - **X/Twitter:** [@affaanmustafa](https://x.com/affaanmustafa)
 
 ---

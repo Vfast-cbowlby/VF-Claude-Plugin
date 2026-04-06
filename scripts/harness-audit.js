@@ -170,7 +170,7 @@ function hasFileWithExtension(rootDir, relativeDir, extensions) {
 
 function detectTargetMode(rootDir) {
   const packageJson = safeParseJson(safeRead(rootDir, 'package.json'));
-  if (packageJson?.name === 'everything-claude-code') {
+  if (packageJson?.name === 'VF-Claude-Plugin') {
     return 'repo';
   }
 
@@ -191,8 +191,8 @@ function findPluginInstall(rootDir) {
   const pluginDirs = [
     'ecc',
     'ecc@ecc',
-    'everything-claude-code',
-    'everything-claude-code@everything-claude-code',
+    'VF-Claude-Plugin',
+    'VF-Claude-Plugin@VF-Claude-Plugin',
   ];
   const candidateRoots = [
     path.join(rootDir, '.claude', 'plugins'),
@@ -490,8 +490,8 @@ function getConsumerChecks(rootDir) {
       category: 'Tool Coverage',
       points: 4,
       scopes: ['repo'],
-      path: '~/.claude/plugins/ecc/ (legacy everything-claude-code paths also supported)',
-      description: 'Everything Claude Code is installed for the active user or project',
+      path: '~/.claude/plugins/ecc/ (legacy VF-Claude-Plugin paths also supported)',
+      description: 'VF Claude Plugin is installed for the active user or project',
       pass: Boolean(pluginInstall),
       fix: 'Install the ECC plugin for this user or project before auditing project-specific harness quality.',
     },

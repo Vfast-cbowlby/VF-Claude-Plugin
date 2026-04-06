@@ -67,7 +67,7 @@
 - `ai-regression-testing` — AI regression test workflows (#433)
 - `claude-devfleet` — Multi-agent orchestration (#505)
 - `blueprint` — Multi-session construction planning
-- `everything-claude-code` — Self-referential ECC skill (#335)
+- `VF-Claude-Plugin` — Self-referential ECC skill (#335)
 - `prompt-optimizer` — Prompt optimization skill (#418)
 - 8 Evos operational domain skills (#290)
 - 3 Laravel skills (#420)

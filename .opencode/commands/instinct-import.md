@@ -1,6 +1,6 @@
 ---
 description: Import instincts from external sources
-agent: everything-claude-code:build
+agent: VF-Claude-Plugin:build
 ---
 
 # Instinct Import Command

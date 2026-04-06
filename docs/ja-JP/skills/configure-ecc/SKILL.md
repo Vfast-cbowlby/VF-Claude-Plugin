@@ -1,15 +1,15 @@
 ---
 name: configure-ecc
-description: Everything Claude Code のインタラクティブなインストーラー — スキルとルールの選択とインストールをユーザーレベルまたはプロジェクトレベルのディレクトリへガイドし、パスを検証し、必要に応じてインストールされたファイルを最適化します。
+description: VF Claude Plugin のインタラクティブなインストーラー — スキルとルールの選択とインストールをユーザーレベルまたはプロジェクトレベルのディレクトリへガイドし、パスを検証し、必要に応じてインストールされたファイルを最適化します。
 ---
 
-# Configure Everything Claude Code (ECC)
+# Configure VF Claude Plugin (ECC)
 
-Everything Claude Code プロジェクトのインタラクティブなステップバイステップのインストールウィザードです。`AskUserQuestion` を使用してスキルとルールの選択的インストールをユーザーにガイドし、正確性を検証し、最適化を提供します。
+VF Claude Plugin プロジェクトのインタラクティブなステップバイステップのインストールウィザードです。`AskUserQuestion` を使用してスキルとルールの選択的インストールをユーザーにガイドし、正確性を検証し、最適化を提供します。
 
 ## 起動タイミング
 
-- ユーザーが "configure ecc"、"install ecc"、"setup everything claude code" などと言った場合
+- ユーザーが "configure ecc"、"install ecc"、"setup VF Claude Plugin" などと言った場合
 - ユーザーがこのプロジェクトからスキルまたはルールを選択的にインストールしたい場合
 - ユーザーが既存の ECC インストールを検証または修正したい場合
 - ユーザーがインストールされたスキルまたはルールをプロジェクト用に最適化したい場合
@@ -27,11 +27,11 @@ Everything Claude Code プロジェクトのインタラクティブなステッ
 インストールの前に、最新の ECC ソースを `/tmp` にクローンします：
 
 ```bash
-rm -rf /tmp/everything-claude-code
-git clone https://github.com/affaan-m/everything-claude-code.git /tmp/everything-claude-code
+rm -rf /tmp/VF-Claude-Plugin
+git clone https://github.com/affaan-m/VF-Claude-Plugin.git /tmp/VF-Claude-Plugin
 ```
 
-以降のすべてのコピー操作のソースとして `ECC_ROOT=/tmp/everything-claude-code` を設定します。
+以降のすべてのコピー操作のソースとして `ECC_ROOT=/tmp/VF-Claude-Plugin` を設定します。
 
 クローンが失敗した場合（ネットワークの問題など）、`AskUserQuestion` を使用してユーザーに既存の ECC クローンへのローカルパスを提供するよう依頼します。
 
@@ -252,7 +252,7 @@ Options:
 `/tmp` からクローンされたリポジトリをクリーンアップします：
 
 ```bash
-rm -rf /tmp/everything-claude-code
+rm -rf /tmp/VF-Claude-Plugin
 ```
 
 次にサマリーレポートを出力します：

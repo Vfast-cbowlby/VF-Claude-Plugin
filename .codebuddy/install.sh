@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # ECC CodeBuddy Installer
-# Installs Everything Claude Code workflows into a CodeBuddy project.
+# Installs VF Claude Plugin workflows into a CodeBuddy project.
 #
 # Usage:
 #   ./install.sh              # Install to current directory

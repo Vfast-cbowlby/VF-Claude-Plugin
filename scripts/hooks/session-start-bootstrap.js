@@ -31,7 +31,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const CURRENT_PLUGIN_SLUG = 'ecc';
-const LEGACY_PLUGIN_SLUG = 'everything-claude-code';
+const LEGACY_PLUGIN_SLUG = 'VF-Claude-Plugin';
 const KNOWN_PLUGIN_PATHS = [
   [CURRENT_PLUGIN_SLUG],
   [`${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`],
@@ -65,7 +65,7 @@ function hasRunnerRoot(candidate) {
  *   1. CLAUDE_PLUGIN_ROOT environment variable
  *   2. ~/.claude (direct install)
  *   3. Several well-known plugin sub-paths under ~/.claude/plugins/ (current + legacy)
- *   4. Versioned cache directories under ~/.claude/plugins/cache/{ecc,everything-claude-code}/
+ *   4. Versioned cache directories under ~/.claude/plugins/cache/{ecc,VF-Claude-Plugin}/
  *   5. Falls back to ~/.claude if nothing else matches
  *
  * @returns {string}
@@ -93,7 +93,7 @@ function resolvePluginRoot() {
     }
   }
 
-  // Walk versioned cache: ~/.claude/plugins/cache/{ecc,everything-claude-code}/<org>/<version>/
+  // Walk versioned cache: ~/.claude/plugins/cache/{ecc,VF-Claude-Plugin}/<org>/<version>/
   try {
     for (const slug of CACHE_PLUGIN_SLUGS) {
       const cacheBase = path.join(claudeDir, 'plugins', 'cache', slug);

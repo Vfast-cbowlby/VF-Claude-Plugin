@@ -5,7 +5,7 @@ const path = require('path');
 const os = require('os');
 
 const CURRENT_PLUGIN_SLUG = 'ecc';
-const LEGACY_PLUGIN_SLUG = 'everything-claude-code';
+const LEGACY_PLUGIN_SLUG = 'VF-Claude-Plugin';
 const CURRENT_PLUGIN_HANDLE = `${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`;
 const LEGACY_PLUGIN_HANDLE = `${LEGACY_PLUGIN_SLUG}@${LEGACY_PLUGIN_SLUG}`;
 const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, LEGACY_PLUGIN_SLUG];
@@ -25,7 +25,7 @@ const PLUGIN_ROOT_SEGMENTS = [
  *   1. CLAUDE_PLUGIN_ROOT env var (set by Claude Code for hooks, or by user)
  *   2. Standard install location (~/.claude/) — when scripts exist there
  *   3. Known plugin roots under ~/.claude/plugins/ (current + legacy slugs)
- *   4. Plugin cache auto-detection — scans ~/.claude/plugins/cache/{ecc,everything-claude-code}/
+ *   4. Plugin cache auto-detection — scans ~/.claude/plugins/cache/{ecc,VF-Claude-Plugin}/
  *   5. Fallback to ~/.claude/ (original behaviour)
  *
  * @param {object} [options]

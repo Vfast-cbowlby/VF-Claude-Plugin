@@ -8,15 +8,15 @@
     "url": "https://x.com/affaanmustafa"
   },
   "homepage": "https://ecc.tools",
-  "repository": "https://github.com/affaan-m/everything-claude-code",
+  "repository": "https://github.com/affaan-m/VF-Claude-Plugin",
   "license": "MIT",
   "keywords": ["codex", "agents", "skills", "tdd", "code-review", "security", "workflow", "automation"],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "Everything Claude Code",
+    "displayName": "VF Claude Plugin",
     "shortDescription": "156 battle-tested ECC skills plus MCP configs for TDD, security, code review, and autonomous development.",
-    "longDescription": "Everything Claude Code (ECC) is a community-maintained collection of Codex-ready skills and MCP configs evolved over 10+ months of intensive daily use. It covers TDD workflows, security scanning, code review, architecture decisions, operator workflows, and more — all in one installable plugin.",
+    "longDescription": "VF Claude Plugin (ECC) is a community-maintained collection of Codex-ready skills and MCP configs evolved over 10+ months of intensive daily use. It covers TDD workflows, security scanning, code review, architecture decisions, operator workflows, and more — all in one installable plugin.",
     "developerName": "Affaan Mustafa",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],

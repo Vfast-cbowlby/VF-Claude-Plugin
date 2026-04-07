@@ -1,0 +1,20 @@
+{
+  "name": "ecc",
+  "interface": {
+    "displayName": "VF Claude Plugin"
+  },
+  "plugins": [
+    {
+      "name": "ecc",
+      "source": {
+        "source": "local",
+        "path": "../.."
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

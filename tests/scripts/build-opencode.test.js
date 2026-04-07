@@ -49,6 +49,7 @@ function main() {
       const result = spawnSync("npm", ["pack", "--dry-run", "--json"], {
         cwd: repoRoot,
         encoding: "utf8",
+        shell: true,
       })
       assert.strictEqual(result.status, 0, result.stderr)
 

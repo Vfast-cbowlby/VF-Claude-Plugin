@@ -52,10 +52,10 @@ Get up and running in under 2 minutes:
 
 ```bash
 # Add marketplace
-/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
+/plugin marketplace add https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 
 # Install plugin
-/plugin install ecc@ecc
+/plugin install VF-Claude-Plugin@VF-Claude-Plugin
 ```
 
 ### Step 2: Install Rules (Required)
@@ -64,7 +64,7 @@ Get up and running in under 2 minutes:
 
 ```bash
 # Clone the repo first
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 cd VF-Claude-Plugin
 
 # Install dependencies (pick your package manager)
@@ -449,16 +449,16 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 
 ## Installation
 
-### Option 1: Install as Plugin (Recommended)
+### Install as Plugin 
 
 The easiest way to use this repo - install as a Claude Code plugin:
 
 ```bash
 # Add this repo as a marketplace
-/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
+/plugin marketplace add https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 
 # Install the plugin
-/plugin install ecc@ecc
+/plugin install VF-Claude-Plugin@VF-Claude-Plugin
 ```
 
 Or add directly to your `~/.claude/settings.json`:
@@ -502,39 +502,6 @@ This gives you instant access to all commands, agents, skills, and hooks.
 > ```
 
 ---
-
-### Option 2: Manual Installation
-
-If you prefer manual control over what's installed:
-
-```bash
-# Clone the repo
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
-
-# Copy agents to your Claude config
-cp VF-Claude-Plugin/agents/*.md ~/.claude/agents/
-
-# Copy rules directories (common + language-specific)
-mkdir -p ~/.claude/rules
-cp -r VF-Claude-Plugin/rules/common ~/.claude/rules/
-cp -r VF-Claude-Plugin/rules/typescript ~/.claude/rules/   # pick your stack
-cp -r VF-Claude-Plugin/rules/python ~/.claude/rules/
-cp -r VF-Claude-Plugin/rules/golang ~/.claude/rules/
-cp -r VF-Claude-Plugin/rules/php ~/.claude/rules/
-
-# Copy skills first (primary workflow surface)
-# Recommended (new users): core/general skills only
-cp -r VF-Claude-Plugin/.agents/skills/* ~/.claude/skills/
-cp -r VF-Claude-Plugin/skills/search-first ~/.claude/skills/
-
-# Optional: add niche/framework-specific skills only when needed
-# for s in django-patterns django-tdd laravel-patterns springboot-patterns; do
-# cp -r VF-Claude-Plugin/skills/$s ~/.claude/skills/
-# done
-
-# Optional: keep legacy slash-command compatibility during migration
-mkdir -p ~/.claude/commands
-cp VF-Claude-Plugin/commands/*.md ~/.claude/commands/
 ```
 
 #### Add hooks to settings.json

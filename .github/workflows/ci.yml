@@ -141,7 +141,8 @@ jobs:
             npm) npm install ;;
             pnpm) pnpm install --no-frozen-lockfile ;;
             # Yarn Berry (v4+) removed --ignore-engines; engine checking is no longer a core feature
-            yarn) yarn install ;;
+            # --no-immutable allows lockfile updates when package.json versions have been bumped
+            yarn) yarn install --no-immutable ;;
             bun) bun install ;;
             *) echo "Unsupported package manager: ${{ matrix.pm }}" && exit 1 ;;
           esac

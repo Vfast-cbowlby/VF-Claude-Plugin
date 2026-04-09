@@ -14,7 +14,8 @@
     "declarationMap": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "types": ["node"]
   },
   "include": [
     "plugins/**/*.ts",

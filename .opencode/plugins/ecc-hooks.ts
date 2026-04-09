@@ -65,7 +65,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
   const disabledHooks = new Set(
     (process.env.ECC_DISABLED_HOOKS || "")
       .split(",")
-      .map((item) => item.trim())
+      .map((item: string) => item.trim())
       .filter(Boolean)
   )
 

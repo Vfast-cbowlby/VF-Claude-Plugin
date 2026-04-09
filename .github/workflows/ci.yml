@@ -129,10 +129,13 @@ jobs:
       # Install dependencies
       # COREPACK_ENABLE_STRICT=0 allows pnpm to install even though
       # package.json declares "packageManager": "yarn@..."
+      # YARN_ENABLE_HARDENED_MODE=0 allows yarn to update the lockfile in CI
+      # when package.json versions have been bumped (e.g. after Dependabot updates).
       - name: Install dependencies
         shell: bash
         env:
           COREPACK_ENABLE_STRICT: '0'
+          YARN_ENABLE_HARDENED_MODE: '0'
         run: |
           case "${{ matrix.pm }}" in
             npm) npm install ;;

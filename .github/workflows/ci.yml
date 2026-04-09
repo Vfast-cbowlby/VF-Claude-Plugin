@@ -24,9 +24,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        node: ['18.x', '20.x', '22.x']
-        pm: [npm, pnpm, yarn, bun]
+        # Reduced matrix for internal Verifast use.
+        # Original (36 jobs across 3 OS x 3 Node x 4 PM) consumed ~1,185 billing
+        # minutes per run and exhausted the GitHub Free tier quota.
+        # This matrix covers the platforms and Node versions Verifast engineers
+        # actually use (ubuntu LTS + windows, Node 20 LTS, the two primary PMs)
+        # at ~6 jobs per run (~18 billing minutes).
+        os: [ubuntu-latest, windows-latest]
+        node: ['20.x']
+        pm: [npm, yarn, bun]
         exclude:
           # Bun has limited Windows support
           - os: windows-latest

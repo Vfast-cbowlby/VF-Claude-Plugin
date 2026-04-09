@@ -150,6 +150,80 @@ class MarketBuilder {
 }
 ```
 
+## Phase 0: Pre-Push Gate (MANDATORY)
+
+Run these checks **before** any `git push`. CI is a confirmation gate, not a first-run environment.
+
+### If any `*IT.java` file was created or modified
+
+Run integration tests locally first. A FK violation that takes 10 minutes in CI takes 30 seconds locally:
+
+```bash
+./mvnw test -Dtest="*IT" -DfailIfNoTests=false -pl <module>
+```
+
+**Before writing `@BeforeEach` cleanup**: grep migration files for the actual `CREATE TABLE` names — never assume from entity class names. Run the test at least once green locally before pushing.
+
+### If any Docker image reference was added to pipeline or compose YAML
+
+Verify the image exists and the tag resolves before committing:
+
+```bash
+docker pull <registry>/<image>:<tag>
+```
+
+Note: Docker Hub and GitHub Container Registry (`ghcr.io`) are separate registries — an image that exists on one may not exist on the other.
+
+### If a validation script and a fixture/stub file were added in the same PR
+
+Run the script against the fixture before opening the PR. A script and the file it validates must be consistent from the first commit.
+
+### If a hotfix is targeting the main branch directly
+
+Apply the same pre-push gate. A test that has never run green must not land on main — it propagates broken state to every downstream branch.
+
+---
+
+## Integration Test Cleanup (@BeforeEach / @AfterEach)
+
+When an integration test inserts rows into a table that has FK children, the cleanup must delete children before the parent. **Never guess table names** — always derive them from the migration files.
+
+### Step 1: Find FK children before writing cleanup code
+
+```bash
+grep -rn "REFERENCES <parent_table>" src/main/resources/db/changelog/migrations/
+```
+
+Entity class names often differ from DDL table names. Always use the actual `CREATE TABLE` name from migrations, not the Java class name.
+
+### Step 2: Delete using JdbcTemplate, not repositories
+
+Prefer a single `JdbcTemplate` over per-table repositories — it stays correct as new child tables are added:
+
+```java
+@Autowired JdbcTemplate jdbcTemplate;
+
+@BeforeEach
+void cleanUp() {
+    // Delete FK children deepest-first, parent last.
+    // Table names must match CREATE TABLE in migrations.
+    jdbcTemplate.execute("DELETE FROM <child_table>");
+    jdbcTemplate.execute("DELETE FROM <parent_table>");
+}
+```
+
+### Step 3: Run ITs locally before pushing
+
+Never let CI be the first run of a new or modified `*IT.java` file:
+
+```bash
+./mvnw test -Dtest="*IT" -DfailIfNoTests=false -pl <module>
+```
+
+A FK violation that takes 10 minutes in CI takes 30 seconds locally.
+
+---
+
 ## CI Commands
 
 - Maven: `mvn -T 4 test` or `mvn verify`

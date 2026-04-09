@@ -20,7 +20,14 @@ try {
   )
 }
 
-execFileSync(process.execPath, [tscEntrypoint, "-p", path.join(opencodeDir, "tsconfig.json")], {
-  cwd: rootDir,
-  stdio: "inherit",
-})
+try {
+  execFileSync(process.execPath, [tscEntrypoint, "-p", path.join(opencodeDir, "tsconfig.json")], {
+    cwd: rootDir,
+    stdio: ["inherit", "pipe", "pipe"],
+    encoding: "utf8",
+  })
+} catch (err) {
+  if (err.stdout) process.stderr.write(err.stdout)
+  if (err.stderr) process.stderr.write(err.stderr)
+  throw err
+}

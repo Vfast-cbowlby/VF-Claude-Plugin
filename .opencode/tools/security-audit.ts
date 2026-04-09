@@ -9,8 +9,8 @@
  */
 
 import { tool, type ToolDefinition } from "@opencode-ai/plugin/tool"
-import * as path from "path"
-import * as fs from "fs"
+import * as path from "node:path"
+import * as fs from "node:fs"
 
 const securityAuditTool: ToolDefinition = tool({
   description:

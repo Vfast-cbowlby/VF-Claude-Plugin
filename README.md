@@ -58,9 +58,11 @@ Get up and running in under 2 minutes:
 /plugin install VF-Claude-Plugin@VF-Claude-Plugin
 ```
 
-### Step 2: Install Rules (Required)
+### Step 2: Install Rules and Hooks
 
-> WARNING: **Important:** Claude Code plugins cannot distribute `rules` automatically. Install them manually:
+Rules and hook scripts are now **automatically kept in sync** by the `session-start-plugin-sync.js` hook included in this plugin. On every session start, the hook checks whether the installed plugin version has changed and, if so, re-runs `install-apply.js` to reinstall all ECC artifacts (rules, hooks, skills) into `~/.claude/` automatically.
+
+For your first install, or to install manually at any time:
 
 ```bash
 # Clone the repo first
@@ -115,10 +117,10 @@ For manual install instructions see the README in the `rules/` folder. When copy
 # /plan "Add user authentication"
 
 # Check available commands
-/plugin list ecc@ecc
+/plugin list VF-Claude-Plugin@VF-Claude-Plugin
 ```
 
-**That's it!** You now have access to 47 agents, 181 skills, and 79 legacy command shims.
+**That's it!** You now have access to 47 agents, 193 skills, and 79 legacy command shims.
 
 ### Multi-model commands require additional setup
 
@@ -287,6 +289,18 @@ VF-Claude-Plugin/
 |   |-- perl-testing/              # Perl TDD with Test2::V0, prove, Devel::Cover (NEW)
 |   |-- autonomous-loops/           # Autonomous loop patterns: sequential pipelines, PR loops, DAG orchestration (NEW)
 |   |-- plankton-code-quality/      # Write-time code quality enforcement with Plankton hooks (NEW)
+|   |-- brainstorming/              # Structured brainstorming with visual companion and spec review
+|   |-- executing-plans/            # Plan execution workflow and checkpoints
+|   |-- subagent-driven-development/ # Orchestrating implementation via subagents with quality review
+|   |-- systematic-debugging/       # Root-cause tracing, condition-based waiting, test-pressure patterns
+|   |-- writing-plans/              # Plan document authoring and review process
+|   |-- writing-skills/             # Skill authoring best practices and graphviz conventions
+|   |-- dispatching-parallel-agents/ # When and how to parallelize work across subagents
+|   |-- finishing-a-development-branch/ # Branch completion: merge/PR/keep/discard decision + worktree cleanup
+|   |-- receiving-code-review/      # Evaluating and implementing code review feedback
+|   |-- requesting-code-review/     # Dispatching code-reviewer subagent with precise context
+|   |-- using-git-worktrees/        # Full git worktree lifecycle: setup, baseline tests, cleanup
+|   |-- root-cause-before-fix/      # Mandatory root-cause analysis before any code modification
 |
 |-- commands/         # Legacy slash-entry shims; prefer skills/
 |   |-- tdd.md              # /tdd - Test-driven development
@@ -351,11 +365,15 @@ VF-Claude-Plugin/
 |   |   |-- utils.js             # Cross-platform file/path/system utilities
 |   |   |-- package-manager.js   # Package manager detection and selection
 |   |-- hooks/                   # Hook implementations
-|   |   |-- session-start.js     # Load context on session start
-|   |   |-- session-end.js       # Save state on session end
-|   |   |-- pre-compact.js       # Pre-compaction state saving
-|   |   |-- suggest-compact.js   # Strategic compaction suggestions
-|   |   |-- evaluate-session.js  # Extract patterns from sessions
+|   |   |-- session-start.js              # Load context on session start
+|   |   |-- session-end.js                # Save state on session end
+|   |   |-- pre-compact.js                # Pre-compaction state saving
+|   |   |-- suggest-compact.js            # Strategic compaction suggestions
+|   |   |-- evaluate-session.js           # Extract patterns from sessions
+|   |   |-- session-start-plugin-sync.js  # Auto-reinstall ECC artifacts when plugin version changes
+|   |   |-- pre-edit-debug-guard.js       # Hard-block on adding debug instrumentation to source files
+|   |   |-- pre-prompt-root-cause-reminder.js # Remind to invoke root-cause-before-fix on failure signals
+|   |   |-- pre-bash-git-push-reminder.js # Pre-push checklist: ITs, Docker images, script+fixture, hotfixes
 |   |-- setup-package-manager.js # Interactive PM setup
 |
 |-- tests/            # Test suite (NEW)
@@ -466,28 +484,33 @@ Or add directly to your `~/.claude/settings.json`:
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "VF-Claude-Plugin": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/VF-Claude-Plugin"
+        "repo": "Vfast-cbowlby/VF-Claude-Plugin"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "VF-Claude-Plugin@VF-Claude-Plugin": true
   }
 }
 ```
 
 This gives you instant access to all commands, agents, skills, and hooks.
 
-> **Note:** The Claude Code plugin system does not support distributing `rules` via plugins ([upstream limitation](https://code.claude.com/docs/en/plugins-reference)). You need to install rules manually:
+> **Note:** Rules, hooks, and skills are automatically reinstalled on every session start by the `session-start-plugin-sync.js` hook (included in this plugin). If you prefer to install manually or on first setup:
 >
 > ```bash
 > # Clone the repo first
-> git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+> git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 >
-> # Option A: User-level rules (applies to all projects)
+> # Option A: Automated install (recommended — installs rules, hooks, skills, and agents)
+> cd VF-Claude-Plugin
+> npm install
+> node scripts/install-apply.js --target claude --profile core
+>
+> # Option B: Manual rules install — user-level (applies to all projects)
 > mkdir -p ~/.claude/rules
 > cp -r VF-Claude-Plugin/rules/common ~/.claude/rules/
 > cp -r VF-Claude-Plugin/rules/typescript ~/.claude/rules/   # pick your stack
@@ -495,7 +518,7 @@ This gives you instant access to all commands, agents, skills, and hooks.
 > cp -r VF-Claude-Plugin/rules/golang ~/.claude/rules/
 > cp -r VF-Claude-Plugin/rules/php ~/.claude/rules/
 >
-> # Option B: Project-level rules (applies to current project only)
+> # Option C: Manual rules install — project-level (applies to current project only)
 > mkdir -p .claude/rules
 > cp -r VF-Claude-Plugin/rules/common .claude/rules/
 > cp -r VF-Claude-Plugin/rules/typescript .claude/rules/     # pick your stack
@@ -504,9 +527,11 @@ This gives you instant access to all commands, agents, skills, and hooks.
 ---
 ```
 
-#### Add hooks to settings.json
+#### Hooks
 
-Copy the hooks from `hooks/hooks.json` to your `~/.claude/settings.json`.
+Hooks are automatically registered when you install via plugin. The `session-start-plugin-sync.js` hook ensures they stay up to date as new plugin versions are released.
+
+To add hooks manually, copy the entries from `hooks/hooks.json` into your `~/.claude/settings.json`.
 
 #### Configure MCPs
 
@@ -641,7 +666,7 @@ Slash forms below are shown because they are still the fastest familiar entrypoi
 <summary><b>How do I check which agents/commands are installed?</b></summary>
 
 ```bash
-/plugin list ecc@ecc
+/plugin list VF-Claude-Plugin@VF-Claude-Plugin
 ```
 
 This shows all available agents, commands, and skills from the plugin.

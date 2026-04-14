@@ -117,6 +117,17 @@
         "id": "pre:config-protection"
       },
       {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/run-with-flags.js\" \"pre:edit:debug-guard\" \"scripts/hooks/pre-edit-debug-guard.js\" \"standard,strict\""
+          }
+        ],
+        "description": "Block adding debug instrumentation (console.log, System.err.println, print statements) to source files \u2014 forces root-cause analysis first",
+        "id": "pre:edit:debug-guard"
+      },
+      {
         "matcher": "*",
         "hooks": [
           {
@@ -152,6 +163,17 @@
         ],
         "description": "Load previous context and detect package manager on new session",
         "id": "session:start"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/session-start-plugin-sync.js\""
+          }
+        ],
+        "description": "Auto-reinstall ECC artifacts when VF-Claude-Plugin version changes after a plugin update",
+        "id": "session:start:plugin-sync"
       }
     ],
     "PostToolUse": [
@@ -297,7 +319,7 @@
             "timeout": 300
           }
         ],
-        "description": "Batch format (Biome/Prettier) and typecheck (tsc) all JS/TS files edited this response — runs once at Stop instead of after every Edit",
+        "description": "Batch format (Biome/Prettier) and typecheck (tsc) all JS/TS files edited this response \u00e2\u20ac\u201d runs once at Stop instead of after every Edit",
         "id": "stop:format-typecheck"
       },
       {
@@ -377,6 +399,19 @@
         ],
         "description": "Session end lifecycle marker (non-blocking)",
         "id": "session:end:marker"
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/run-with-flags.js\" \"pre:prompt:root-cause-reminder\" \"scripts/hooks/pre-prompt-root-cause-reminder.js\" \"standard,strict\""
+          }
+        ],
+        "description": "Scan user prompt for failure indicators (build errors, exceptions, test failures) and write root-cause analysis reminder before Claude responds",
+        "id": "pre:prompt:root-cause-reminder"
       }
     ]
   }

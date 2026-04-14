@@ -49,7 +49,7 @@ function runTests() {
     const result = runScript(gitPushScript, 'git push origin main');
     assert.strictEqual(result.code, 0, `Expected exit code 0, got ${result.code}`);
     assert.ok(result.stderr.includes('[Hook]'), `Expected stderr to contain [Hook], got: ${result.stderr}`);
-    assert.ok(result.stderr.includes('Review changes before push'), `Expected stderr to mention review`);
+    assert.ok(result.stderr.includes('PRE-PUSH CHECKLIST'), `Expected stderr to mention PRE-PUSH CHECKLIST, got: ${result.stderr}`);
   }) ? passed++ : failed++);
 
   (test('git status has no warning', () => {

@@ -5,7 +5,7 @@ description: Development conventions and patterns for VF-Claude-Plugin. JavaScri
 
 # VF Claude Plugin Conventions
 
-> Generated from [affaan-m/VF-Claude-Plugin](https://github.com/affaan-m/VF-Claude-Plugin) on 2026-03-20
+> Generated from [Vfast-cbowlby/VF-Claude-Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) on 2026-03-20
 
 ## Overview
 

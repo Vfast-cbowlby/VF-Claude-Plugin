@@ -25,17 +25,18 @@
     "slides"
   ],
   "author": {
-    "name": "Affaan Mustafa",
-    "url": "https://x.com/affaanmustafa"
+    "name": "Corey Bowlby",
+    "url": "https://verifast.com",
+    "email": "corey.bowlby@verifast.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/affaan-m/VF-Claude-Plugin.git"
+    "url": "git+https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git"
   },
-  "homepage": "https://github.com/affaan-m/VF-Claude-Plugin#readme",
+  "homepage": "https://github.com/Vfast-cbowlby/VF-Claude-Plugin#readme",
   "bugs": {
-    "url": "https://github.com/affaan-m/VF-Claude-Plugin/issues"
+    "url": "https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues"
   },
   "files": [
     ".agents/",
@@ -103,7 +104,7 @@
     "ecc-install": "scripts/install-apply.js"
   },
   "scripts": {
-    "postinstall": "echo '\\n  ecc-universal installed!\\n  Run: npx ecc typescript\\n  Compat: npx ecc-install typescript\\n  Docs: https://github.com/affaan-m/VF-Claude-Plugin\\n'",
+    "postinstall": "echo '\\n  ecc-universal installed!\\n  Run: npx ecc typescript\\n  Compat: npx ecc-install typescript\\n  Docs: https://github.com/Vfast-cbowlby/VF-Claude-Plugin\\n'",
     "catalog:check": "node scripts/ci/catalog.js --text",
     "catalog:sync": "node scripts/ci/catalog.js --write --text",
     "lint": "eslint . && markdownlint '**/*.md' --ignore node_modules",

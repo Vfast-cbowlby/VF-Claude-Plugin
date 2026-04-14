@@ -10,7 +10,7 @@ description: >
   detection, or warranty claims.
 license: Apache-2.0
 version: 1.0.0
-homepage: https://github.com/affaan-m/VF-Claude-Plugin
+homepage: https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 origin: ECC
 metadata:
   author: evos

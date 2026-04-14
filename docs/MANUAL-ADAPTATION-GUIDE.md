@@ -208,7 +208,7 @@ So the rule is simple:
 
 ## Related Work
 
-- [Issue #1186](https://github.com/affaan-m/VF-Claude-Plugin/issues/1186)
-- [Discussion #1077](https://github.com/affaan-m/VF-Claude-Plugin/discussions/1077)
+- [Issue #1186](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues/1186)
+- [Discussion #1077](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/discussions/1077)
 - [Antigravity Guide](./ANTIGRAVITY-GUIDE.md)
 - [Troubleshooting](./TROUBLESHOOTING.md)

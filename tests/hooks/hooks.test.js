@@ -2015,7 +2015,7 @@ async function runTests() {
     test('plugin.json does NOT have explicit hooks declaration', () => {
       // Claude Code automatically loads hooks/hooks.json by convention.
       // Explicitly declaring it in plugin.json causes a duplicate detection error.
-      // See: https://github.com/affaan-m/VF-Claude-Plugin/issues/103
+      // See: https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues/103
       const pluginPath = path.join(__dirname, '..', '..', '.claude-plugin', 'plugin.json');
       const plugin = JSON.parse(fs.readFileSync(pluginPath, 'utf8'));
 

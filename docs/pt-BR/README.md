@@ -2,9 +2,9 @@
 
 # VF Claude Plugin
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/VF-Claude-Plugin?style=flat)](https://github.com/affaan-m/VF-Claude-Plugin/stargazers)
-[![Forks](https://img.shields.io/github/forks/affaan-m/VF-Claude-Plugin?style=flat)](https://github.com/affaan-m/VF-Claude-Plugin/network/members)
-[![Contributors](https://img.shields.io/github/contributors/affaan-m/VF-Claude-Plugin?style=flat)](https://github.com/affaan-m/VF-Claude-Plugin/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/stargazers)
+[![Forks](https://img.shields.io/github/forks/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/network/members)
+[![Contributors](https://img.shields.io/github/contributors/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -112,7 +112,7 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Adicionar marketplace
-/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
+/plugin marketplace add https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 
 # Instalar plugin
 /plugin install ecc@ecc
@@ -124,7 +124,7 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Clone o repositório primeiro
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 cd VF-Claude-Plugin
 
 # Instalar dependências (escolha seu gerenciador de pacotes)
@@ -301,7 +301,7 @@ claude --version
 
 ```bash
 # Adicionar este repositório como marketplace
-/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
+/plugin marketplace add https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 
 # Instalar o plugin
 /plugin install ecc@ecc
@@ -315,7 +315,7 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/VF-Claude-Plugin"
+        "repo": "Vfast-cbowlby/VF-Claude-Plugin"
       }
     }
   },
@@ -329,7 +329,7 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
 >
 > ```bash
 > # Clone o repositório primeiro
-> git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+> git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 >
 > # Opção A: Regras no nível do usuário (aplica a todos os projetos)
 > mkdir -p ~/.claude/rules
@@ -347,7 +347,7 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 
 # Copiar agentes para sua config Claude
 cp VF-Claude-Plugin/agents/*.md ~/.claude/agents/

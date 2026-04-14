@@ -28,15 +28,15 @@ curl -s https://api.npmjs.org/downloads/point/last-month/ecc-agentshield
 ### GitHub repository adoption
 
 ```bash
-gh api repos/affaan-m/VF-Claude-Plugin \
+gh api repos/Vfast-cbowlby/VF-Claude-Plugin \
   --jq '{stars:.stargazers_count,forks:.forks_count,contributors_url:.contributors_url,open_issues:.open_issues_count}'
 ```
 
 ### GitHub traffic (maintainer access required)
 
 ```bash
-gh api repos/affaan-m/VF-Claude-Plugin/traffic/views
-gh api repos/affaan-m/VF-Claude-Plugin/traffic/clones
+gh api repos/Vfast-cbowlby/VF-Claude-Plugin/traffic/views
+gh api repos/Vfast-cbowlby/VF-Claude-Plugin/traffic/clones
 ```
 
 ### GitHub App installs

@@ -26,7 +26,7 @@
  *
  * Option 2: Clone and use directly
  * ```bash
- * git clone https://github.com/affaan-m/VF-Claude-Plugin
+ * git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin
  * cd VF-Claude-Plugin
  * opencode
  * ```
@@ -48,7 +48,7 @@ export const metadata = {
   name: "ecc-universal",
   version: VERSION,
   description: "VF Claude Plugin plugin for OpenCode",
-  author: "affaan-m",
+  author: "Vfast-cbowlby",
   features: {
     agents: 13,
     commands: 31,

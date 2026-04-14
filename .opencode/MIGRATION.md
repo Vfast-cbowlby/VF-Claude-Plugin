@@ -365,4 +365,4 @@ If you need to switch back:
 
 For issues specific to:
 - **OpenCode CLI**: Report to OpenCode's issue tracker
-- **ECC Configuration**: Report to [github.com/affaan-m/VF-Claude-Plugin](https://github.com/affaan-m/VF-Claude-Plugin)
+- **ECC Configuration**: Report to [github.com/Vfast-cbowlby/VF-Claude-Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)

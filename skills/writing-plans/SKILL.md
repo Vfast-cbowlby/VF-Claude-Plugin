@@ -116,8 +116,8 @@ After writing the complete plan:
 
 1. Dispatch a single plan-document-reviewer subagent (see plan-document-reviewer-prompt.md) with precisely crafted review context — never your session history. This keeps the reviewer focused on the plan, not your thought process.
    - Provide: path to the plan document, path to spec document
-2. If ❌ Issues Found: fix the issues, re-dispatch reviewer for the whole plan
-3. If ✅ Approved: proceed to execution handoff
+2. If FAIL: Issues Found: fix the issues, re-dispatch reviewer for the whole plan
+3. If PASS: Approved: proceed to execution handoff
 
 **Review loop guidance:**
 - Same agent that wrote the plan fixes it (preserves context)

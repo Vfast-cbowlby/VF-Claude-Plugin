@@ -1,5 +1,5 @@
 {
-  "name": "ecc",
+  "name": "VF-Claude-Plugin",
   "version": "1.10.0",
   "description": "Battle-tested Claude Code plugin for engineering teams — 38 agents, 156 skills, 72 legacy command shims, production-ready hooks, and selective install workflows evolved through continuous real-world use",
   "author": {
@@ -7,7 +7,7 @@
     "url": "https://x.com/affaanmustafa"
   },
   "homepage": "https://ecc.tools",
-  "repository": "https://github.com/affaan-m/VF-Claude-Plugin",
+  "repository": "https://github.com/Vfast-cbowlby/VF-Claude-Plugin",
   "license": "MIT",
   "keywords": [
     "claude-code",

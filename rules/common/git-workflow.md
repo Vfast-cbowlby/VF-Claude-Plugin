@@ -13,6 +13,8 @@ Note: Attribution disabled globally via ~/.claude/settings.json.
 
 ## Pull Request Workflow
 
+> For the full branch completion decision (merge locally vs. PR vs. keep vs. discard) and worktree cleanup, use the **`finishing-a-development-branch`** skill before following the PR steps below.
+
 When creating PRs:
 1. Analyze full commit history (not just latest commit)
 2. Use `git diff [base-branch]...HEAD` to see all changes

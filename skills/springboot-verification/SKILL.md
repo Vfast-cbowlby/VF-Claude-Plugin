@@ -16,6 +16,40 @@ Run before PRs, after major changes, and pre-deploy.
 - Running full build → lint → test → security scan pipeline
 - Validating test coverage meets thresholds
 
+## Phase 0: Pre-Push Gate (MANDATORY)
+
+Run these checks **before** any `git push`. CI is a confirmation gate, not a first-run environment.
+
+### If any `*IT.java` file was created or modified
+
+Run integration tests locally first. A FK violation that takes 10 minutes in CI takes 30 seconds locally:
+
+```bash
+./mvnw test -Dtest="*IT" -DfailIfNoTests=false -pl <module>
+```
+
+**Before writing `@BeforeEach` cleanup**: grep migration files for the actual `CREATE TABLE` names — never assume from entity class names. Run the test at least once green locally before pushing.
+
+### If any Docker image reference was added to pipeline or compose YAML
+
+Verify the image exists and the tag resolves before committing:
+
+```bash
+docker pull <registry>/<image>:<tag>
+```
+
+Note: Docker Hub and GitHub Container Registry (`ghcr.io`) are separate registries — an image that exists on one may not exist on the other.
+
+### If a validation script and a fixture/stub file were added in the same PR
+
+Run the script against the fixture before opening the PR. A script and the file it validates must be consistent from the first commit.
+
+### If a hotfix is targeting the main branch directly
+
+Apply the same pre-push gate. A test that has never run green must not land on main — it propagates broken state to every downstream branch.
+
+---
+
 ## Phase 1: Build
 
 ```bash

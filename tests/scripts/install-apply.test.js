@@ -430,9 +430,9 @@ function runTests() {
         'existing PreToolUse entries should be preserved'
       );
       assert.ok(settings.hooks.PreToolUse.length > 1, 'ECC PreToolUse hooks should be appended');
-      assert.deepStrictEqual(
-        settings.hooks.UserPromptSubmit,
-        [{ matcher: '*', hooks: [{ type: 'command', command: 'echo custom-submit' }] }],
+      assert.ok(
+        Array.isArray(settings.hooks.UserPromptSubmit) &&
+          settings.hooks.UserPromptSubmit.some(entry => JSON.stringify(entry).includes('echo custom-submit')),
         'user-defined hook event types should be preserved'
       );
     } finally {

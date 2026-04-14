@@ -28,14 +28,14 @@ The Feature Implementation Workflow describes the development pipeline: research
    - Verify 80%+ coverage
 
 3. **Code Review**
-   - Use **code-reviewer** agent immediately after writing code
-   - Address CRITICAL and HIGH issues
-   - Fix MEDIUM issues when possible
+   - Use the **`requesting-code-review`** skill to dispatch the code-reviewer subagent with precisely crafted context (not your session history)
+   - For language-specific pattern review, additionally dispatch the relevant ECC language agent (e.g., **java-reviewer**, **kotlin-reviewer**) as a supplementary pass
+   - Use the **`receiving-code-review`** skill to evaluate and implement feedback — verify suggestions against the codebase before accepting, push back with technical reasoning when warranted
+   - Address CRITICAL and HIGH issues before proceeding; fix MEDIUM issues when possible
 
 4. **Commit & Push**
-   - Detailed commit messages
-   - Follow conventional commits format
-   - See [git-workflow.md](./git-workflow.md) for commit message format and PR process
+   - Use the **`finishing-a-development-branch`** skill to verify tests, choose your integration strategy (merge locally, PR, keep, or discard), and clean up the worktree
+   - Follow conventional commits format; see [git-workflow.md](./git-workflow.md) for commit message format and PR body structure
 
 5. **Pre-Review Checks**
    - Verify all automated checks (CI/CD) are passing

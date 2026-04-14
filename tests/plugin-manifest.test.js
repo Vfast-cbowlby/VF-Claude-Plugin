@@ -80,7 +80,7 @@ test('claude plugin.json has version field', () => {
 });
 
 test('claude plugin.json uses short plugin slug', () => {
-  assert.strictEqual(claudePlugin.name, 'ecc');
+  assert.strictEqual(claudePlugin.name, 'VF-Claude-Plugin');
 });
 
 test('claude plugin.json agents is an array', () => {

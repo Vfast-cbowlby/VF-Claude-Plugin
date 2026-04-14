@@ -17,11 +17,14 @@ process.stdin.on('end', () => {
     const input = JSON.parse(raw);
     const cmd = String(input.tool_input?.command || '');
     if (/\bgit\s+push\b/.test(cmd)) {
-      console.error('[Hook] Review changes before push...');
-      console.error('[Hook] Continuing with push (remove this hook to add interactive review)');
+      process.stderr.write('[Hook] PRE-PUSH CHECKLIST:\n');
+      process.stderr.write('[Hook]   (1) Integration tests changed?  Run them locally first: ./mvnw test -Dtest="*IT" -DfailIfNoTests=false\n');
+      process.stderr.write('[Hook]   (2) New Docker image added?      Verify the tag resolves: docker pull <registry>/<image>:<tag>\n');
+      process.stderr.write('[Hook]   (3) Script + fixture added?      Run the script against the fixture before pushing\n');
+      process.stderr.write('[Hook]   (4) Hotfix to main?              Same rules apply -- no untested code on main\n');
     }
   } catch {
-    // ignore parse errors and pass through
+    /* ignore parse errors and pass through */
   }
 
   process.stdout.write(raw);

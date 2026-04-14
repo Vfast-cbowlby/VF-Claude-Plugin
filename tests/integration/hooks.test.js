@@ -533,7 +533,7 @@ async function runTests() {
           CLAUDE_HOOK_EVENT_NAME: 'PreToolUse',
           ECC_MCP_CONFIG_PATH: configPath,
           ECC_MCP_HEALTH_STATE_PATH: statePath,
-          ECC_MCP_HEALTH_TIMEOUT_MS: '100'
+          ECC_MCP_HEALTH_TIMEOUT_MS: process.platform === 'win32' ? '2000' : '100'
         }
       );
 

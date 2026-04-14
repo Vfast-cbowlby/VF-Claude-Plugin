@@ -111,21 +111,9 @@ Pane 3: "Review src/api/ for test coverage gaps"
 
 ## Git Worktree Integration
 
-For tasks that touch overlapping files:
+For tasks that touch overlapping files, use separate worktrees per dmux pane to prevent merge conflicts.
 
-```bash
-# Create worktrees for isolation
-git worktree add -b feat/auth ../feature-auth HEAD
-git worktree add -b feat/billing ../feature-billing HEAD
-
-# Run agents in separate worktrees
-# Pane 1: cd ../feature-auth && claude
-# Pane 2: cd ../feature-billing && claude
-
-# Merge branches when done
-git merge feat/auth
-git merge feat/billing
-```
+For the full worktree lifecycle — directory selection, `.gitignore` safety checks, dependency setup, baseline test verification, and post-merge cleanup — use the **`using-git-worktrees`** skill. It handles the setup that the bare `git worktree add` commands below skip.
 
 ## Complementary Tools
 
@@ -133,7 +121,7 @@ git merge feat/billing
 |------|-------------|-------------|
 | **dmux** | tmux pane management for agents | Parallel agent sessions |
 | **Superset** | Terminal IDE for 10+ parallel agents | Large-scale orchestration |
-| **Claude Code Task tool** | In-process subagent spawning | Programmatic parallelism within a session |
+| **Claude Code Task tool** | In-process subagent spawning | Programmatic parallelism within a session — for the full decision tree on when to parallelize and how to structure agent prompts, use the **`dispatching-parallel-agents`** skill |
 | **Codex multi-agent** | Built-in agent roles | Codex-specific parallel work |
 
 ## ECC Helper

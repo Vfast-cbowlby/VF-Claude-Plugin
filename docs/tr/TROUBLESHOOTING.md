@@ -264,7 +264,7 @@ claude --version
 # Claude Code 2.0+ gerektirir
 
 # Manuel kurulum (marketplace başarısız olursa)
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 cp -r VF-Claude-Plugin ~/.claude/plugins/ecc
 ```
 
@@ -396,7 +396,7 @@ find ~/.claude/plugins -name "*.sh" -exec dos2unix {} \;
 
 Hala sorunlar yaşıyorsanız:
 
-1. **GitHub Issues'ı Kontrol Edin**: [github.com/affaan-m/VF-Claude-Plugin/issues](https://github.com/affaan-m/VF-Claude-Plugin/issues)
+1. **GitHub Issues'ı Kontrol Edin**: [github.com/Vfast-cbowlby/VF-Claude-Plugin/issues](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues)
 2. **Debug Logging'i Etkinleştirin**:
    ```bash
    export CLAUDE_DEBUG=1

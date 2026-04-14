@@ -28,7 +28,7 @@ VF Claude Plugin プロジェクトのインタラクティブなステップバ
 
 ```bash
 rm -rf /tmp/VF-Claude-Plugin
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git /tmp/VF-Claude-Plugin
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git /tmp/VF-Claude-Plugin
 ```
 
 以降のすべてのコピー操作のソースとして `ECC_ROOT=/tmp/VF-Claude-Plugin` を設定します。

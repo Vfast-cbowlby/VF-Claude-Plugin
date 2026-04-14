@@ -1,11 +1,11 @@
 {
-  "name": "ecc",
+  "name": "vcp",
   "interface": {
     "displayName": "VF Claude Plugin"
   },
   "plugins": [
     {
-      "name": "ecc",
+      "name": "vcp",
       "source": {
         "source": "local",
         "path": "../.."

@@ -171,4 +171,4 @@ Gelişmiş özellikler için (10k+ commit, ekip paylaşımı, otomatik PR'lar), 
 
 ---
 
-*[VF Claude Plugin](https://github.com/affaan-m/VF-Claude-Plugin)'un bir parçası*
+*[VF Claude Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)'un bir parçası*

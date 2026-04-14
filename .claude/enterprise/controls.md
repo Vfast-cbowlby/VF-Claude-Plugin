@@ -4,7 +4,7 @@ This is a starter governance file for enterprise ECC deployments.
 
 ## Baseline
 
-- Repository: https://github.com/affaan-m/VF-Claude-Plugin
+- Repository: https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 - Recommended profile: full
 - Keep install manifests, audit allowlists, and Codex baselines under review.
 

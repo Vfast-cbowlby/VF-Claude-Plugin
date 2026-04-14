@@ -3,10 +3,11 @@
   "version": "1.10.0",
   "description": "Battle-tested Claude Code plugin for engineering teams — 38 agents, 156 skills, 72 legacy command shims, production-ready hooks, and selective install workflows evolved through continuous real-world use",
   "author": {
-    "name": "Affaan Mustafa",
-    "url": "https://x.com/affaanmustafa"
+    "name": "Corey Bowlby",
+    "email": "corey.bowlby@verifast.com",
+    "url": "https://verifast.com"
   },
-  "homepage": "https://ecc.tools",
+  "homepage": "https://verifast.com",
   "repository": "https://github.com/Vfast-cbowlby/VF-Claude-Plugin",
   "license": "MIT",
   "keywords": [
@@ -62,6 +63,10 @@
     "./agents/tdd-guide.md",
     "./agents/typescript-reviewer.md"
   ],
-  "skills": ["./skills/"],
-  "commands": ["./commands/"]
+  "skills": [
+    "./skills/"
+  ],
+  "commands": [
+    "./commands/"
+  ]
 }

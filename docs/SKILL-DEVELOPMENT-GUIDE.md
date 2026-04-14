@@ -632,7 +632,7 @@ go build ./examples/...
 ### 1. Fork and Clone
 
 ```bash
-gh repo fork affaan-m/VF-Claude-Plugin --clone
+gh repo fork Vfast-cbowlby/VF-Claude-Plugin --clone
 cd VF-Claude-Plugin
 ```
 

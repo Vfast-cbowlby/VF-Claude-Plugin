@@ -120,7 +120,7 @@ resp = requests.get(
     "https://api.x.com/2/tweets/search/recent",
     headers=headers,
     params={
-        "query": "from:affaanmustafa -is:retweet",
+        "query": "from:VFastClaude -is:retweet",
         "max_results": 10,
         "tweet.fields": "public_metrics,created_at",
     }
@@ -134,7 +134,7 @@ resp = requests.get(
     "https://api.x.com/2/tweets/search/recent",
     headers=headers,
     params={
-        "query": "from:affaanmustafa -is:retweet -is:reply",
+        "query": "from:VFastClaude -is:retweet -is:reply",
         "max_results": 25,
         "tweet.fields": "created_at,public_metrics",
     }
@@ -146,7 +146,7 @@ voice_samples = resp.json()
 
 ```python
 resp = requests.get(
-    "https://api.x.com/2/users/by/username/affaanmustafa",
+    "https://api.x.com/2/users/by/username/VFastClaude",
     headers=headers,
     params={"user.fields": "public_metrics,description,created_at"}
 )

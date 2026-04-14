@@ -4,18 +4,19 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const CURRENT_PLUGIN_SLUG = 'ecc';
-const LEGACY_PLUGIN_SLUG = 'VF-Claude-Plugin';
+const CURRENT_PLUGIN_SLUG = 'vcp';
+const LEGACY_PLUGIN_SLUGS = ['VF-Claude-Plugin', 'ecc'];
 const CURRENT_PLUGIN_HANDLE = `${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`;
-const LEGACY_PLUGIN_HANDLE = `${LEGACY_PLUGIN_SLUG}@${LEGACY_PLUGIN_SLUG}`;
-const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, LEGACY_PLUGIN_SLUG];
+const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, ...LEGACY_PLUGIN_SLUGS];
 const PLUGIN_ROOT_SEGMENTS = [
   [CURRENT_PLUGIN_SLUG],
   [CURRENT_PLUGIN_HANDLE],
   ['marketplace', CURRENT_PLUGIN_SLUG],
-  [LEGACY_PLUGIN_SLUG],
-  [LEGACY_PLUGIN_HANDLE],
-  ['marketplace', LEGACY_PLUGIN_SLUG],
+  ...LEGACY_PLUGIN_SLUGS.flatMap(s => [
+    [s],
+    [`${s}@${s}`],
+    ['marketplace', s],
+  ]),
 ];
 
 /**
@@ -67,8 +68,8 @@ function resolveEccRoot(options = {}) {
 
   // Plugin cache — Claude Code stores marketplace plugins under
   // ~/.claude/plugins/cache/<plugin-name>/<org>/<version>/
-  try {
-    for (const slug of PLUGIN_CACHE_SLUGS) {
+  for (const slug of PLUGIN_CACHE_SLUGS) {
+    try {
       const cacheBase = path.join(claudeDir, 'plugins', 'cache', slug);
       const orgDirs = fs.readdirSync(cacheBase, { withFileTypes: true });
 
@@ -91,9 +92,10 @@ function resolveEccRoot(options = {}) {
           }
         }
       }
+    } catch {
+      // This slug's cache dir doesn't exist or isn't readable — try the next
+      continue;
     }
-  } catch {
-    // Plugin cache doesn't exist or isn't readable — continue to fallback
   }
 
   return claudeDir;
@@ -110,7 +112,7 @@ function resolveEccRoot(options = {}) {
  *   const _r = <paste INLINE_RESOLVE>;
  *   const sm = require(_r + '/scripts/lib/session-manager');
  */
-const INLINE_RESOLVE = `(()=>{var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var p=require('path'),f=require('fs'),h=require('os').homedir(),d=p.join(h,'.claude'),q=p.join('scripts','lib','utils.js');if(f.existsSync(p.join(d,q)))return d;for(var s of ${JSON.stringify(PLUGIN_ROOT_SEGMENTS)}){var l=p.join(d,'plugins',...s);if(f.existsSync(p.join(l,q)))return l}try{for(var g of ${JSON.stringify(PLUGIN_CACHE_SLUGS)}){var b=p.join(d,'plugins','cache',g);for(var o of f.readdirSync(b,{withFileTypes:true})){if(!o.isDirectory())continue;for(var v of f.readdirSync(p.join(b,o.name),{withFileTypes:true})){if(!v.isDirectory())continue;var c=p.join(b,o.name,v.name);if(f.existsSync(p.join(c,q)))return c}}}}catch(x){}return d})()`;
+const INLINE_RESOLVE = `(()=>{var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var p=require('path'),f=require('fs'),h=require('os').homedir(),d=p.join(h,'.claude'),q=p.join('scripts','lib','utils.js');if(f.existsSync(p.join(d,q)))return d;for(var s of ${JSON.stringify(PLUGIN_ROOT_SEGMENTS)}){var l=p.join(d,'plugins',...s);if(f.existsSync(p.join(l,q)))return l}for(var g of ${JSON.stringify(PLUGIN_CACHE_SLUGS)}){try{var b=p.join(d,'plugins','cache',g);for(var o of f.readdirSync(b,{withFileTypes:true})){if(!o.isDirectory())continue;try{for(var v of f.readdirSync(p.join(b,o.name),{withFileTypes:true})){if(!v.isDirectory())continue;var c=p.join(b,o.name,v.name);if(f.existsSync(p.join(c,q)))return c}}catch(x){}}}catch(x){}}return d})()`;
 
 module.exports = {
   resolveEccRoot,

@@ -414,7 +414,7 @@ Bir kural istiyorsanız: asla kolaylık katmanının izolasyon katmanını geçm
 
 Bu bir kural sizi şaşırtıcı derecede ileri götürür.
 
-Kurulumunuzu tarayın: [github.com/affaan-m/agentshield](https://github.com/affaan-m/agentshield)
+Kurulumunuzu tarayın: [AgentShield](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ---
 
@@ -451,5 +451,5 @@ Kurulumunuzu tarayın: [github.com/affaan-m/agentshield](https://github.com/affa
 > [Claude Code'un Her Şeyine Dair Uzun Kılavuz](https://x.com/affaanmustafa/status/2014040193557471352)
 
 gidip yapın ve ayrıca bu repo'ları kaydedin:
-- [github.com/affaan-m/VF-Claude-Plugin](https://github.com/affaan-m/VF-Claude-Plugin)
-- [github.com/affaan-m/agentshield](https://github.com/affaan-m/agentshield)
+- [github.com/Vfast-cbowlby/VF-Claude-Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
+- [AgentShield](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)

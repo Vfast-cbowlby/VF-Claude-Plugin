@@ -1,6 +1,6 @@
 # VF Claude Plugin
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/VF-Claude-Plugin?style=flat)](https://github.com/affaan-m/VF-Claude-Plugin/stargazers)
+[![Stars](https://img.shields.io/github/stars/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -67,7 +67,7 @@
 
 ```bash
 # 新增市集
-/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
+/plugin marketplace add https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 
 # 安裝外掛程式
 /plugin install ecc@ecc
@@ -79,7 +79,7 @@
 
 ```bash
 # 首先複製儲存庫
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 
 # 複製規則（應用於所有專案）
 cp -r VF-Claude-Plugin/rules/* ~/.claude/rules/
@@ -267,7 +267,7 @@ VF-Claude-Plugin/
 
 ```bash
 # 將此儲存庫新增為市集
-/plugin marketplace add https://github.com/affaan-m/VF-Claude-Plugin
+/plugin marketplace add https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 
 # 安裝外掛程式
 /plugin install ecc@ecc
@@ -281,7 +281,7 @@ VF-Claude-Plugin/
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/VF-Claude-Plugin"
+        "repo": "Vfast-cbowlby/VF-Claude-Plugin"
       }
     }
   },
@@ -301,7 +301,7 @@ VF-Claude-Plugin/
 
 ```bash
 # 複製儲存庫
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 
 # 將代理程式複製到您的 Claude 設定
 cp VF-Claude-Plugin/agents/*.md ~/.claude/agents/
@@ -457,7 +457,7 @@ node tests/hooks/hooks.test.js
 
 ## Star 歷史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=affaan-m/VF-Claude-Plugin&type=Date)](https://star-history.com/#affaan-m/VF-Claude-Plugin&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Vfast-cbowlby/VF-Claude-Plugin&type=Date)](https://star-history.com/#Vfast-cbowlby/VF-Claude-Plugin&Date)
 
 ---
 
@@ -465,7 +465,7 @@ node tests/hooks/hooks.test.js
 
 - **簡明指南（從這裡開始）：** [VF Claude Plugin 簡明指南](https://x.com/affaanmustafa/status/2012378465664745795)
 - **完整指南（進階）：** [VF Claude Plugin 完整指南](https://x.com/affaanmustafa/status/2014040193557471352)
-- **追蹤：** [@affaanmustafa](https://x.com/affaanmustafa)
+- **追蹤：** [VF-Claude-Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 - **zenith.chat：** [zenith.chat](https://zenith.chat)
 - **技能目錄：** awesome-agent-skills（社區維護的智能體技能目錄）
 

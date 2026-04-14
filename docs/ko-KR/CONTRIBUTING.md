@@ -49,7 +49,7 @@
 
 ```bash
 # 1. 포크 및 클론
-gh repo fork affaan-m/VF-Claude-Plugin --clone
+gh repo fork Vfast-cbowlby/VF-Claude-Plugin --clone
 cd VF-Claude-Plugin
 
 # 2. 브랜치 생성
@@ -445,8 +445,8 @@ docs: improve contributing guide
 
 ## 질문이 있으신가요?
 
-- **이슈:** [github.com/affaan-m/VF-Claude-Plugin/issues](https://github.com/affaan-m/VF-Claude-Plugin/issues)
-- **X/Twitter:** [@affaanmustafa](https://x.com/affaanmustafa)
+- **이슈:** [github.com/Vfast-cbowlby/VF-Claude-Plugin/issues](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues)
+- **GitHub:** [Vfast-cbowlby](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ---
 

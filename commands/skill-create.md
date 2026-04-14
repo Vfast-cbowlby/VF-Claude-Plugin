@@ -171,4 +171,4 @@ For advanced features (10k+ commits, team sharing, auto-PRs), use the [Skill Cre
 
 ---
 
-*Part of [VF Claude Plugin](https://github.com/affaan-m/VF-Claude-Plugin)*
+*Part of [VF Claude Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)*

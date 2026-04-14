@@ -4,19 +4,19 @@ Thank you to everyone who sponsors this project! Your support keeps the ECC ecos
 
 ## Enterprise Sponsors
 
-*Become an [Enterprise sponsor](https://github.com/sponsors/affaan-m) to be featured here*
+*Become an [Enterprise sponsor](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) to be featured here*
 
 ## Business Sponsors
 
-*Become a [Business sponsor](https://github.com/sponsors/affaan-m) to be featured here*
+*Become a [Business sponsor](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) to be featured here*
 
 ## Team Sponsors
 
-*Become a [Team sponsor](https://github.com/sponsors/affaan-m) to be featured here*
+*Become a [Team sponsor](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) to be featured here*
 
 ## Individual Sponsors
 
-*Become a [sponsor](https://github.com/sponsors/affaan-m) to be listed here*
+*Become a [sponsor](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) to be listed here*
 
 ---
 
@@ -52,7 +52,7 @@ See [`docs/business/metrics-and-sponsorship.md`](docs/business/metrics-and-spons
 | Business | $500/mo | 25 seats, consulting credit |
 | Enterprise | $2K/mo | Unlimited seats, custom tools |
 
-[**Become a Sponsor →**](https://github.com/sponsors/affaan-m)
+[**Become a Sponsor →**](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ---
 

@@ -52,7 +52,7 @@ npx ecc-install typescript
 Clone and run OpenCode in the repository:
 
 ```bash
-git clone https://github.com/affaan-m/VF-Claude-Plugin
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin
 cd VF-Claude-Plugin
 opencode
 ```

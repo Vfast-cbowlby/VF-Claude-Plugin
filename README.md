@@ -1,6 +1,6 @@
 # VF Claude Plugin
 
-> **Forked from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) — April 2026**
+> **Forked from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) — maintained by [Vfast-cbowlby](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)**
 >
 > This plugin is specific to Verifast's SDLC, artifacts, and engineering practices. The upstream public repo is monitored weekly and beneficial enhancements are adopted on an ongoing basis. Over time, this plugin will evolve through continuous improvement contributions from across Verifast's product engineering teams.
 >
@@ -743,7 +743,7 @@ Yes. ECC is cross-platform:
 - **Cursor**: Pre-translated configs in `.cursor/`. See [Cursor IDE Support](#cursor-ide-support).
 - **Gemini CLI**: Experimental project-local support via `.gemini/GEMINI.md` and shared installer plumbing.
 - **OpenCode**: Full plugin support in `.opencode/`. See [OpenCode Support](#opencode-support).
-- **Codex**: First-class support for both macOS app and CLI, with adapter drift guards and SessionStart fallback. See PR [#257](https://github.com/affaan-m/VF-Claude-Plugin/pull/257).
+- **Codex**: First-class support for both macOS app and CLI, with adapter drift guards and SessionStart fallback. See PR [#257](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/pull/257).
 - **Antigravity**: Tightly integrated setup for workflows, skills, and flattened rules in `.agent/`. See [Antigravity Guide](docs/ANTIGRAVITY-GUIDE.md).
 - **Non-native harnesses**: Manual fallback path for Grok and similar interfaces. See [Manual Adaptation Guide](docs/MANUAL-ADAPTATION-GUIDE.md).
 - **Claude Code**: Native — this is the primary target.

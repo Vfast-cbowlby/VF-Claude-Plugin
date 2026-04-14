@@ -282,7 +282,7 @@ claude --version
 # Requires Claude Code 2.0+
 
 # Manual install (if marketplace fails)
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git
 cp -r VF-Claude-Plugin ~/.claude/plugins/ecc
 ```
 
@@ -420,7 +420,7 @@ find ~/.claude/plugins -name "*.sh" -exec dos2unix {} \;
 
 如果您仍然遇到问题：
 
-1. **检查 GitHub Issues**：[github.com/affaan-m/VF-Claude-Plugin/issues](https://github.com/affaan-m/VF-Claude-Plugin/issues)
+1. **检查 GitHub Issues**：[github.com/Vfast-cbowlby/VF-Claude-Plugin/issues](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues)
 2. **启用调试日志记录**：
    ```bash
    export CLAUDE_DEBUG=1

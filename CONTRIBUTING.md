@@ -52,7 +52,7 @@ Slash commands that invoke useful workflows:
 
 ```bash
 # 1. Fork and clone
-gh repo fork affaan-m/VF-Claude-Plugin --clone
+gh repo fork Vfast-cbowlby/VF-Claude-Plugin --clone
 cd VF-Claude-Plugin
 
 # 2. Create a branch
@@ -497,8 +497,8 @@ How you tested this.
 
 ## Questions?
 
-- **Issues:** [github.com/affaan-m/VF-Claude-Plugin/issues](https://github.com/affaan-m/VF-Claude-Plugin/issues)
-- **X/Twitter:** [@affaanmustafa](https://x.com/affaanmustafa)
+- **Issues:** [github.com/Vfast-cbowlby/VF-Claude-Plugin/issues](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues)
+- **GitHub:** [Vfast-cbowlby](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ---
 

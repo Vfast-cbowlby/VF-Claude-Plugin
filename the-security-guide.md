@@ -414,7 +414,7 @@ If you want one rule: never let the convenience layer outrun the isolation layer
 
 That one rule gets you surprisingly far.
 
-Scan your setup: [github.com/affaan-m/agentshield](https://github.com/affaan-m/agentshield)
+Scan your setup: [AgentShield](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ---
 
@@ -451,5 +451,5 @@ If you haven't read the previous guides, start here:
 > [The Longform Guide to VF Claude Plugin](https://x.com/affaanmustafa/status/2014040193557471352)
 
 go do that and also save these repos:
-- [github.com/affaan-m/VF-Claude-Plugin](https://github.com/affaan-m/VF-Claude-Plugin)
-- [github.com/affaan-m/agentshield](https://github.com/affaan-m/agentshield)
+- [github.com/Vfast-cbowlby/VF-Claude-Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
+- [AgentShield](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)

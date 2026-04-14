@@ -29,7 +29,7 @@ Before any installation, clone the latest ECC source to `/tmp`:
 
 ```bash
 rm -rf /tmp/VF-Claude-Plugin
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git /tmp/VF-Claude-Plugin
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git /tmp/VF-Claude-Plugin
 ```
 
 Set `ECC_ROOT=/tmp/VF-Claude-Plugin` as the source for all subsequent copy operations.

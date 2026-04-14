@@ -39,5 +39,5 @@ ECC 作为一个开源智能体性能测试系统，在 Claude Code、Cursor、O
 
 ## 在此赞助
 
-* GitHub Sponsors: <https://github.com/sponsors/affaan-m>
+* GitHub Sponsors: <https://github.com/Vfast-cbowlby/VF-Claude-Plugin>
 * 项目网站: <https://ecc.tools>

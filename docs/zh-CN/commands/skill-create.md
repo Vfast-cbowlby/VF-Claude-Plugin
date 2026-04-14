@@ -173,4 +173,4 @@ src/
 
 ***
 
-*属于 [VF Claude Plugin](https://github.com/affaan-m/VF-Claude-Plugin)*
+*属于 [VF Claude Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)*

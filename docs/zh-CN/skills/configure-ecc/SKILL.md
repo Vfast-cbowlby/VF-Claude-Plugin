@@ -30,7 +30,7 @@ origin: ECC
 
 ```bash
 rm -rf /tmp/VF-Claude-Plugin
-git clone https://github.com/affaan-m/VF-Claude-Plugin.git /tmp/VF-Claude-Plugin
+git clone https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git /tmp/VF-Claude-Plugin
 ```
 
 将 `ECC_ROOT=/tmp/VF-Claude-Plugin` 设置为所有后续复制操作的源。

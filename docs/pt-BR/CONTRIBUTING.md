@@ -51,7 +51,7 @@ Comandos slash que invocam fluxos de trabalho úteis:
 
 ```bash
 # 1. Fork e clone
-gh repo fork affaan-m/VF-Claude-Plugin --clone
+gh repo fork Vfast-cbowlby/VF-Claude-Plugin --clone
 cd VF-Claude-Plugin
 
 # 2. Criar uma branch
@@ -418,8 +418,8 @@ Como você testou isso.
 
 ## Dúvidas?
 
-- **Issues:** [github.com/affaan-m/VF-Claude-Plugin/issues](https://github.com/affaan-m/VF-Claude-Plugin/issues)
-- **X/Twitter:** [@affaanmustafa](https://x.com/affaanmustafa)
+- **Issues:** [github.com/Vfast-cbowlby/VF-Claude-Plugin/issues](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues)
+- **GitHub:** [Vfast-cbowlby](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ---
 

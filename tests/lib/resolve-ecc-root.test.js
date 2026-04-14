@@ -190,10 +190,21 @@ function runTests() {
   })) passed++; else failed++;
   // ─── Plugin Cache Auto-Detection ───
 
-  if (test('discovers plugin root from cache directory', () => {
+  if (test('discovers plugin root from cache directory (legacy ecc/affaan-m slug)', () => {
     const homeDir = createTempDir();
     try {
       const expected = setupPluginCache(homeDir, 'ecc', 'affaan-m', '1.10.0');
+      const result = resolveEccRoot({ envRoot: '', homeDir });
+      assert.strictEqual(result, expected);
+    } finally {
+      fs.rmSync(homeDir, { recursive: true, force: true });
+    }
+  })) passed++; else failed++;
+
+  if (test('discovers plugin root from cache directory (current vcp/Vfast-cbowlby slug)', () => {
+    const homeDir = createTempDir();
+    try {
+      const expected = setupPluginCache(homeDir, 'vcp', 'Vfast-cbowlby', '2.0.0');
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {

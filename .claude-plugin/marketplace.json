@@ -3,8 +3,8 @@
   "name": "VF-Claude-Plugin",
   "description": "Battle-tested Claude Code configurations from an Anthropic hackathon winner — agents, skills, hooks, rules, and legacy command shims evolved over 10+ months of intensive daily use",
   "owner": {
-    "name": "Affaan Mustafa",
-    "email": "me@affaanmustafa.com"
+    "name": "Corey Bowlby",
+    "email": "corey.bowlby@verifast.com"
   },
   "metadata": {
     "description": "Battle-tested Claude Code configurations from an Anthropic hackathon winner"
@@ -16,8 +16,8 @@
       "description": "The most comprehensive Claude Code plugin — 38 agents, 156 skills, 72 legacy command shims, selective install profiles, and production-ready hooks for TDD, security scanning, code review, and continuous learning",
       "version": "1.10.0",
       "author": {
-        "name": "Affaan Mustafa",
-        "email": "me@affaanmustafa.com"
+        "name": "Corey Bowlby",
+        "email": "corey.bowlby@verifast.com"
       },
       "homepage": "https://ecc.tools",
       "repository": "https://github.com/Vfast-cbowlby/VF-Claude-Plugin",

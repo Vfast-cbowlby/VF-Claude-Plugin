@@ -43,16 +43,16 @@
     "hooks",
     "automation"
   ],
-  "author": "affaan-m",
+  "author": "Vfast-cbowlby",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/affaan-m/VF-Claude-Plugin.git"
+    "url": "git+https://github.com/Vfast-cbowlby/VF-Claude-Plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/affaan-m/VF-Claude-Plugin/issues"
+    "url": "https://github.com/Vfast-cbowlby/VF-Claude-Plugin/issues"
   },
-  "homepage": "https://github.com/affaan-m/VF-Claude-Plugin#readme",
+  "homepage": "https://github.com/Vfast-cbowlby/VF-Claude-Plugin#readme",
   "publishConfig": {
     "access": "public"
   },

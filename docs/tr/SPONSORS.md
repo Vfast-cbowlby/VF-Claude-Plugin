@@ -4,19 +4,19 @@ Bu projeye sponsor olan herkese teşekkürler! Desteğiniz ECC ekosisteminin bü
 
 ## Kurumsal Sponsorlar
 
-*Burada yer almak için [Kurumsal sponsor](https://github.com/sponsors/affaan-m) olun*
+*Burada yer almak için [Kurumsal sponsor](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) olun*
 
 ## İşletme Sponsorları
 
-*Burada yer almak için [İşletme sponsoru](https://github.com/sponsors/affaan-m) olun*
+*Burada yer almak için [İşletme sponsoru](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) olun*
 
 ## Takım Sponsorları
 
-*Burada yer almak için [Takım sponsoru](https://github.com/sponsors/affaan-m) olun*
+*Burada yer almak için [Takım sponsoru](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) olun*
 
 ## Bireysel Sponsorlar
 
-*Burada listelenmek için [sponsor](https://github.com/sponsors/affaan-m) olun*
+*Burada listelenmek için [sponsor](https://github.com/Vfast-cbowlby/VF-Claude-Plugin) olun*
 
 ---
 
@@ -52,7 +52,7 @@ Kopyala/yapıştır metrik çekme iş akışı için [`docs/business/metrics-and
 | Business | $500/ay | 25 koltuk, danışmanlık kredisi |
 | Enterprise | $2K/ay | Sınırsız koltuk, özel araçlar |
 
-[**Sponsor Olun →**](https://github.com/sponsors/affaan-m)
+[**Sponsor Olun →**](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ---
 

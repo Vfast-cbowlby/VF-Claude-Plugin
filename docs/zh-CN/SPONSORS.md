@@ -4,19 +4,19 @@
 
 ## 企业赞助者
 
-*成为 [企业赞助者](https://github.com/sponsors/affaan-m)，将您的名字展示在此处*
+*成为 [企业赞助者](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)，将您的名字展示在此处*
 
 ## 商业赞助者
 
-*成为 [商业赞助者](https://github.com/sponsors/affaan-m)，将您的名字展示在此处*
+*成为 [商业赞助者](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)，将您的名字展示在此处*
 
 ## 团队赞助者
 
-*成为 [团队赞助者](https://github.com/sponsors/affaan-m)，将您的名字展示在此处*
+*成为 [团队赞助者](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)，将您的名字展示在此处*
 
 ## 个人赞助者
 
-*成为 [赞助者](https://github.com/sponsors/affaan-m)，将您的名字列在此处*
+*成为 [赞助者](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)，将您的名字列在此处*
 
 ***
 
@@ -52,7 +52,7 @@
 | 商业版 | 每月 $500 | 25 个席位，咨询积分 |
 | 企业版 | 每月 $2K | 无限制席位，自定义工具 |
 
-[**Become a Sponsor →**](https://github.com/sponsors/affaan-m)
+[**Become a Sponsor →**](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 
 ***
 

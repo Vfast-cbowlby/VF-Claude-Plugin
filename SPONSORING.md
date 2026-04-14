@@ -39,5 +39,5 @@ For exact command snippets and a repeatable pull process, see [`docs/business/me
 
 ## Sponsor Here
 
-- GitHub Sponsors: [https://github.com/sponsors/affaan-m](https://github.com/sponsors/affaan-m)
+- GitHub Sponsors: [https://github.com/Vfast-cbowlby/VF-Claude-Plugin](https://github.com/Vfast-cbowlby/VF-Claude-Plugin)
 - Project site: [https://ecc.tools](https://ecc.tools)

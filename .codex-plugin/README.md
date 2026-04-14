@@ -22,7 +22,7 @@ Codex plugin support is currently in preview. Once generally available:
 
 ```bash
 # Install from Codex CLI
-codex plugin install affaan-m/VF-Claude-Plugin
+codex plugin install Vfast-cbowlby/VF-Claude-Plugin
 
 # Or reference locally during development
 codex plugin install ./

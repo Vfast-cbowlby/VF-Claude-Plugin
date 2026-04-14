@@ -23,8 +23,8 @@ LLMs respond to the same persuasion principles as humans. Understanding this psy
 
 **Example:**
 ```markdown
-✅ Write code before test? Delete it. Start over. No exceptions.
-❌ Consider writing tests first when feasible.
+PASS: Write code before test? Delete it. Start over. No exceptions.
+FAIL: Consider writing tests first when feasible.
 ```
 
 ### 2. Commitment
@@ -42,8 +42,8 @@ LLMs respond to the same persuasion principles as humans. Understanding this psy
 
 **Example:**
 ```markdown
-✅ When you find a skill, you MUST announce: "I'm using [Skill Name]"
-❌ Consider letting your partner know which skill you're using.
+PASS: When you find a skill, you MUST announce: "I'm using [Skill Name]"
+FAIL: Consider letting your partner know which skill you're using.
 ```
 
 ### 3. Scarcity
@@ -61,8 +61,8 @@ LLMs respond to the same persuasion principles as humans. Understanding this psy
 
 **Example:**
 ```markdown
-✅ After completing a task, IMMEDIATELY request code review before proceeding.
-❌ You can review code when convenient.
+PASS: After completing a task, IMMEDIATELY request code review before proceeding.
+FAIL: You can review code when convenient.
 ```
 
 ### 4. Social Proof
@@ -80,8 +80,8 @@ LLMs respond to the same persuasion principles as humans. Understanding this psy
 
 **Example:**
 ```markdown
-✅ Checklists without TodoWrite tracking = steps get skipped. Every time.
-❌ Some people find TodoWrite helpful for checklists.
+PASS: Checklists without TodoWrite tracking = steps get skipped. Every time.
+FAIL: Some people find TodoWrite helpful for checklists.
 ```
 
 ### 5. Unity
@@ -98,8 +98,8 @@ LLMs respond to the same persuasion principles as humans. Understanding this psy
 
 **Example:**
 ```markdown
-✅ We're colleagues working together. I need your honest technical judgment.
-❌ You should probably tell me if I'm wrong.
+PASS: We're colleagues working together. I need your honest technical judgment.
+FAIL: You should probably tell me if I'm wrong.
 ```
 
 ### 6. Reciprocity

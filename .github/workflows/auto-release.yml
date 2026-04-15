@@ -27,6 +27,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   auto-release:
@@ -120,3 +121,16 @@ jobs:
         run: bash scripts/release.sh ${{ steps.version.outputs.next }} --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # GITHUB_TOKEN pushes cannot trigger other workflows (GitHub security rule).
+      # So the tag push from release.sh won't fire release.yml automatically.
+      # Instead, we call release.yml directly via workflow_dispatch — GITHUB_TOKEN
+      # CAN trigger workflow_dispatch, just not push/PR events.
+      - name: Trigger release workflow
+        if: steps.version.outputs.skip != 'true'
+        run: |
+          curl -f -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/release.yml/dispatches" \
+            -d "{\"ref\":\"main\",\"inputs\":{\"version\":\"${{ steps.version.outputs.next }}\"}}"

@@ -99,6 +99,6 @@ git add "$ROOT_PACKAGE_JSON" "$PLUGIN_JSON" "$MARKETPLACE_JSON" "$OPENCODE_PACKA
         package-lock.json .opencode/package-lock.json
 git commit -m "chore: bump plugin version to $VERSION"
 git tag "v$VERSION"
-git push origin main "v$VERSION"
+git push origin HEAD:refs/heads/main "v$VERSION"
 
 echo "Released v$VERSION"

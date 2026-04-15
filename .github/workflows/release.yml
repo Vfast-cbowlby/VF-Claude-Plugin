@@ -3,6 +3,12 @@ name: Release
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g. 1.12.0). Must match plugin.json version.'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -29,20 +35,28 @@ jobs:
       - name: Verify OpenCode package payload
         run: node tests/scripts/build-opencode.test.js
 
-      - name: Validate version tag
+      - name: Resolve version
+        id: resolve
         run: |
-          if ! [[ "${REF_NAME}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "Invalid version tag format. Expected vX.Y.Z"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="v${{ github.event.inputs.version }}"
+          else
+            TAG="${{ github.ref_name }}"
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "version=${TAG#v}" >> $GITHUB_OUTPUT
+
+      - name: Validate version tag format
+        run: |
+          TAG="${{ steps.resolve.outputs.tag }}"
+          if ! [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Invalid version tag format. Expected vX.Y.Z, got: $TAG"
             exit 1
           fi
 
-        env:
-          REF_NAME: ${{ github.ref_name }}
       - name: Verify plugin.json version matches tag
-        env:
-          TAG_NAME: ${{ github.ref_name }}
         run: |
-          TAG_VERSION="${TAG_NAME#v}"
+          TAG_VERSION="${{ steps.resolve.outputs.version }}"
           PLUGIN_VERSION=$(grep -oE '"version": *"[^"]*"' .claude-plugin/plugin.json | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
           if [ "$TAG_VERSION" != "$PLUGIN_VERSION" ]; then
             echo "::error::Tag version ($TAG_VERSION) does not match plugin.json version ($PLUGIN_VERSION)"
@@ -50,31 +64,54 @@ jobs:
             exit 1
           fi
 
-      - name: Generate release highlights
+      - name: Generate changelog since last tag
         id: highlights
-        env:
-          TAG_NAME: ${{ github.ref_name }}
         run: |
-          TAG_VERSION="${TAG_NAME#v}"
-          cat > release_body.md <<EOF
-          ## VF-Claude-Plugin ${TAG_VERSION}
+          TAG_VERSION="${{ steps.resolve.outputs.version }}"
+          LAST_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
 
-          ### What This Release Focuses On
-          - Harness reliability and hook stability across Claude Code, Cursor, OpenCode, and Codex
-          - Stronger eval-driven workflows and quality gates
-          - Better operator UX for autonomous loop execution
+          if [ -n "$LAST_TAG" ]; then
+            RANGE="${LAST_TAG}..HEAD"
+          else
+            RANGE="HEAD"
+          fi
 
-          ### Notable Changes
-          - Session persistence and hook lifecycle fixes
-          - Expanded skills and command coverage for harness performance work
-          - Improved release-note generation and changelog hygiene
+          # Group commits by type
+          FEATURES=$(git log "$RANGE" --format="%s" | grep -E '^feat(\(.+\))?:' | sed 's/^feat[^:]*: /- /' || true)
+          FIXES=$(git log "$RANGE" --format="%s" | grep -E '^fix(\(.+\))?:' | sed 's/^fix[^:]*: /- /' || true)
+          CHORES=$(git log "$RANGE" --format="%s" | grep -E '^(chore|refactor|perf|ci|docs)(\(.+\))?:' | sed 's/^[^:]*: /- /' || true)
+          BREAKING=$(git log "$RANGE" --format="%s%n%b" | grep -E '(BREAKING CHANGE|!:)' | sed 's/^/- /' || true)
 
-          ### Notes
-          - For migration tips and compatibility notes, see README and CHANGELOG.
-          EOF
+          {
+            echo "## VF-Claude-Plugin ${TAG_VERSION}"
+            echo ""
+            if [ -n "$BREAKING" ]; then
+              echo "### Breaking Changes"
+              echo "$BREAKING"
+              echo ""
+            fi
+            if [ -n "$FEATURES" ]; then
+              echo "### Features"
+              echo "$FEATURES"
+              echo ""
+            fi
+            if [ -n "$FIXES" ]; then
+              echo "### Bug Fixes"
+              echo "$FIXES"
+              echo ""
+            fi
+            if [ -n "$CHORES" ]; then
+              echo "### Other Changes"
+              echo "$CHORES"
+              echo ""
+            fi
+            echo "---"
+            echo "*Developers using the plugin will receive this update automatically on next session start after running \`claude plugin update\`.*"
+          } > release_body.md
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v2
         with:
+          tag_name: ${{ steps.resolve.outputs.tag }}
           body_path: release_body.md
           generate_release_notes: true

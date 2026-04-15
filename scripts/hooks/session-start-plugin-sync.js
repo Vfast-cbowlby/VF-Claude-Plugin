@@ -2,13 +2,13 @@
 /**
  * session-start-plugin-sync.js
  *
- * Reinstalls ECC plugin artifacts (rules, hooks, agents, commands, skills) when
+ * Reinstalls VCP plugin artifacts (rules, hooks, agents, commands, skills) when
  * the VF-Claude-Plugin version changes after a `claude plugin update` run.
  *
  * Fast path: version unchanged → passes stdin through and exits in <100ms.
  * Slow path: version changed   → runs install-apply.js, updates tracker, exits.
  *
- * Version tracker: ~/.claude/ecc/installed-ecc-version.txt
+ * Version tracker: ~/.claude/vcp/installed-vcp-version.txt
  */
 
 'use strict';
@@ -20,9 +20,9 @@ const { spawnSync } = require('child_process');
 
 const homeDir = os.homedir();
 const installedPluginsPath = path.join(homeDir, '.claude', 'plugins', 'installed_plugins.json');
-const versionTrackerPath = path.join(homeDir, '.claude', 'ecc', 'installed-ecc-version.txt');
+const versionTrackerPath = path.join(homeDir, '.claude', 'vcp', 'installed-vcp-version.txt');
 
-// Prefer CLAUDE_PLUGIN_ROOT (set by the ECC session-start bootstrap) over fallback
+// Prefer CLAUDE_PLUGIN_ROOT (set by the VCP session-start bootstrap) over fallback
 const pluginRoot = (process.env.CLAUDE_PLUGIN_ROOT || '').trim() ||
   path.join(homeDir, '.claude', 'plugins', 'marketplaces', 'VF-Claude-Plugin');
 const installScript = path.join(pluginRoot, 'scripts', 'install-apply.js');
@@ -72,7 +72,7 @@ if (!currentVersion || currentVersion === lastDeployed) {
 }
 
 process.stderr.write(
-  `[plugin-sync] VF-Claude-Plugin updated (${lastDeployed || 'none'} → ${currentVersion}), reinstalling ECC artifacts...\n`
+  `[plugin-sync] VF-Claude-Plugin updated (${lastDeployed || 'none'} → ${currentVersion}), reinstalling VCP artifacts...\n`
 );
 
 if (!fs.existsSync(installScript)) {
@@ -116,7 +116,7 @@ if (result.error || result.status !== 0) {
   if (result.stderr) process.stderr.write(result.stderr);
 } else {
   writeTrackerVersion(currentVersion);
-  process.stderr.write(`[plugin-sync] ECC artifacts reinstalled for v${currentVersion}.\n`);
+  process.stderr.write(`[plugin-sync] VCP artifacts reinstalled for v${currentVersion}.\n`);
 }
 
 passThrough();

@@ -1,0 +1,114 @@
+name: Auto Release
+
+# Triggers after CI passes on every merge to main.
+# Reads conventional commits since the last tag, determines the semver bump
+# type, and calls release.sh --ci to bump manifests, commit, tag, and push.
+# The tag push then triggers release.yml which creates the GitHub Release.
+#
+# Bump rules (conventional commits):
+#   feat!: / BREAKING CHANGE  → major
+#   feat:                      → minor
+#   fix: / chore: / etc.       → patch
+#
+# To skip auto-release for a merge, include [skip release] in the commit message.
+# To override the bump type, include [release major], [release minor], or
+# [release patch] in the merge commit message.
+
+on:
+  push:
+    branches: [main]
+
+# Only one release at a time — cancel any in-flight release if a newer push lands.
+concurrency:
+  group: auto-release
+  cancel-in-progress: false  # Never cancel a running release mid-flight
+
+permissions:
+  contents: write
+
+jobs:
+  auto-release:
+    name: Auto Release
+    runs-on: ubuntu-latest
+    # Skip if this is itself a version-bump commit (prevents infinite loop)
+    if: "!startsWith(github.event.head_commit.message, 'chore: bump plugin version')"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '20.x'
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine version bump
+        id: version
+        run: |
+          HEAD_MSG="${{ github.event.head_commit.message }}"
+
+          # Honour explicit skip
+          if echo "$HEAD_MSG" | grep -qiF '[skip release]'; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Skipping release — [skip release] found in commit message."
+            exit 0
+          fi
+          echo "skip=false" >> $GITHUB_OUTPUT
+
+          # Fetch last tag to bound commit log
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+
+          # Collect commit subjects since last tag (or all commits if no tag yet)
+          if [ -n "$LAST_TAG" ]; then
+            COMMITS=$(git log --format="%s" "${LAST_TAG}..HEAD")
+          else
+            COMMITS=$(git log --format="%s" HEAD)
+          fi
+
+          echo "Commits since ${LAST_TAG:-'(beginning)'}:"
+          echo "$COMMITS"
+
+          # Determine bump type — explicit override in HEAD commit takes priority
+          if echo "$HEAD_MSG" | grep -qiF '[release major]'; then
+            BUMP="major"
+          elif echo "$HEAD_MSG" | grep -qiF '[release minor]'; then
+            BUMP="minor"
+          elif echo "$HEAD_MSG" | grep -qiF '[release patch]'; then
+            BUMP="patch"
+          elif echo "$COMMITS" | grep -qE '^(feat|fix|refactor|perf)(\(.+\))?!:' || echo "$COMMITS" | grep -qF 'BREAKING CHANGE'; then
+            BUMP="major"
+          elif echo "$COMMITS" | grep -qE '^feat(\(.+\))?:'; then
+            BUMP="minor"
+          else
+            BUMP="patch"
+          fi
+          echo "Bump type: $BUMP"
+
+          # Compute next version from current package.json
+          CURRENT=$(node -p "require('./package.json').version")
+          NEXT=$(node -e "
+            const [maj, min, pat] = process.argv[1].split('.').map(Number);
+            const bump = process.argv[2];
+            if (bump === 'major') console.log((maj+1) + '.0.0');
+            else if (bump === 'minor') console.log(maj + '.' + (min+1) + '.0');
+            else console.log(maj + '.' + min + '.' + (pat+1));
+          " "$CURRENT" "$BUMP")
+
+          echo "bump=$BUMP"   >> $GITHUB_OUTPUT
+          echo "current=$CURRENT" >> $GITHUB_OUTPUT
+          echo "next=$NEXT"   >> $GITHUB_OUTPUT
+          echo "Next version: $CURRENT → $NEXT ($BUMP)"
+
+      - name: Run release script
+        if: steps.version.outputs.skip != 'true'
+        run: bash scripts/release.sh ${{ steps.version.outputs.next }} --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

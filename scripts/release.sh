@@ -88,8 +88,15 @@ update_version "$PLUGIN_JSON" "s|\"version\": *\"[^\"]*\"|\"version\": \"$VERSIO
 update_version "$MARKETPLACE_JSON" "0,/\"version\": *\"[^\"]*\"/s|\"version\": *\"[^\"]*\"|\"version\": \"$VERSION\"|"
 update_version "$OPENCODE_PACKAGE_JSON" "s|\"version\": *\"[^\"]*\"|\"version\": \"$VERSION\"|"
 
+# Regenerate lock files so npm ci in CI does not fail on version mismatch
+echo "Regenerating package-lock.json..."
+npm install --package-lock-only --no-audit --no-fund 2>/dev/null
+echo "Regenerating .opencode/package-lock.json..."
+npm install --package-lock-only --no-audit --no-fund --prefix .opencode 2>/dev/null
+
 # Stage, commit, tag, and push
-git add "$ROOT_PACKAGE_JSON" "$PLUGIN_JSON" "$MARKETPLACE_JSON" "$OPENCODE_PACKAGE_JSON"
+git add "$ROOT_PACKAGE_JSON" "$PLUGIN_JSON" "$MARKETPLACE_JSON" "$OPENCODE_PACKAGE_JSON" \
+        package-lock.json .opencode/package-lock.json
 git commit -m "chore: bump plugin version to $VERSION"
 git tag "v$VERSION"
 git push origin main "v$VERSION"

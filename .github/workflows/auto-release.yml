@@ -1,6 +1,6 @@
 name: Auto Release
 
-# Triggers after CI passes on every merge to main.
+# Fires only after the CI workflow completes successfully on main.
 # Reads conventional commits since the last tag, determines the semver bump
 # type, and calls release.sh --ci to bump manifests, commit, tag, and push.
 # The tag push then triggers release.yml which creates the GitHub Release.
@@ -15,13 +15,15 @@ name: Auto Release
 # [release patch] in the merge commit message.
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
     branches: [main]
 
-# Only one release at a time — cancel any in-flight release if a newer push lands.
+# Only one release at a time — never cancel a running release mid-flight.
 concurrency:
   group: auto-release
-  cancel-in-progress: false  # Never cancel a running release mid-flight
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -30,13 +32,19 @@ jobs:
   auto-release:
     name: Auto Release
     runs-on: ubuntu-latest
-    # Skip if this is itself a version-bump commit (prevents infinite loop)
-    if: "!startsWith(github.event.head_commit.message, 'chore: bump plugin version')"
+
+    # Gate 1: CI must have passed
+    # Gate 2: Skip version-bump commits (prevents infinite loop when release.sh
+    #         pushes its own "chore: bump plugin version to X.Y.Z" commit)
+    if: |
+      github.event.workflow_run.conclusion == 'success' &&
+      !startsWith(github.event.workflow_run.head_commit.message, 'chore: bump plugin version')
 
     steps:
-      - name: Checkout
+      - name: Checkout at CI-verified SHA
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          ref: ${{ github.event.workflow_run.head_sha }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -52,9 +60,9 @@ jobs:
 
       - name: Determine version bump
         id: version
+        env:
+          HEAD_MSG: ${{ github.event.workflow_run.head_commit.message }}
         run: |
-          HEAD_MSG="${{ github.event.head_commit.message }}"
-
           # Honour explicit skip
           if echo "$HEAD_MSG" | grep -qiF '[skip release]'; then
             echo "skip=true" >> $GITHUB_OUTPUT
@@ -102,9 +110,9 @@ jobs:
             else console.log(maj + '.' + min + '.' + (pat+1));
           " "$CURRENT" "$BUMP")
 
-          echo "bump=$BUMP"   >> $GITHUB_OUTPUT
+          echo "bump=$BUMP"       >> $GITHUB_OUTPUT
           echo "current=$CURRENT" >> $GITHUB_OUTPUT
-          echo "next=$NEXT"   >> $GITHUB_OUTPUT
+          echo "next=$NEXT"       >> $GITHUB_OUTPUT
           echo "Next version: $CURRENT → $NEXT ($BUMP)"
 
       - name: Run release script

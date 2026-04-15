@@ -181,3 +181,7 @@
 
 - inspired by [zarazhangrui](https://github.com/zarazhangrui)
 - homunculus-inspired by [humanplane](https://github.com/humanplane)
+
+## [Unreleased]
+
+- Auto-release pipeline now gates on CI success and triggers via workflow_dispatch

@@ -12,7 +12,7 @@ VF Claude Plugin (ECC) plugin for OpenCode - agents, commands, hooks, and skills
 There are two ways to use VF Claude Plugin (ECC):
 
 1. **npm package (recommended for most users)**
-   Install via npm/bun/yarn and use the `ecc-install` CLI to set up rules and agents.
+   Install via npm/bun/yarn and use the `vcp-install` CLI to set up rules and agents.
 
 2. **Direct clone / plugin mode**
    Clone the repository and run OpenCode directly inside it.
@@ -22,14 +22,14 @@ Choose the method that matches your workflow below.
 ### Option 1: npm Package
 
 ```bash
-npm install ecc-universal
+npm install vcp
 ```
 
 Add to your `opencode.json`:
 
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["vcp"]
 }
 ```
 
@@ -41,10 +41,10 @@ It does **not** auto-register the full ECC command/agent/instruction catalog in 
 - run OpenCode inside this repository, or
 - copy the relevant `.opencode/commands/`, `.opencode/prompts/`, `.opencode/instructions/`, and the `instructions`, `agent`, and `command` config entries into your own project
 
-After installation, the `ecc-install` CLI is also available:
+After installation, the `vcp-install` CLI is also available:
 
 ```bash
-npx ecc-install typescript
+npx vcp-install typescript
 ```
 
 ### Option 2: Direct Use

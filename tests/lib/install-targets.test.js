@@ -52,7 +52,7 @@ function runTests() {
     const statePath = adapter.getInstallStatePath({ projectRoot });
 
     assert.strictEqual(root, path.join(projectRoot, '.cursor'));
-    assert.strictEqual(statePath, path.join(projectRoot, '.cursor', 'ecc-install-state.json'));
+    assert.strictEqual(statePath, path.join(projectRoot, '.cursor', 'vcp-install-state.json'));
   })) passed++; else failed++;
 
   if (test('resolves claude adapter root and install-state path from home dir', () => {
@@ -88,7 +88,7 @@ function runTests() {
 
     assert.strictEqual(plan.adapter.id, 'cursor-project');
     assert.strictEqual(plan.targetRoot, path.join(projectRoot, '.cursor'));
-    assert.strictEqual(plan.installStatePath, path.join(projectRoot, '.cursor', 'ecc-install-state.json'));
+    assert.strictEqual(plan.installStatePath, path.join(projectRoot, '.cursor', 'vcp-install-state.json'));
 
     const flattened = plan.operations.find(operation => operation.sourceRelativePath === '.cursor');
     const preserved = plan.operations.find(operation => (
@@ -228,7 +228,7 @@ function runTests() {
     assert.strictEqual(adapter.target, 'codebuddy');
     assert.strictEqual(adapter.kind, 'project');
     assert.strictEqual(root, path.join(projectRoot, '.codebuddy'));
-    assert.strictEqual(statePath, path.join(projectRoot, '.codebuddy', 'ecc-install-state.json'));
+    assert.strictEqual(statePath, path.join(projectRoot, '.codebuddy', 'vcp-install-state.json'));
   })) passed++; else failed++;
 
   if (test('resolves gemini adapter root and install-state path from project root', () => {
@@ -241,7 +241,7 @@ function runTests() {
     assert.strictEqual(adapter.target, 'gemini');
     assert.strictEqual(adapter.kind, 'project');
     assert.strictEqual(root, path.join(projectRoot, '.gemini'));
-    assert.strictEqual(statePath, path.join(projectRoot, '.gemini', 'ecc-install-state.json'));
+    assert.strictEqual(statePath, path.join(projectRoot, '.gemini', 'vcp-install-state.json'));
   })) passed++; else failed++;
 
   if (test('codebuddy adapter supports lookup by target and adapter id', () => {
@@ -272,7 +272,7 @@ function runTests() {
 
     assert.strictEqual(plan.adapter.id, 'codebuddy-project');
     assert.strictEqual(plan.targetRoot, path.join(projectRoot, '.codebuddy'));
-    assert.strictEqual(plan.installStatePath, path.join(projectRoot, '.codebuddy', 'ecc-install-state.json'));
+    assert.strictEqual(plan.installStatePath, path.join(projectRoot, '.codebuddy', 'vcp-install-state.json'));
 
     assert.ok(
       plan.operations.some(operation => (
@@ -301,7 +301,7 @@ function runTests() {
   })) passed++; else failed++;
 
   if (test('every schema target enum value has a matching adapter (regression guard)', () => {
-    const schemaPath = path.join(__dirname, '..', '..', 'schemas', 'ecc-install-config.schema.json');
+    const schemaPath = path.join(__dirname, '..', '..', 'schemas', 'vcp-install-config.schema.json');
     const schema = JSON.parse(require('fs').readFileSync(schemaPath, 'utf8'));
     const schemaTargets = schema.properties.target.enum;
     const adapters = listInstallTargetAdapters();
@@ -317,7 +317,7 @@ function runTests() {
   })) passed++; else failed++;
 
   if (test('every adapter target is listed in the schema enum (regression guard)', () => {
-    const schemaPath = path.join(__dirname, '..', '..', 'schemas', 'ecc-install-config.schema.json');
+    const schemaPath = path.join(__dirname, '..', '..', 'schemas', 'vcp-install-config.schema.json');
     const schema = JSON.parse(require('fs').readFileSync(schemaPath, 'utf8'));
     const schemaTargets = schema.properties.target.enum;
     const adapters = listInstallTargetAdapters();

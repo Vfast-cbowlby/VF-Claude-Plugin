@@ -11,7 +11,7 @@ module.exports = createInstallTargetAdapter({
   target: 'codebuddy',
   kind: 'project',
   rootSegments: ['.codebuddy'],
-  installStatePathSegments: ['ecc-install-state.json'],
+  installStatePathSegments: ['vcp-install-state.json'],
   nativeRootRelativePath: '.codebuddy',
   planOperations(input, adapter) {
     const modules = Array.isArray(input.modules)

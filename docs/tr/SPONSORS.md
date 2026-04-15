@@ -33,7 +33,7 @@ Sponsorluğunuz şunlara yardımcı olur:
 
 Sponsor konuşmalarında bu kanıt noktalarını kullanın:
 
-- `ecc-universal` ve `ecc-agentshield` için canlı npm kurulum/indirme metrikleri
+- `vcp` ve `ecc-agentshield` için canlı npm kurulum/indirme metrikleri
 - Marketplace kurulumları aracılığıyla GitHub App dağıtımı
 - Genel benimseme sinyalleri: yıldızlar, fork'lar, katkıda bulunanlar, sürüm ritmi
 - Harness'lar arası destek: Claude Code, Cursor, OpenCode, Codex app/CLI

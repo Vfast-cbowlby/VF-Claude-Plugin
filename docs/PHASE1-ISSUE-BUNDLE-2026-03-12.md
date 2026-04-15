@@ -60,8 +60,8 @@ Implement manifest-driven install execution for current ECC targets:
 
 Add first-pass support for:
 
-- `ecc-install --profile <name>`
-- `ecc-install --modules <id,id,...>`
+- `vcp-install --profile <name>`
+- `vcp-install --modules <id,id,...>`
 - target-aware filtering based on module target support
 - backward-compatible legacy language installs during rollout
 
@@ -121,8 +121,8 @@ Introduce a durable install-state contract and the first lifecycle commands:
 Suggested state locations:
 
 - Claude: `~/.claude/ecc/install-state.json`
-- Cursor: `./.cursor/ecc-install-state.json`
-- Antigravity: `./.agent/ecc-install-state.json`
+- Cursor: `./.cursor/vcp-install-state.json`
+- Antigravity: `./.agent/vcp-install-state.json`
 
 The state file should capture at minimum:
 

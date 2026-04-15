@@ -3,7 +3,7 @@
 [![Stars](https://img.shields.io/github/stars/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/stargazers)
 [![Forks](https://img.shields.io/github/forks/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/network/members)
 [![Contributors](https://img.shields.io/github/contributors/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![npm vcp](https://img.shields.io/npm/dw/vcp?label=vcp%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/vcp)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -133,7 +133,7 @@ npm install        # 或：pnpm install | yarn install | bun install
 # .\install.ps1 --target gemini --profile full
 
 # 通过 npm 安装的兼容入口，支持全平台使用
-npx ecc-install typescript
+npx vcp-install typescript
 ```
 
 如需手动安装说明，请查看 `rules/` 文件夹中的 README 文档。手动复制规则文件时，请直接复制**整个语言目录**（例如 `rules/common` 或 `rules/golang`），而非目录内的单个文件，以保证相对路径引用正常、文件名不会冲突。

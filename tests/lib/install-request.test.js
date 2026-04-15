@@ -36,14 +36,14 @@ function runTests() {
       '--modules', 'platform-configs, workflow-quality ,platform-configs',
       '--with', 'lang:typescript',
       '--without', 'capability:media',
-      '--config', 'ecc-install.json',
+      '--config', 'vcp-install.json',
       '--dry-run',
       '--json'
     ]);
 
     assert.strictEqual(parsed.target, 'cursor');
     assert.strictEqual(parsed.profileId, 'developer');
-    assert.strictEqual(parsed.configPath, 'ecc-install.json');
+    assert.strictEqual(parsed.configPath, 'vcp-install.json');
     assert.deepStrictEqual(parsed.moduleIds, ['platform-configs', 'workflow-quality']);
     assert.deepStrictEqual(parsed.includeComponentIds, ['lang:typescript']);
     assert.deepStrictEqual(parsed.excludeComponentIds, ['capability:media']);
@@ -93,9 +93,9 @@ function runTests() {
       includeComponentIds: ['framework:nextjs'],
       excludeComponentIds: ['capability:media'],
       languages: [],
-      configPath: '/workspace/app/ecc-install.json',
+      configPath: '/workspace/app/vcp-install.json',
       config: {
-        path: '/workspace/app/ecc-install.json',
+        path: '/workspace/app/vcp-install.json',
         target: 'claude',
         profileId: 'developer',
         moduleIds: ['workflow-quality'],
@@ -110,7 +110,7 @@ function runTests() {
     assert.deepStrictEqual(request.moduleIds, ['workflow-quality', 'platform-configs']);
     assert.deepStrictEqual(request.includeComponentIds, ['lang:typescript', 'framework:nextjs']);
     assert.deepStrictEqual(request.excludeComponentIds, ['capability:orchestration', 'capability:media']);
-    assert.strictEqual(request.configPath, '/workspace/app/ecc-install.json');
+    assert.strictEqual(request.configPath, '/workspace/app/vcp-install.json');
   })) passed++; else failed++;
 
   if (test('validates explicit module IDs against the manifest catalog', () => {

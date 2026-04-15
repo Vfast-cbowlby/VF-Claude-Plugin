@@ -14,7 +14,7 @@ const { getInstallTargetAdapter } = require('./install-targets/registry');
 
 const LANGUAGE_NAME_PATTERN = /^[a-zA-Z0-9_-]+$/;
 const EXCLUDED_GENERATED_SOURCE_SUFFIXES = [
-  '/ecc-install-state.json',
+  '/vcp-install-state.json',
   '/ecc/install-state.json',
 ];
 

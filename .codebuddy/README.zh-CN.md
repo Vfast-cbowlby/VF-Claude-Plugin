@@ -69,7 +69,7 @@ cd /path/to/your/project
 ├── agents/             # 智能体文件（复用自项目根目录）
 ├── skills/             # 技能文件（复用自 skills/）
 ├── rules/              # 规则文件（从 rules/ 扁平化）
-├── ecc-install-state.json  # 安装状态跟踪
+├── vcp-install-state.json  # 安装状态跟踪
 ├── install.sh          # 旧版安装脚本
 ├── uninstall.sh        # 旧版卸载脚本
 └── README.zh-CN.md     # 此文件

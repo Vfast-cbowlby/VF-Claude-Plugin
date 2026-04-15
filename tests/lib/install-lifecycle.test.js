@@ -64,7 +64,7 @@ function runTests() {
 
     try {
       const claudeStatePath = path.join(homeDir, '.claude', 'ecc', 'install-state.json');
-      const cursorStatePath = path.join(projectRoot, '.cursor', 'ecc-install-state.json');
+      const cursorStatePath = path.join(projectRoot, '.cursor', 'vcp-install-state.json');
 
       writeState(claudeStatePath, {
         adapter: { id: 'claude-home', target: 'claude', kind: 'home' },
@@ -133,7 +133,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       fs.mkdirSync(targetRoot, { recursive: true });
 
       writeState(statePath, {
@@ -250,7 +250,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       const sourcePath = path.join(REPO_ROOT, '.cursor', 'hooks.json');
       const destinationPath = path.join(targetRoot, 'hooks.json');
       fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
@@ -311,7 +311,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       fs.mkdirSync(targetRoot, { recursive: true });
 
       writeState(statePath, {
@@ -417,7 +417,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       const destinationPath = path.join(targetRoot, 'hooks.json');
       fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
       fs.writeFileSync(destinationPath, JSON.stringify({
@@ -492,7 +492,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       const destinationPath = path.join(targetRoot, 'legacy-note.txt');
       fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
       fs.writeFileSync(destinationPath, 'stale');
@@ -550,7 +550,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       const destinationPath = path.join(targetRoot, 'hooks.json');
       fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
       fs.writeFileSync(destinationPath, JSON.stringify({
@@ -679,7 +679,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       const destinationPath = path.join(targetRoot, 'legacy-note.txt');
       fs.mkdirSync(targetRoot, { recursive: true });
 

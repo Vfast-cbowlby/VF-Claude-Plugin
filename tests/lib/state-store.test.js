@@ -13,7 +13,7 @@ const {
   resolveStateStorePath,
 } = require('../../scripts/lib/state-store');
 
-const ECC_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'ecc.js');
+const ECC_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'vcp.js');
 const STATUS_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'status.js');
 const SESSIONS_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'sessions-cli.js');
 
@@ -460,7 +460,7 @@ async function runTests() {
     }
   })) passed += 1; else failed += 1;
 
-  if (await test('ecc CLI delegates the new status and sessions subcommands', async () => {
+  if (await test('vcp CLI delegates the new status and sessions subcommands', async () => {
     const testDir = createTempDir('ecc-state-cli-');
     const dbPath = path.join(testDir, 'state.db');
 

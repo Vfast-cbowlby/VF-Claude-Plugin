@@ -19,7 +19,7 @@ Start here: <repo-link>
 
 ```text
 If you evaluate agent tooling, use blended distribution metrics:
-- npm installs (`ecc-universal`, `ecc-agentshield`)
+- npm installs (`vcp`, `ecc-agentshield`)
 - GitHub App installs
 - repo adoption (stars/forks/contributors)
 

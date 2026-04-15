@@ -52,7 +52,7 @@ your-project/
 │   │   ├── code-reviewer.md
 │   │   ├── tdd-guide.md
 │   │   └── ...
-│   └── ecc-install-state.json     # tracks what ECC installed
+│   └── vcp-install-state.json     # tracks what ECC installed
 ```
 
 ## The `openai.yaml` Agent Config
@@ -103,7 +103,7 @@ node scripts/uninstall.js --target antigravity
 
 ### Install State
 
-The installer writes `.agent/ecc-install-state.json` to track which files ECC owns. This enables safe uninstall and repair — ECC will never touch files it didn't create.
+The installer writes `.agent/vcp-install-state.json` to track which files ECC owns. This enables safe uninstall and repair — ECC will never touch files it didn't create.
 
 ## Adding Custom Skills for Antigravity
 
@@ -129,14 +129,14 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for the full contribution guide.
 | Rules format | Nested dirs | Flat | Flat | Flat |
 | Commands | `commands/` | N/A | N/A | `workflows/` |
 | Agents/Skills | `agents/` | N/A | N/A | `skills/` |
-| Install state | `ecc-install-state.json` | `ecc-install-state.json` | `ecc-install-state.json` | `ecc-install-state.json` |
+| Install state | `vcp-install-state.json` | `vcp-install-state.json` | `vcp-install-state.json` | `vcp-install-state.json` |
 
 ## Troubleshooting
 
 ### Skills not loading in Antigravity
 
 - Verify the `.agent/` directory exists in your project root (not home directory)
-- Check that `ecc-install-state.json` was created — if missing, re-run the installer
+- Check that `vcp-install-state.json` was created — if missing, re-run the installer
 - Ensure files have `.md` extension and valid frontmatter
 
 ### Rules not applying

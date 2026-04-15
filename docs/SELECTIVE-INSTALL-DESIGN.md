@@ -48,7 +48,7 @@ until the underlying module graph is split more finely.
 3. Keep one consistent UX across Claude, Cursor, Antigravity, Codex, and
    OpenCode.
 4. Keep installs inspectable, repairable, and uninstallable.
-5. Preserve backward compatibility with the current `ecc-install typescript`
+5. Preserve backward compatibility with the current `vcp-install typescript`
    style during rollout.
 
 ## Non-Goals
@@ -103,7 +103,7 @@ The plan should clearly show:
 Teams should be able to commit a project-level install config and use:
 
 ```bash
-ecc install --config ecc-install.json
+ecc install --config vcp-install.json
 ```
 
 That allows deterministic installs across contributors and CI.
@@ -238,7 +238,7 @@ Examples:
 ecc install --target claude --profile core
 ecc install --target cursor --profile developer --with lang:typescript --with framework:nextjs
 ecc install --target antigravity --with capability:security --with lang:python
-ecc install --config ecc-install.json
+ecc install --config vcp-install.json
 ```
 
 ### Plan CLI
@@ -275,8 +275,8 @@ Purpose:
 These legacy flows should still work during migration:
 
 ```bash
-ecc-install typescript
-ecc-install --target cursor typescript
+vcp-install typescript
+vcp-install --target cursor typescript
 ecc typescript
 ```
 
@@ -289,7 +289,7 @@ install-state the same way as modern installs.
 
 Recommended default:
 
-- `ecc-install.json`
+- `vcp-install.json`
 
 Optional future support:
 
@@ -299,7 +299,7 @@ Optional future support:
 
 ```json
 {
-  "$schema": "./schemas/ecc-install-config.schema.json",
+  "$schema": "./schemas/vcp-install-config.schema.json",
   "version": 1,
   "target": "cursor",
   "profile": "developer",
@@ -414,7 +414,7 @@ the current substrate into a cleaner user-facing component model.
 ### Feasible In Phase 1
 
 - profile + include/exclude selection
-- `ecc-install.json` config file parsing
+- `vcp-install.json` config file parsing
 - catalog/discovery command
 - alias mapping from user-facing component IDs to internal module sets
 - dry-run and JSON planning

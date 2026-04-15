@@ -52,7 +52,7 @@ What this means:
 Current install surfaces:
 
 - Claude Code plugin
-- `ecc-universal` on npm
+- `vcp` on npm
 - Codex plugin manifest
 - OpenCode package/plugin surface
 - AgentShield CLI + npm + GitHub Marketplace action

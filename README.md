@@ -99,7 +99,7 @@ npm install        # or: pnpm install | yarn install | bun install
 # .\install.ps1 --target gemini --profile full
 
 # npm-installed compatibility entrypoint also works cross-platform
-npx ecc-install typescript
+npx vcp-install typescript
 ```
 
 For manual install instructions see the README in the `rules/` folder. When copying rules manually, copy the whole language directory (for example `rules/common` or `rules/golang`), not the files inside it, so relative references keep working and filenames do not collide.
@@ -1046,13 +1046,13 @@ opencode
 
 **Option 2: Install as npm package**
 ```bash
-npm install ecc-universal
+npm install vcp
 ```
 
 Then add to your `opencode.json`:
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["vcp"]
 }
 ```
 

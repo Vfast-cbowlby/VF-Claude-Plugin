@@ -86,7 +86,7 @@ function runTests() {
 
   if (test('publishes ecc-install through the Node installer runtime for cross-platform npm usage', () => {
     const packageJson = JSON.parse(fs.readFileSync(PACKAGE_JSON, 'utf8'));
-    assert.strictEqual(packageJson.bin['ecc-install'], 'scripts/install-apply.js');
+    assert.strictEqual(packageJson.bin['vcp-install'], 'scripts/install-apply.js');
   })) passed++; else failed++;
 
   if (!powerShellCommand) {

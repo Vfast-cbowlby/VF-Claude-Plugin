@@ -98,7 +98,7 @@ function runTests() {
 
       const normalizedProjectRoot = fs.realpathSync(projectRoot);
       const managedPath = path.join(normalizedProjectRoot, '.cursor', 'hooks.json');
-      const statePath = path.join(normalizedProjectRoot, '.cursor', 'ecc-install-state.json');
+      const statePath = path.join(normalizedProjectRoot, '.cursor', 'vcp-install-state.json');
       const unrelatedPath = path.join(normalizedProjectRoot, '.cursor', 'custom-user-note.txt');
       fs.writeFileSync(unrelatedPath, 'leave me alone');
 
@@ -125,7 +125,7 @@ function runTests() {
       const targetRoot = path.join(projectRoot, '.cursor');
       fs.mkdirSync(targetRoot, { recursive: true });
       const normalizedTargetRoot = fs.realpathSync(targetRoot);
-      const statePath = path.join(normalizedTargetRoot, 'ecc-install-state.json');
+      const statePath = path.join(normalizedTargetRoot, 'vcp-install-state.json');
       const copiedPath = path.join(normalizedTargetRoot, 'managed-rule.md');
       const mergedPath = path.join(normalizedTargetRoot, 'hooks.json');
       const removedPath = path.join(normalizedTargetRoot, 'legacy-note.txt');
@@ -223,7 +223,7 @@ function runTests() {
       const targetRoot = path.join(projectRoot, '.cursor');
       fs.mkdirSync(targetRoot, { recursive: true });
       const normalizedTargetRoot = fs.realpathSync(targetRoot);
-      const statePath = path.join(normalizedTargetRoot, 'ecc-install-state.json');
+      const statePath = path.join(normalizedTargetRoot, 'vcp-install-state.json');
       const renderedPath = path.join(normalizedTargetRoot, 'generated.md');
       fs.writeFileSync(renderedPath, '# generated\n');
 

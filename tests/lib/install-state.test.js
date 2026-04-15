@@ -43,7 +43,7 @@ function runTests() {
     const state = createInstallState({
       adapter: { id: 'cursor-project' },
       targetRoot: '/repo/.cursor',
-      installStatePath: '/repo/.cursor/ecc-install-state.json',
+      installStatePath: '/repo/.cursor/vcp-install-state.json',
       request: {
         profile: 'developer',
         modules: ['orchestration'],
@@ -81,7 +81,7 @@ function runTests() {
 
   if (test('writes and reads install-state from disk', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'vcp-install-state.json');
 
     try {
       const state = createInstallState({
@@ -141,7 +141,7 @@ function runTests() {
     const state = createInstallState({
       adapter: { id: 'cursor-project' },
       targetRoot: '/repo/.cursor',
-      installStatePath: '/repo/.cursor/ecc-install-state.json',
+      installStatePath: '/repo/.cursor/vcp-install-state.json',
       request: {
         profile: null,
         modules: ['platform-configs'],
@@ -169,7 +169,7 @@ function runTests() {
 
   if (test('rejects invalid install-state payloads on read', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'vcp-install-state.json');
 
     try {
       fs.writeFileSync(statePath, JSON.stringify({ schemaVersion: 'ecc.install.v1' }, null, 2));
@@ -184,7 +184,7 @@ function runTests() {
 
   if (test('rejects unexpected properties and missing required request fields', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'vcp-install-state.json');
 
     try {
       fs.writeFileSync(statePath, JSON.stringify({
@@ -194,7 +194,7 @@ function runTests() {
         target: {
           id: 'cursor-project',
           root: '/repo/.cursor',
-          installStatePath: '/repo/.cursor/ecc-install-state.json',
+          installStatePath: '/repo/.cursor/vcp-install-state.json',
         },
         request: {
           modules: [],

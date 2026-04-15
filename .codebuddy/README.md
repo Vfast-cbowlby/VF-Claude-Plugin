@@ -69,7 +69,7 @@ Rules provide always-on rules and context that shape how the agent works with yo
 ├── agents/             # Agent files (reused from project root)
 ├── skills/             # Skill files (reused from skills/)
 ├── rules/              # Rule files (flattened from rules/)
-├── ecc-install-state.json  # Install state tracking
+├── vcp-install-state.json  # Install state tracking
 ├── install.sh          # Legacy install script
 ├── uninstall.sh        # Legacy uninstall script
 └── README.md           # This file

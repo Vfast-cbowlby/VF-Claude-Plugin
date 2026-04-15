@@ -137,7 +137,7 @@ function runTests() {
 
     try {
       const targetRoot = path.join(projectRoot, '.cursor');
-      const statePath = path.join(targetRoot, 'ecc-install-state.json');
+      const statePath = path.join(targetRoot, 'vcp-install-state.json');
       fs.mkdirSync(targetRoot, { recursive: true });
 
       writeState(statePath, {

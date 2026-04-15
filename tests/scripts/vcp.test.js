@@ -1,5 +1,5 @@
 /**
- * Tests for scripts/ecc.js
+ * Tests for scripts/vcp.js
  */
 
 const assert = require('assert');
@@ -8,7 +8,7 @@ const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'ecc.js');
+const SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'vcp.js');
 
 function runCli(args, options = {}) {
   const envOverrides = {
@@ -55,7 +55,7 @@ function runTest(name, fn) {
 }
 
 function main() {
-  console.log('\n=== Testing ecc.js ===\n');
+  console.log('\n=== Testing vcp.js ===\n');
 
   let passed = 0;
   let failed = 0;

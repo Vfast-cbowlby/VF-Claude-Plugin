@@ -5,6 +5,6 @@ module.exports = createInstallTargetAdapter({
   target: 'opencode',
   kind: 'home',
   rootSegments: ['.opencode'],
-  installStatePathSegments: ['ecc-install-state.json'],
+  installStatePathSegments: ['vcp-install-state.json'],
   nativeRootRelativePath: '.opencode',
 });

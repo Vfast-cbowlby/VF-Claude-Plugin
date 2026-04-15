@@ -109,9 +109,9 @@ function runTests() {
     assert.ok(parsed.operations.length > 0);
   })) passed++; else failed++;
 
-  if (test('loads planning intent from ecc-install.json', () => {
+  if (test('loads planning intent from vcp-install.json', () => {
     const configDir = path.join(__dirname, '..', 'fixtures', 'tmp-install-plan-config');
-    const configPath = path.join(configDir, 'ecc-install.json');
+    const configPath = path.join(configDir, 'vcp-install.json');
 
     try {
       require('fs').mkdirSync(configDir, { recursive: true });
@@ -136,9 +136,9 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('auto-detects planning intent from project ecc-install.json', () => {
+  if (test('auto-detects planning intent from project vcp-install.json', () => {
     const configDir = path.join(__dirname, '..', 'fixtures', 'tmp-install-plan-autodetect');
-    const configPath = path.join(configDir, 'ecc-install.json');
+    const configPath = path.join(configDir, 'vcp-install.json');
 
     try {
       require('fs').mkdirSync(configDir, { recursive: true });

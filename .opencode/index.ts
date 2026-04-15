@@ -10,13 +10,13 @@
  *
  * Option 1: Install via npm
  * ```bash
- * npm install ecc-universal
+ * npm install vcp
  * ```
  *
  * Then add to your opencode.json:
  * ```json
  * {
- *   "plugin": ["ecc-universal"]
+ *   "plugin": ["vcp"]
  * }
  * ```
  *
@@ -45,7 +45,7 @@ export const VERSION = "1.6.0"
 
 // Plugin metadata
 export const metadata = {
-  name: "ecc-universal",
+  name: "vcp",
   version: VERSION,
   description: "VF Claude Plugin plugin for OpenCode",
   author: "Vfast-cbowlby",

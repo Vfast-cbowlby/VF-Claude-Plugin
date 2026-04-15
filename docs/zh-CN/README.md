@@ -5,7 +5,7 @@
 [![Stars](https://img.shields.io/github/stars/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/stargazers)
 [![Forks](https://img.shields.io/github/forks/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/network/members)
 [![Contributors](https://img.shields.io/github/contributors/Vfast-cbowlby/VF-Claude-Plugin?style=flat)](https://github.com/Vfast-cbowlby/VF-Claude-Plugin/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads\&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![npm vcp](https://img.shields.io/npm/dw/vcp?label=vcp%20weekly%20downloads\&logo=npm)](https://www.npmjs.com/package/vcp)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads\&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -191,7 +191,7 @@ npm install        # or: pnpm install | yarn install | bun install
 # .\install.ps1 --target antigravity typescript
 
 # npm-installed compatibility entrypoint also works cross-platform
-npx ecc-install typescript
+npx vcp-install typescript
 ```
 
 手动安装说明请参阅 `rules/` 文件夹中的 README。
@@ -1172,14 +1172,14 @@ opencode
 **选项 2：作为 npm 包安装**
 
 ```bash
-npm install ecc-universal
+npm install vcp
 ```
 
 然后添加到您的 `opencode.json`：
 
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["vcp"]
 }
 ```
 

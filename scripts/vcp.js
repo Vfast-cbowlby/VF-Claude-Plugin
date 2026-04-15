@@ -76,7 +76,7 @@ Commands:
 ${PRIMARY_COMMANDS.map(command => `  ${command.padEnd(15)} ${COMMANDS[command].description}`).join('\n')}
 
 Compatibility:
-  ecc-install        Legacy install entrypoint retained for existing flows
+  vcp-install        Legacy install entrypoint retained for existing flows
   ecc [args...]      Without a command, args are routed to "install"
   ecc help <command> Show help for a specific command
 

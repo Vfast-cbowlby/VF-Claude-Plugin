@@ -1,5 +1,5 @@
 {
-  "name": "ecc-universal",
+  "name": "vcp",
   "version": "1.10.0",
   "description": "Complete collection of battle-tested Claude Code configs — agents, skills, hooks, rules, and legacy command shims evolved over 10+ months of intensive daily use by an Anthropic hackathon winner",
   "keywords": [
@@ -67,7 +67,7 @@
     "rules/",
     "schemas/",
     "scripts/ci/",
-    "scripts/ecc.js",
+    "scripts/vcp.js",
     "scripts/hooks/",
     "scripts/lib/",
     "scripts/claw.js",
@@ -100,11 +100,11 @@
     "llms.txt"
   ],
   "bin": {
-    "ecc": "scripts/ecc.js",
-    "ecc-install": "scripts/install-apply.js"
+    "vcp": "scripts/vcp.js",
+    "vcp-install": "scripts/install-apply.js"
   },
   "scripts": {
-    "postinstall": "echo '\\n  ecc-universal installed!\\n  Run: npx ecc typescript\\n  Compat: npx ecc-install typescript\\n  Docs: https://github.com/Vfast-cbowlby/VF-Claude-Plugin\\n'",
+    "postinstall": "echo '\\n  vcp installed!\\n  Run: npx vcp typescript\\n  Compat: npx vcp-install typescript\\n  Docs: https://github.com/Vfast-cbowlby/VF-Claude-Plugin\\n'",
     "catalog:check": "node scripts/ci/catalog.js --text",
     "catalog:sync": "node scripts/ci/catalog.js --write --text",
     "lint": "eslint . && markdownlint '**/*.md' --ignore node_modules",

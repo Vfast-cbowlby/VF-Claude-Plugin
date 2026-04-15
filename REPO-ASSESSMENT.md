@@ -159,7 +159,7 @@ The fork already has the EVALUATION.md and REPO-ASSESSMENT.md docs — that's fi
 
 ### Option C: Install from npm (simplest for fresh machines)
 ```bash
-npx ecc-universal install --profile developer
+npx vcp install --profile developer
 ```
 No need to clone the repo. This is the recommended install method for most users.
 

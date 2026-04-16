@@ -116,6 +116,10 @@ jobs:
           echo "next=$NEXT"       >> $GITHUB_OUTPUT
           echo "Next version: $CURRENT → $NEXT ($BUMP)"
 
+      - name: Install dependencies
+        if: steps.version.outputs.skip != 'true'
+        run: npm ci
+
       - name: Run release script
         if: steps.version.outputs.skip != 'true'
         run: bash scripts/release.sh ${{ steps.version.outputs.next }} --ci

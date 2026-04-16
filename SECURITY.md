@@ -10,11 +10,11 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in ECC, please report it responsibly.
+If you discover a security vulnerability, please report it responsibly.
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, email **<security@ecc.tools>** with:
+Instead, email **<corey.bowlby@verifast.com>** with:
 
 - A description of the vulnerability
 - Steps to reproduce
@@ -39,7 +39,7 @@ If the vulnerability is declined, we will explain why and provide guidance on wh
 
 This policy covers:
 
-- The ECC plugin and all scripts in this repository
+- The vcp plugin and all scripts in this repository
 - Hook scripts that execute on your machine
 - Install/uninstall/repair lifecycle scripts
 - MCP configurations shipped with ECC

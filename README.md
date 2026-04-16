@@ -60,7 +60,7 @@ Get up and running in under 2 minutes:
 
 ### Step 2: Install Rules and Hooks
 
-Rules and hook scripts are now **automatically kept in sync** by the `session-start-plugin-sync.js` hook included in this plugin. On every session start, the hook checks whether the installed plugin version has changed and, if so, re-runs `install-apply.js` to reinstall all ECC artifacts (rules, hooks, skills) into `~/.claude/` automatically.
+Rules and hook scripts are now **automatically kept in sync** by the `session-start-plugin-sync.js` hook included in this plugin. On every session start, the hook checks whether the installed plugin version has changed and, if so, re-runs `install-apply.js` to reinstall all VCP artifacts (rules, hooks, skills) into `~/.claude/` automatically.
 
 For your first install, or to install manually at any time:
 
@@ -108,10 +108,10 @@ For manual install instructions see the README in the `rules/` folder. When copy
 
 ```bash
 # Skills are the primary workflow surface.
-# Existing slash-style command names still work while ECC migrates off commands/.
+# Existing slash-style command names still work while VCP migrates off commands/.
 
 # Plugin install uses the namespaced form
-/ecc:plan "Add user authentication"
+/VCP:plan "Add user authentication"
 
 # Manual install keeps the shorter slash form:
 # /plan "Add user authentication"
@@ -177,10 +177,10 @@ Use runtime flags to tune strictness or disable specific hooks temporarily:
 
 ```bash
 # Hook strictness profile (default: standard)
-export ECC_HOOK_PROFILE=standard
+export VCP_HOOK_PROFILE=standard
 
 # Comma-separated hook IDs to disable
-export ECC_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
+export VCP_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 ```
 
 ---
@@ -262,7 +262,7 @@ VF-Claude-Plugin/
 |   |-- springboot-security/        # Spring Boot security (NEW)
 |   |-- springboot-tdd/             # Spring Boot TDD (NEW)
 |   |-- springboot-verification/    # Spring Boot verification (NEW)
-|   |-- configure-ecc/              # Interactive installation wizard (NEW)
+|   |-- configure-VCP/              # Interactive installation wizard (NEW)
 |   |-- security-scan/              # AgentShield security auditor integration (NEW)
 |   |-- java-coding-standards/     # Java coding standards (NEW)
 |   |-- jpa-patterns/              # JPA/Hibernate patterns (NEW)
@@ -370,7 +370,7 @@ VF-Claude-Plugin/
 |   |   |-- pre-compact.js                # Pre-compaction state saving
 |   |   |-- suggest-compact.js            # Strategic compaction suggestions
 |   |   |-- evaluate-session.js           # Extract patterns from sessions
-|   |   |-- session-start-plugin-sync.js  # Auto-reinstall ECC artifacts when plugin version changes
+|   |   |-- session-start-plugin-sync.js  # Auto-reinstall VCP artifacts when plugin version changes
 |   |   |-- pre-edit-debug-guard.js       # Hard-block on adding debug instrumentation to source files
 |   |   |-- pre-prompt-root-cause-reminder.js # Remind to invoke root-cause-before-fix on failure signals
 |   |   |-- pre-bash-git-push-reminder.js # Pre-push checklist: ITs, Docker images, script+fixture, hotfixes
@@ -537,13 +537,13 @@ To add hooks manually, copy the entries from `hooks/hooks.json` into your `~/.cl
 
 Copy desired MCP server definitions from `mcp-configs/mcp-servers.json` into your official Claude Code config in `~/.claude/settings.json`, or into a project-scoped `.mcp.json` if you want repo-local MCP access.
 
-If you already run your own copies of ECC-bundled MCPs, set:
+If you already run your own copies of VCP-bundled MCPs, set:
 
 ```bash
-export ECC_DISABLED_MCPS="github,context7,exa,playwright,sequential-thinking,memory"
+export VCP_DISABLED_MCPS="github,context7,exa,playwright,sequential-thinking,memory"
 ```
 
-ECC-managed install and Codex sync flows will skip or remove those bundled servers instead of re-adding duplicates.
+VCP-managed install and Codex sync flows will skip or remove those bundled servers instead of re-adding duplicates.
 
 **Important:** Replace `YOUR_*_HERE` placeholders with your actual API keys.
 
@@ -568,7 +568,7 @@ You are a senior code reviewer...
 
 ### Skills
 
-Skills are the primary workflow surface. They can be invoked directly, suggested automatically, and reused by agents. ECC still ships `commands/` during migration, but new workflow development should land in `skills/` first.
+Skills are the primary workflow surface. They can be invoked directly, suggested automatically, and reused by agents. VCP still ships `commands/` during migration, but new workflow development should land in `skills/` first.
 
 ```markdown
 # TDD Workflow
@@ -618,8 +618,8 @@ Not sure where to start? Use this quick reference. Skills are the canonical work
 
 | I want to... | Use this command | Agent used |
 |--------------|-----------------|------------|
-| Plan a new feature | `/ecc:plan "Add auth"` | planner |
-| Design system architecture | `/ecc:plan` + architect agent | architect |
+| Plan a new feature | `/VCP:plan "Add auth"` | planner |
+| Design system architecture | `/VCP:plan` + architect agent | architect |
 | Write code with tests first | `/tdd` | tdd-guide |
 | Review code I just wrote | `/code-review` | code-reviewer |
 | Fix a failing build | `/build-fix` | build-error-resolver |
@@ -634,11 +634,11 @@ Not sure where to start? Use this quick reference. Skills are the canonical work
 
 ### Common Workflows
 
-Slash forms below are shown because they are still the fastest familiar entrypoint. Under the hood, ECC is shifting these workflows toward skills-first definitions.
+Slash forms below are shown because they are still the fastest familiar entrypoint. Under the hood, VCP is shifting these workflows toward skills-first definitions.
 
 **Starting a new feature:**
 ```
-/ecc:plan "Add user authentication with OAuth"
+/VCP:plan "Add user authentication with OAuth"
                                               → planner creates implementation blueprint
 /tdd                                          → tdd-guide enforces write-tests-first
 /code-review                                  → code-reviewer checks your work
@@ -679,9 +679,9 @@ This is the most common issue. **Do NOT add a `"hooks"` field to `.claude-plugin
 </details>
 
 <details>
-<summary><b>Can I use ECC with Claude Code on a custom API endpoint or model gateway?</b></summary>
+<summary><b>Can I use VCP with Claude Code on a custom API endpoint or model gateway?</b></summary>
 
-Yes. ECC does not hardcode Anthropic-hosted transport settings. It runs locally through Claude Code's normal CLI/plugin surface, so it works with:
+Yes. VCP does not hardcode Anthropic-hosted transport settings. It runs locally through Claude Code's normal CLI/plugin surface, so it works with:
 
 - Anthropic-hosted Claude Code
 - Official Claude Code gateway setups using `ANTHROPIC_BASE_URL` and `ANTHROPIC_AUTH_TOKEN`
@@ -695,7 +695,7 @@ export ANTHROPIC_AUTH_TOKEN=your-token
 claude
 ```
 
-If your gateway remaps model names, configure that in Claude Code rather than in ECC. ECC's hooks, skills, commands, and rules are model-provider agnostic once the `claude` CLI is already working.
+If your gateway remaps model names, configure that in Claude Code rather than in VCP. VCP's hooks, skills, commands, and rules are model-provider agnostic once the `claude` CLI is already working.
 
 Official references:
 - [Claude Code LLM gateway docs](https://docs.anthropic.com/en/docs/claude-code/llm-gateway)
@@ -739,7 +739,7 @@ Each component is fully independent.
 <details>
 <summary><b>Does this work with Cursor / OpenCode / Codex / Antigravity?</b></summary>
 
-Yes. ECC is cross-platform:
+Yes. VCP is cross-platform:
 - **Cursor**: Pre-translated configs in `.cursor/`. See [Cursor IDE Support](#cursor-ide-support).
 - **Gemini CLI**: Experimental project-local support via `.gemini/GEMINI.md` and shared installer plumbing.
 - **OpenCode**: Full plugin support in `.opencode/`. See [OpenCode Support](#opencode-support).
@@ -789,7 +789,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for format and submission guidelines.
 
 ## Cursor IDE Support
 
-ECC provides **full Cursor IDE support** with hooks, rules, agents, skills, commands, and MCP configs adapted for Cursor's native format.
+VCP provides **full Cursor IDE support** with hooks, rules, agents, skills, commands, and MCP configs adapted for Cursor's native format.
 
 ### Quick Start (Cursor)
 
@@ -849,7 +849,7 @@ alwaysApply: false
 
 ## Codex macOS App + CLI Support
 
-ECC provides **first-class Codex support** for both the macOS app and CLI, with a reference configuration, Codex-specific AGENTS.md supplement, and shared skills.
+VCP provides **first-class Codex support** for both the macOS app and CLI, with a reference configuration, Codex-specific AGENTS.md supplement, and shared skills.
 
 ### Quick Start (Codex App + CLI)
 
@@ -857,19 +857,19 @@ ECC provides **first-class Codex support** for both the macOS app and CLI, with 
 # Run Codex CLI in the repo — AGENTS.md and .codex/ are auto-detected
 codex
 
-# Automatic setup: sync ECC assets (AGENTS.md, skills, MCP servers) into ~/.codex
-npm install && bash scripts/sync-ecc-to-codex.sh
-# or: pnpm install && bash scripts/sync-ecc-to-codex.sh
-# or: yarn install && bash scripts/sync-ecc-to-codex.sh
-# or: bun install && bash scripts/sync-ecc-to-codex.sh
+# Automatic setup: sync VCP assets (AGENTS.md, skills, MCP servers) into ~/.codex
+npm install && bash scripts/sync-VCP-to-codex.sh
+# or: pnpm install && bash scripts/sync-VCP-to-codex.sh
+# or: yarn install && bash scripts/sync-VCP-to-codex.sh
+# or: bun install && bash scripts/sync-VCP-to-codex.sh
 
 # Or manually: copy the reference config to your home directory
 cp .codex/config.toml ~/.codex/config.toml
 ```
 
-The sync script safely merges ECC MCP servers into your existing `~/.codex/config.toml` using an **add-only** strategy — it never removes or modifies your existing servers. Run with `--dry-run` to preview changes, or `--update-mcp` to force-refresh ECC servers to the latest recommended config.
+The sync script safely merges VCP MCP servers into your existing `~/.codex/config.toml` using an **add-only** strategy — it never removes or modifies your existing servers. Run with `--dry-run` to preview changes, or `--update-mcp` to force-refresh VCP servers to the latest recommended config.
 
-For Context7, ECC uses the canonical Codex section name `[mcp_servers.context7]` while still launching the `@upstash/context7-mcp` package. If you already have a legacy `[mcp_servers.context7-mcp]` entry, `--update-mcp` migrates it to the canonical section name.
+For Context7, VCP uses the canonical Codex section name `[mcp_servers.context7]` while still launching the `@upstash/context7-mcp` package. If you already have a legacy `[mcp_servers.context7-mcp]` entry, `--update-mcp` migrates it to the canonical section name.
 
 Codex macOS app:
 - Open this repository as your workspace.
@@ -928,7 +928,7 @@ Skills at `.agents/skills/` are auto-loaded by Codex:
 
 ### Key Limitation
 
-Codex does **not yet provide Claude-style hook execution parity**. ECC enforcement there is instruction-based via `AGENTS.md`, optional `model_instructions_file` overrides, and sandbox/approval settings.
+Codex does **not yet provide Claude-style hook execution parity**. VCP enforcement there is instruction-based via `AGENTS.md`, optional `model_instructions_file` overrides, and sandbox/approval settings.
 
 ### Multi-Agent Support
 
@@ -939,7 +939,7 @@ Current Codex builds support stable multi-agent workflows.
 - Point each role at a file under `.codex/agents/`
 - Use `/agent` in the CLI to inspect or steer child agents
 
-ECC ships three sample role configs:
+VCP ships three sample role configs:
 
 | Role | Purpose |
 |------|---------|
@@ -951,7 +951,7 @@ ECC ships three sample role configs:
 
 ## OpenCode Support
 
-ECC provides **full OpenCode support** including plugins and hooks.
+VCP provides **full OpenCode support** including plugins and hooks.
 
 ### Quick Start
 
@@ -1056,10 +1056,10 @@ Then add to your `opencode.json`:
 }
 ```
 
-That npm plugin entry enables ECC's published OpenCode plugin module (hooks/events and plugin tools).
-It does **not** automatically add ECC's full command/agent/instruction catalog to your project config.
+That npm plugin entry enables VCP's published OpenCode plugin module (hooks/events and plugin tools).
+It does **not** automatically add VCP's full command/agent/instruction catalog to your project config.
 
-For the full ECC OpenCode setup, either:
+For the full VCP OpenCode setup, either:
 - run OpenCode inside this repository, or
 - copy the bundled `.opencode/` config assets into your project and wire the `instructions`, `agent`, and `command` entries in `opencode.json`
 
@@ -1074,7 +1074,7 @@ For the full ECC OpenCode setup, either:
 
 ## Cross-Tool Feature Parity
 
-ECC is the **first plugin to maximize every major AI coding tool**. Here's how each harness compares:
+VCP is the **first plugin to maximize every major AI coding tool**. Here's how each harness compares:
 
 | Feature | Claude Code | Cursor IDE | Codex CLI | OpenCode |
 |---------|------------|------------|-----------|----------|

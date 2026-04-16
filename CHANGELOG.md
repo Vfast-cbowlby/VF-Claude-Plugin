@@ -185,3 +185,5 @@
 ## [Unreleased]
 
 - Auto-release pipeline now gates on CI success and triggers via workflow_dispatch
+
+<!-- pipeline verified -->

@@ -122,7 +122,13 @@ function mergeHookEntries(existingEntries, incomingEntries, pluginRoot) {
 
 function findHooksSourcePath(plan, hooksDestinationPath) {
   const operation = plan.operations.find(item => item.destinationPath === hooksDestinationPath);
-  return operation ? operation.sourcePath : null;
+  if (!operation) return null;
+  // Prefer hooks-template.json (contains ${CLAUDE_PLUGIN_ROOT} placeholders for install-time
+  // replacement) over hooks.json, which is intentionally kept empty so Claude Code does not
+  // attempt to load it as a plugin hook source and fail ${CLAUDE_PLUGIN_ROOT} validation.
+  const templatePath = path.join(path.dirname(operation.sourcePath), 'hooks-template.json');
+  if (fs.existsSync(templatePath)) return templatePath;
+  return operation.sourcePath;
 }
 
 function isMcpConfigPath(filePath) {

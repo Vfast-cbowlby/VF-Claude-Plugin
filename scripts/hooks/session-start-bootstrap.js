@@ -30,17 +30,19 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const CURRENT_PLUGIN_SLUG = 'ecc';
-const LEGACY_PLUGIN_SLUG = 'VF-Claude-Plugin';
+const CURRENT_PLUGIN_SLUG = 'vcp';
+const LEGACY_PLUGIN_SLUGS = ['VF-Claude-Plugin', 'ecc'];
 const KNOWN_PLUGIN_PATHS = [
   [CURRENT_PLUGIN_SLUG],
   [`${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`],
   ['marketplace', CURRENT_PLUGIN_SLUG],
-  [LEGACY_PLUGIN_SLUG],
-  [`${LEGACY_PLUGIN_SLUG}@${LEGACY_PLUGIN_SLUG}`],
-  ['marketplace', LEGACY_PLUGIN_SLUG],
+  ...LEGACY_PLUGIN_SLUGS.flatMap(s => [
+    [s],
+    [`${s}@${s}`],
+    ['marketplace', s],
+  ]),
 ];
-const CACHE_PLUGIN_SLUGS = [CURRENT_PLUGIN_SLUG, LEGACY_PLUGIN_SLUG];
+const CACHE_PLUGIN_SLUGS = [CURRENT_PLUGIN_SLUG, ...LEGACY_PLUGIN_SLUGS];
 
 // Read the raw JSON event from stdin
 const raw = fs.readFileSync(0, 'utf8');

@@ -54,8 +54,17 @@ Delete and rewrite any of these:
 ### Technical Guides
 
 - open with what the reader gets
-- use code, commands, screenshots, or concrete output in major sections
+- use code, commands, screenshots, concrete output, or SVG diagrams in major sections
 - end with actionable takeaways, not a soft recap
+
+### Diagrams
+
+- **Prefer SVG diagrams over Mermaid, ASCII art, or prose descriptions** for anything with more than 3 nodes or steps
+- SVG files are committed to an `assets/` subdirectory alongside the `.md` file and referenced as `![Alt](assets/filename.svg)`
+- Do not duplicate a diagram in both SVG and ASCII/Mermaid form — pick one and remove the other
+- Replace existing ASCII or code-block diagram representations when producing a polished version
+
+See skill: `svg-diagrams` for the full design system, color palette, layout patterns, and file conventions.
 
 ### Essays / Opinion
 

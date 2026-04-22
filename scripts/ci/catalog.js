@@ -608,6 +608,22 @@ function renderMarkdown(result) {
   }
 }
 
+function checkSkillCatalogEntries(readmeContent, catalog) {
+  const listedSkills = new Set();
+  const catalogSection = readmeContent.match(/^## Skills Catalog\b[\s\S]*?^---/m);
+  if (catalogSection) {
+    const entryPattern = /\|\s*`([a-z][a-z0-9-]+)`\s*\|/g;
+    let match;
+    while ((match = entryPattern.exec(catalogSection[0])) !== null) {
+      listedSkills.add(match[1]);
+    }
+  }
+
+  const allSkillNames = catalog.skills.files.map(f => f.split('/')[1]);
+  const missing = allSkillNames.filter(name => !listedSkills.has(name));
+  return missing;
+}
+
 function main() {
   const catalog = buildCatalog();
 
@@ -625,6 +641,10 @@ function main() {
     spec.parseExpectations(readFileOrThrow(spec.filePath))
   ));
   const checks = evaluateExpectations(catalog, expectations);
+
+  const readmeContent = readFileOrThrow(README_PATH);
+  const missingFromCatalog = checkSkillCatalogEntries(readmeContent, catalog);
+
   const result = { catalog, checks };
 
   if (OUTPUT_MODE === 'json') {
@@ -635,7 +655,14 @@ function main() {
     renderText(result);
   }
 
-  if (checks.some(check => !check.ok)) {
+  if (missingFromCatalog.length > 0) {
+    console.error('Skills missing from README Skills Catalog:');
+    for (const name of missingFromCatalog) {
+      console.error(`- ${name}  (add a row to the appropriate category table in README.md)`);
+    }
+  }
+
+  if (checks.some(check => !check.ok) || missingFromCatalog.length > 0) {
     process.exit(1);
   }
 }

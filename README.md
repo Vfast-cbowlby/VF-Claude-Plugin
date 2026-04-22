@@ -349,6 +349,8 @@ All 194 skills organized by domain. Add new skills to `skills/<name>/SKILL.md` �
 | `continuous-agent-loop` | Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls |
 | `council` | Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls |
 | `dispatching-parallel-agents` | When and how to parallelize work across subagents — decomposition, fan-out, merge patterns |
+| `dmux-workflows` | Multi-agent orchestration using dmux (tmux pane manager) — parallel agent workflows across Claude Code, Codex, and OpenCode |
+| `team-builder` | Interactive agent picker for composing and dispatching parallel teams |
 | `enterprise-agent-ops` | Operate long-lived agent workloads with observability, security boundaries, and lifecycle management |
 | `eval-harness` | Eval-driven development with structured test harnesses (Longform Guide) |
 | `gan-style-harness` | GAN-inspired Generator-Evaluator agent harness for building high-quality applications autonomously |
@@ -388,7 +390,6 @@ All 194 skills organized by domain. Add new skills to `skills/<name>/SKILL.md` �
 | `architecture-decision-records` | Capture architectural decisions as structured ADRs during Claude Code sessions |
 | `benchmark` | Measure performance baselines, detect regressions, and compare stack alternatives |
 | `blueprint` | Technical blueprint generation for new projects and features |
-| `brainstorming` | Structured brainstorming with visual companion and spec review |
 | `canary-watch` | Monitor a deployed URL for regressions after deploys, merges, or dependency upgrades |
 | `ck` | Persistent per-project memory for Claude Code — auto-loads context, tracks sessions with git activity |
 | `code-tour` | Create CodeTour `.tour` files — persona-targeted, step-by-step walkthroughs with real file and line anchors |
@@ -577,6 +578,7 @@ All 194 skills organized by domain. Add new skills to `skills/<name>/SKILL.md` �
 | `github-ops` | GitHub repository operations — issue triage, PR management, CI/CD, releases |
 | `google-workspace-ops` | Operate across Google Drive, Docs, Sheets, and Slides as one workflow surface |
 | `jira-integration` | Retrieve Jira tickets, update status, add comments, and transition issues via MCP |
+| `x-api` | X/Twitter API — posting tweets, threads, reading timelines, search, and analytics |
 
 ### Business & Operations
 
@@ -605,6 +607,20 @@ All 194 skills organized by domain. Add new skills to `skills/<name>/SKILL.md` �
 | `terminal-ops` | Evidence-first repo execution — run commands, debug CI failures, push narrow fixes |
 | `unified-notifications-ops` | Operate notifications across GitHub, Linear, and desktop as one ECC-native workflow |
 | `workspace-surface-audit` | Audit repo, MCP servers, plugins, and harness setup; recommend highest-value VCP components |
+
+### Product & Strategy
+
+| Skill | Description |
+|-------|-------------|
+| `brainstorming` | Structured brainstorming with visual companion and spec review |
+| `openclaw-persona-forge` | Build and manage AI personas using the OpenClaw framework |
+| `opensource-pipeline` | Open-source pipeline: fork, sanitize, and package private projects for safe public release |
+| `product-capability` | Translate PRD intent into an implementation-ready capability plan with constraints and invariants |
+| `product-lens` | Validate the "why" before building — product diagnostics and direction pressure-test |
+| `prompt-optimizer` | Optimize prompts for accuracy, cost, and reliability across models |
+| `seo` | Audit and implement SEO improvements — technical SEO, structured data, Core Web Vitals, keyword mapping |
+| `team-builder` | Interactive agent picker for composing and dispatching parallel teams |
+| `visa-doc-translate` | Translate visa application documents (images) to English and create a bilingual PDF |
 
 ### VCP Meta
 

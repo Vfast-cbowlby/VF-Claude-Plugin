@@ -120,7 +120,7 @@ For manual install instructions see the README in the `rules/` folder. When copy
 /plugin list VF-Claude-Plugin@VF-Claude-Plugin
 ```
 
-**That's it!** You now have access to 47 agents, 194 skills, and 79 legacy command shims.
+**That's it!** You now have access to 47 agents, 195 skills, and 79 legacy command shims.
 
 ### Multi-model commands require additional setup
 
@@ -224,83 +224,7 @@ VF-Claude-Plugin/
 |   |-- rust-build-resolver.md # Rust build error resolution
 |   |-- pytorch-build-resolver.md # PyTorch/CUDA training errors
 |
-|-- skills/           # Workflow definitions and domain knowledge
-|   |-- coding-standards/           # Language best practices
-|   |-- clickhouse-io/              # ClickHouse analytics, queries, data engineering
-|   |-- backend-patterns/           # API, database, caching patterns
-|   |-- frontend-patterns/          # React, Next.js patterns
-|   |-- frontend-slides/            # HTML slide decks and PPTX-to-web presentation workflows (NEW)
-|   |-- article-writing/            # Long-form writing in a supplied voice without generic AI tone (NEW)
-|   |-- content-engine/             # Multi-platform social content and repurposing workflows (NEW)
-|   |-- market-research/            # Source-attributed market, competitor, and investor research (NEW)
-|   |-- investor-materials/         # Pitch decks, one-pagers, memos, and financial models (NEW)
-|   |-- investor-outreach/          # Personalized fundraising outreach and follow-up (NEW)
-|   |-- continuous-learning/        # Auto-extract patterns from sessions (Longform Guide)
-|   |-- continuous-learning-v2/     # Instinct-based learning with confidence scoring
-|   |-- iterative-retrieval/        # Progressive context refinement for subagents
-|   |-- strategic-compact/          # Manual compaction suggestions (Longform Guide)
-|   |-- tdd-workflow/               # TDD methodology
-|   |-- security-review/            # Security checklist
-|   |-- eval-harness/               # Verification loop evaluation (Longform Guide)
-|   |-- verification-loop/          # Continuous verification (Longform Guide)
-|   |-- videodb/                   # Video and audio: ingest, search, edit, generate, stream (NEW)
-|   |-- golang-patterns/            # Go idioms and best practices
-|   |-- golang-testing/             # Go testing patterns, TDD, benchmarks
-|   |-- cpp-coding-standards/         # C++ coding standards from C++ Core Guidelines (NEW)
-|   |-- cpp-testing/                # C++ testing with GoogleTest, CMake/CTest (NEW)
-|   |-- django-patterns/            # Django patterns, models, views (NEW)
-|   |-- django-security/            # Django security best practices (NEW)
-|   |-- django-tdd/                 # Django TDD workflow (NEW)
-|   |-- django-verification/        # Django verification loops (NEW)
-|   |-- laravel-patterns/           # Laravel architecture patterns (NEW)
-|   |-- laravel-security/           # Laravel security best practices (NEW)
-|   |-- laravel-tdd/                # Laravel TDD workflow (NEW)
-|   |-- laravel-verification/       # Laravel verification loops (NEW)
-|   |-- python-patterns/            # Python idioms and best practices (NEW)
-|   |-- python-testing/             # Python testing with pytest (NEW)
-|   |-- springboot-patterns/        # Java Spring Boot patterns (NEW)
-|   |-- springboot-security/        # Spring Boot security (NEW)
-|   |-- springboot-tdd/             # Spring Boot TDD (NEW)
-|   |-- springboot-verification/    # Spring Boot verification (NEW)
-|   |-- configure-VCP/              # Interactive installation wizard (NEW)
-|   |-- security-scan/              # AgentShield security auditor integration (NEW)
-|   |-- java-coding-standards/     # Java coding standards (NEW)
-|   |-- jpa-patterns/              # JPA/Hibernate patterns (NEW)
-|   |-- postgres-patterns/         # PostgreSQL optimization patterns (NEW)
-|   |-- nutrient-document-processing/ # Document processing with Nutrient API (NEW)
-|   |-- docs/examples/project-guidelines-template.md  # Template for project-specific skills
-|   |-- database-migrations/         # Migration patterns (Prisma, Drizzle, Django, Go) (NEW)
-|   |-- api-design/                  # REST API design, pagination, error responses (NEW)
-|   |-- deployment-patterns/         # CI/CD, Docker, health checks, rollbacks (NEW)
-|   |-- docker-patterns/            # Docker Compose, networking, volumes, container security (NEW)
-|   |-- e2e-testing/                 # Playwright E2E patterns and Page Object Model (NEW)
-|   |-- content-hash-cache-pattern/  # SHA-256 content hash caching for file processing (NEW)
-|   |-- cost-aware-llm-pipeline/     # LLM cost optimization, model routing, budget tracking (NEW)
-|   |-- regex-vs-llm-structured-text/ # Decision framework: regex vs LLM for text parsing (NEW)
-|   |-- swift-actor-persistence/     # Thread-safe Swift data persistence with actors (NEW)
-|   |-- swift-protocol-di-testing/   # Protocol-based DI for testable Swift code (NEW)
-|   |-- search-first/               # Research-before-coding workflow (NEW)
-|   |-- skill-stocktake/            # Audit skills and commands for quality (NEW)
-|   |-- liquid-glass-design/         # iOS 26 Liquid Glass design system (NEW)
-|   |-- foundation-models-on-device/ # Apple on-device LLM with FoundationModels (NEW)
-|   |-- swift-concurrency-6-2/       # Swift 6.2 Approachable Concurrency (NEW)
-|   |-- perl-patterns/             # Modern Perl 5.36+ idioms and best practices (NEW)
-|   |-- perl-security/             # Perl security patterns, taint mode, safe I/O (NEW)
-|   |-- perl-testing/              # Perl TDD with Test2::V0, prove, Devel::Cover (NEW)
-|   |-- autonomous-loops/           # Autonomous loop patterns: sequential pipelines, PR loops, DAG orchestration (NEW)
-|   |-- plankton-code-quality/      # Write-time code quality enforcement with Plankton hooks (NEW)
-|   |-- brainstorming/              # Structured brainstorming with visual companion and spec review
-|   |-- executing-plans/            # Plan execution workflow and checkpoints
-|   |-- subagent-driven-development/ # Orchestrating implementation via subagents with quality review
-|   |-- systematic-debugging/       # Root-cause tracing, condition-based waiting, test-pressure patterns
-|   |-- writing-plans/              # Plan document authoring and review process
-|   |-- writing-skills/             # Skill authoring best practices and graphviz conventions
-|   |-- dispatching-parallel-agents/ # When and how to parallelize work across subagents
-|   |-- finishing-a-development-branch/ # Branch completion: merge/PR/keep/discard decision + worktree cleanup
-|   |-- receiving-code-review/      # Evaluating and implementing code review feedback
-|   |-- requesting-code-review/     # Dispatching code-reviewer subagent with precise context
-|   |-- using-git-worktrees/        # Full git worktree lifecycle: setup, baseline tests, cleanup
-|   |-- root-cause-before-fix/      # Mandatory root-cause analysis before any code modification
+|-- skills/           # 194 workflow skills — see Skills Catalog below
 |
 |-- commands/         # Legacy slash-entry shims; prefer skills/
 |   |-- tdd.md              # /tdd - Test-driven development
@@ -400,6 +324,310 @@ VF-Claude-Plugin/
 |
 |-- marketplace.json  # Self-hosted marketplace config (for /plugin marketplace add)
 ```
+
+---
+
+## Skills Catalog
+
+All 194 skills organized by domain. Add new skills to `skills/<name>/SKILL.md` — run `node scripts/ci/catalog.js --write` to update counts in this README after adding entries here.
+
+### AI & Agent Engineering
+
+| Skill | Description |
+|-------|-------------|
+| `agent-eval` | Head-to-head comparison of coding agents (Claude Code, Aider, Codex) on custom tasks with pass rate, cost, time, and consistency metrics |
+| `agent-harness-construction` | Design and optimize AI agent action spaces, tool definitions, and observation formatting for higher completion rates |
+| `agent-introspection-debugging` | Structured self-debugging workflow for AI agent failures: capture, diagnosis, contained recovery, and introspection reports |
+| `agent-payment-x402` | Add x402 payment execution to AI agents — per-task budgets, spending controls, and non-custodial wallets via MCP tools |
+| `agent-sort` | Build an evidence-backed VCP install plan by sorting skills, commands, rules, and hooks into DAILY vs LIBRARY buckets |
+| `agentic-engineering` | Operate as an agentic engineer using eval-first execution, decomposition, and cost-aware model routing |
+| `ai-first-engineering` | Engineering operating model for teams where AI agents generate a large share of implementation output |
+| `ai-regression-testing` | Regression testing strategies for AI-assisted development; sandbox-mode API testing and patterns to catch AI blind spots |
+| `autonomous-agent-harness` | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, and task queuing |
+| `autonomous-loops` | Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls |
+| `claude-devfleet` | Orchestrate multi-agent coding tasks via Claude DevFleet — plan, dispatch parallel agents in isolated worktrees, monitor |
+| `continuous-agent-loop` | Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls |
+| `council` | Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls |
+| `dispatching-parallel-agents` | When and how to parallelize work across subagents — decomposition, fan-out, merge patterns |
+| `enterprise-agent-ops` | Operate long-lived agent workloads with observability, security boundaries, and lifecycle management |
+| `eval-harness` | Eval-driven development with structured test harnesses (Longform Guide) |
+| `gan-style-harness` | GAN-inspired Generator-Evaluator agent harness for building high-quality applications autonomously |
+| `iterative-retrieval` | Progressive context refinement for subagents — retrieve, narrow, confirm before acting |
+| `nanoclaw-repl` | Operate and extend NanoClaw v2, ECC's zero-dependency session-aware REPL built on `claude -p` |
+| `ralphinho-rfc-pipeline` | RFC-driven multi-agent DAG execution pattern with quality gates and merge queues |
+| `safety-guard` | Prevent destructive operations when working on production systems or running agents autonomously |
+| `santa-method` | Multi-agent adversarial verification with convergence loop — two independent review agents must both pass |
+| `skill-comply` | Visualize whether skills, rules, and agent definitions are actually followed with behavioral compliance rates |
+| `subagent-driven-development` | Orchestrating implementation via subagents with quality review gates |
+| `verification-loop` | Continuous verification: build, test, lint, typecheck, security (Longform Guide) |
+
+### Writing & Content
+
+| Skill | Description |
+|-------|-------------|
+| `article-writing` | Long-form writing in a supplied voice without generic AI tone — articles, guides, blog posts, newsletters |
+| `brand-voice` | Source-derived writing style profiles from real posts, essays, and docs for voice consistency |
+| `content-engine` | Multi-platform social content and repurposing workflows |
+| `crosspost` | Multi-platform content distribution across X, LinkedIn, Threads, and Bluesky |
+| `deep-research` | Multi-source deep research with firecrawl and exa MCPs; synthesizes findings with source attribution |
+| `frontend-slides` | HTML slide decks and PPTX-to-web presentation workflows |
+| `investor-materials` | Pitch decks, one-pagers, memos, and financial models |
+| `investor-outreach` | Personalized fundraising outreach, follow-ups, and intro blurbs |
+| `manim-video` | Build reusable Manim explainers for technical concepts, graphs, and system diagrams |
+| `market-research` | Source-attributed market, competitor, and investor research |
+| `remotion-video-creation` | Best practices for Remotion — video creation in React; 29 domain-specific rules |
+| `video-editing` | AI-assisted video editing: cutting, structuring, and augmenting real footage via FFmpeg, Remotion, fal.ai |
+| `videodb` | Video and audio: ingest, search, edit, generate, and stream via VideoDB |
+| `writing-plans` | Plan document authoring and review process |
+| `writing-skills` | Skill authoring best practices, graphviz conventions, and testing skills with subagents |
+
+### Development Workflow
+
+| Skill | Description |
+|-------|-------------|
+| `architecture-decision-records` | Capture architectural decisions as structured ADRs during Claude Code sessions |
+| `benchmark` | Measure performance baselines, detect regressions, and compare stack alternatives |
+| `blueprint` | Technical blueprint generation for new projects and features |
+| `brainstorming` | Structured brainstorming with visual companion and spec review |
+| `canary-watch` | Monitor a deployed URL for regressions after deploys, merges, or dependency upgrades |
+| `ck` | Persistent per-project memory for Claude Code — auto-loads context, tracks sessions with git activity |
+| `code-tour` | Create CodeTour `.tour` files — persona-targeted, step-by-step walkthroughs with real file and line anchors |
+| `codebase-onboarding` | Analyze an unfamiliar codebase and generate a structured onboarding guide with architecture map |
+| `context-budget` | Audit Claude Code context window consumption and identify bloat across agents, skills, MCP servers |
+| `continuous-learning` | Auto-extract patterns from sessions into reusable skills (Longform Guide) |
+| `continuous-learning-v2` | Instinct-based learning with confidence scoring |
+| `executing-plans` | Plan execution workflow and checkpoints |
+| `finishing-a-development-branch` | Branch completion: merge/PR/keep/discard decision + worktree cleanup |
+| `git-workflow` | Git workflow patterns — branching strategies, commit conventions, merge vs rebase, conflict resolution |
+| `receiving-code-review` | Evaluating and implementing code review feedback |
+| `requesting-code-review` | Dispatching code-reviewer subagent with precisely crafted context |
+| `root-cause-before-fix` | Mandatory root-cause analysis before any code modification |
+| `rules-distill` | Scan skills to extract cross-cutting principles and distill them into rules |
+| `search-first` | Research-before-coding workflow — GitHub search, library docs, package registries first |
+| `skill-stocktake` | Audit skills and commands for quality and coverage |
+| `strategic-compact` | Manual compaction suggestions at logical breakpoints (Longform Guide) |
+| `svg-diagrams` | Create rich, polished SVG diagrams for technical documentation — architecture layers, data flow, routing flows |
+| `systematic-debugging` | Root-cause tracing, condition-based waiting, and test-pressure patterns |
+| `tdd-workflow` | TDD methodology: RED → GREEN → IMPROVE with 80%+ coverage |
+| `token-budget-advisor` | Optimize token usage and model routing for cost-aware LLM pipelines |
+| `using-git-worktrees` | Full git worktree lifecycle: setup, baseline tests, cleanup |
+
+### Frontend & Design
+
+| Skill | Description |
+|-------|-------------|
+| `browser-qa` | Automate visual testing and UI interaction verification using browser automation |
+| `click-path-audit` | Trace every user-facing button through its full state change sequence to find interaction bugs |
+| `design-system` | Generate or audit design systems, check visual consistency, and review styling PRs |
+| `frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality |
+| `frontend-patterns` | React, Next.js patterns and component composition |
+| `ui-demo` | Record polished UI demo videos using Playwright — cursor visible, natural pacing |
+
+### Go
+
+| Skill | Description |
+|-------|-------------|
+| `golang-patterns` | Go idioms, best practices, and production patterns |
+| `golang-testing` | Go testing patterns, TDD, benchmarks, and test organization |
+
+### Python & Django
+
+| Skill | Description |
+|-------|-------------|
+| `django-patterns` | Django patterns — models, views, serializers, DRF |
+| `django-security` | Django security best practices |
+| `django-tdd` | Django TDD workflow |
+| `django-verification` | Django verification loops |
+| `python-patterns` | Python idioms, type hints, and best practices |
+| `python-testing` | Python testing with pytest — unit, integration, fixtures, coverage |
+| `pytorch-patterns` | PyTorch deep learning patterns for training pipelines, model architectures, and data loading |
+
+### Java & Spring Boot
+
+| Skill | Description |
+|-------|-------------|
+| `java-coding-standards` | Java coding standards and idiomatic patterns |
+| `jpa-patterns` | JPA/Hibernate patterns, entity design, and query optimization |
+| `springboot-patterns` | Java Spring Boot architecture patterns |
+| `springboot-security` | Spring Boot security — JWT, OAuth2, method-level security |
+| `springboot-tdd` | Spring Boot TDD workflow |
+| `springboot-verification` | Spring Boot verification and integration testing loops |
+
+### Kotlin & Android
+
+| Skill | Description |
+|-------|-------------|
+| `android-clean-architecture` | Clean Architecture for Android and KMP — module structure, dependency rules, UseCases |
+| `compose-multiplatform-patterns` | Compose Multiplatform and Jetpack Compose patterns for KMP — state, navigation, theming |
+| `kotlin-coroutines-flows` | Kotlin Coroutines and Flow — structured concurrency, Flow operators, StateFlow, testing |
+| `kotlin-exposed-patterns` | JetBrains Exposed ORM — DSL queries, DAO pattern, transactions, HikariCP, Flyway |
+| `kotlin-ktor-patterns` | Ktor server — routing DSL, plugins, authentication, Koin DI, WebSockets, testApplication |
+| `kotlin-patterns` | Idiomatic Kotlin — null safety, coroutines, DSL builders, best practices |
+| `kotlin-testing` | Kotlin testing with Kotest, MockK, coroutine testing, property-based testing |
+
+### Swift & Apple
+
+| Skill | Description |
+|-------|-------------|
+| `foundation-models-on-device` | Apple on-device LLM with FoundationModels framework |
+| `liquid-glass-design` | iOS 26 Liquid Glass design system — materials, refraction, depth |
+| `swift-actor-persistence` | Thread-safe Swift data persistence with actors |
+| `swift-concurrency-6-2` | Swift 6.2 Approachable Concurrency patterns |
+| `swift-protocol-di-testing` | Protocol-based DI for testable Swift code |
+| `swiftui-patterns` | SwiftUI architecture, @Observable, navigation, performance, and modern UI patterns |
+
+### Flutter & Dart
+
+| Skill | Description |
+|-------|-------------|
+| `dart-flutter-patterns` | Production-ready Dart/Flutter — null safety, BLoC, Riverpod, GoRouter, Dio, Freezed |
+| `flutter-dart-code-review` | Library-agnostic Flutter/Dart code review checklist |
+
+### C++, Rust & .NET
+
+| Skill | Description |
+|-------|-------------|
+| `cpp-coding-standards` | C++ coding standards from the C++ Core Guidelines |
+| `cpp-testing` | C++ testing with GoogleTest and CMake/CTest |
+| `csharp-testing` | C# and .NET testing with xUnit, FluentAssertions, mocking, and integration tests |
+| `dotnet-patterns` | Idiomatic C# and .NET patterns, DI, async/await, and best practices |
+| `rust-patterns` | Idiomatic Rust — ownership, error handling, traits, concurrency, and performance |
+| `rust-testing` | Rust testing — unit, integration, async, property-based, mocking, and coverage |
+
+### PHP, Laravel & Perl
+
+| Skill | Description |
+|-------|-------------|
+| `laravel-patterns` | Laravel architecture patterns — service layer, repository pattern, events |
+| `laravel-plugin-discovery` | Discover and evaluate Laravel packages via LaraPlugins.io MCP |
+| `laravel-security` | Laravel security — authentication, authorization, input validation |
+| `laravel-tdd` | Laravel TDD workflow with PHPUnit and Pest |
+| `laravel-verification` | Laravel verification loops |
+| `perl-patterns` | Modern Perl 5.36+ idioms and best practices |
+| `perl-security` | Perl security — taint mode, safe I/O, input validation |
+| `perl-testing` | Perl TDD with Test2::V0, prove, and Devel::Cover |
+
+### TypeScript & Node.js
+
+| Skill | Description |
+|-------|-------------|
+| `backend-patterns` | API design, database, caching, and backend architecture patterns |
+| `bun-runtime` | Bun as runtime, package manager, bundler, and test runner |
+| `content-hash-cache-pattern` | SHA-256 content hash caching for deterministic file processing |
+| `cost-aware-llm-pipeline` | LLM cost optimization, model routing, and budget tracking |
+| `nestjs-patterns` | NestJS architecture — modules, controllers, providers, DTO validation, guards, interceptors |
+| `nextjs-turbopack` | Next.js 16+ and Turbopack — incremental bundling, FS caching, dev speed |
+| `nodejs-keccak256` | Prevent Ethereum hashing bugs in Node.js (sha3-256 ≠ keccak-256) |
+| `nuxt4-patterns` | Nuxt 4 patterns — hydration safety, SSR-safe data fetching, route rules |
+| `regex-vs-llm-structured-text` | Decision framework: when to use regex vs LLM for text parsing |
+
+### Database & Data
+
+| Skill | Description |
+|-------|-------------|
+| `clickhouse-io` | ClickHouse analytics — queries, data engineering, and performance |
+| `dashboard-builder` | Build monitoring dashboards that answer real operator questions for Grafana, SigNoz |
+| `data-scraper-agent` | Automated AI-powered data collection — scrape, enrich with LLM, store in Notion/Sheets/Supabase |
+| `database-migrations` | Migration patterns for Prisma, Drizzle, Django, and Go |
+| `postgres-patterns` | PostgreSQL optimization patterns — queries, indexes, and schema design |
+
+### API Design & Architecture
+
+| Skill | Description |
+|-------|-------------|
+| `api-connector-builder` | Build a new API connector matching the target repo's existing integration pattern |
+| `api-design` | REST API design — pagination, error responses, versioning |
+| `coding-standards` | Universal coding standards |
+| `deployment-patterns` | CI/CD, Docker, health checks, rollbacks, and zero-downtime deployments |
+| `docker-patterns` | Docker Compose, networking, volumes, and container security |
+| `e2e-testing` | Playwright E2E patterns and Page Object Model |
+| `hexagonal-architecture` | Ports & Adapters — domain boundaries, dependency inversion, testable use-case orchestration |
+| `mcp-server-patterns` | Build MCP servers with Node/TypeScript SDK — tools, resources, Zod validation |
+| `nutrient-document-processing` | Document processing with Nutrient API |
+
+### Security
+
+| Skill | Description |
+|-------|-------------|
+| `defi-amm-security` | Security checklist for Solidity AMM contracts — reentrancy, oracle manipulation, slippage |
+| `evm-token-decimals` | Prevent silent decimal mismatch bugs across EVM chains |
+| `hipaa-compliance` | HIPAA-specific entrypoint for PHI handling, covered entities, BAAs, and breach posture |
+| `llm-trading-agent-security` | Security for autonomous trading agents — prompt injection, spend limits, MEV protection |
+| `security-bounty-hunter` | Hunt for exploitable, bounty-worthy security issues — remotely reachable vulnerabilities |
+| `security-review` | Comprehensive security checklist |
+| `security-scan` | AgentShield security auditor integration |
+
+### Healthcare
+
+| Skill | Description |
+|-------|-------------|
+| `healthcare-cdss-patterns` | Clinical Decision Support System patterns — drug interactions, dose validation, clinical scoring |
+| `healthcare-emr-patterns` | EMR/EHR development patterns — encounter workflows, prescription generation, accessibility |
+| `healthcare-eval-harness` | Patient safety evaluation harness — CDSS accuracy, PHI exposure, clinical workflow integrity |
+| `healthcare-phi-compliance` | PHI and PII compliance — data classification, access control, audit trails, encryption |
+
+### Integrations & Tools
+
+| Skill | Description |
+|-------|-------------|
+| `claude-api` | Anthropic Claude API patterns for Python and TypeScript — Messages API, streaming, tool use |
+| `documentation-lookup` | Up-to-date library and framework docs via Context7 MCP |
+| `exa-search` | Neural search via Exa MCP for web, code, and company research |
+| `fal-ai-media` | Unified media generation via fal.ai — image, video, and audio |
+| `github-ops` | GitHub repository operations — issue triage, PR management, CI/CD, releases |
+| `google-workspace-ops` | Operate across Google Drive, Docs, Sheets, and Slides as one workflow surface |
+| `jira-integration` | Retrieve Jira tickets, update status, add comments, and transition issues via MCP |
+
+### Business & Operations
+
+| Skill | Description |
+|-------|-------------|
+| `automation-audit-ops` | Evidence-first automation inventory and overlap audit — jobs, hooks, connectors, MCP servers |
+| `carrier-relationship-management` | Carrier relationship management workflows |
+| `connections-optimizer` | Reorganize X and LinkedIn networks with pruning, add/follow recommendations, and warm outreach |
+| `customer-billing-ops` | Customer billing workflows — subscriptions, refunds, churn triage via Stripe |
+| `customs-trade-compliance` | Customs and trade compliance workflows |
+| `email-ops` | Evidence-first mailbox triage, drafting, send verification, and follow-up workflow |
+| `energy-procurement` | Energy procurement workflows |
+| `finance-billing-ops` | Evidence-first revenue, pricing, refunds, and billing-model truth workflow |
+| `inventory-demand-planning` | Inventory demand planning workflows |
+| `knowledge-ops` | Knowledge base management — ingestion, sync, and retrieval across storage layers |
+| `lead-intelligence` | AI-native lead intelligence pipeline — signal scoring, mutual ranking, warm path discovery |
+| `logistics-exception-management` | Logistics exception management workflows |
+| `market-research` | Source-attributed market, competitor, and investor research |
+| `messages-ops` | Evidence-first live messaging workflow — read texts/DMs, recover OTP codes |
+| `production-scheduling` | Production scheduling workflows |
+| `project-flow-ops` | Operate execution flow across GitHub and Linear — backlog control and PR triage |
+| `quality-nonconformance` | Quality nonconformance tracking workflows |
+| `research-ops` | Evidence-first current-state research — fresh facts, comparisons, and recommendations |
+| `returns-reverse-logistics` | Returns and reverse logistics workflows |
+| `social-graph-ranker` | Weighted social-graph ranking for warm intro discovery and network gap analysis |
+| `terminal-ops` | Evidence-first repo execution — run commands, debug CI failures, push narrow fixes |
+| `unified-notifications-ops` | Operate notifications across GitHub, Linear, and desktop as one ECC-native workflow |
+| `workspace-surface-audit` | Audit repo, MCP servers, plugins, and harness setup; recommend highest-value VCP components |
+
+### VCP Meta
+
+| Skill | Description |
+|-------|-------------|
+| `configure-ecc` | Interactive VCP installer — guides skill and rule selection, verifies paths |
+| `context-budget` | Audit context window consumption across agents, skills, and MCP servers |
+| `ecc-tools-cost-audit` | Evidence-first VCP burn and billing audit — premium-model leakage, duplicate jobs |
+| `hookify-rules` | Create and configure hookify rules and hooks |
+| `plankton-code-quality` | Write-time code quality enforcement with Plankton hooks |
+| `repo-scan` | Cross-stack source code asset audit — classifies files, detects embedded libraries |
+| `readme-catalog` | Keep the README Skills Catalog in sync with skills/ — run after adding, removing, or renaming skills |
+| `skill-comply` | Visualize whether skills, rules, and agents are actually followed with compliance rates |
+| `skill-stocktake` | Audit skills and commands for quality and coverage |
+
+### Blockchain & Web3
+
+| Skill | Description |
+|-------|-------------|
+| `defi-amm-security` | Security checklist for Solidity AMM contracts, liquidity pools, and swap flows |
+| `evm-token-decimals` | Prevent silent decimal mismatch bugs across EVM chains — runtime lookup, chain-aware caching |
+| `llm-trading-agent-security` | Security patterns for autonomous trading agents with wallet or transaction authority |
+| `nodejs-keccak256` | Prevent Ethereum hashing bugs in Node.js (sha3-256 ≠ keccak-256) |
 
 ---
 
@@ -971,7 +1199,7 @@ The configuration is automatically detected from `.opencode/opencode.json`.
 |---------|-------------|----------|--------|
 | Agents | PASS: 47 agents | PASS: 12 agents | **Claude Code leads** |
 | Commands | PASS: 79 commands | PASS: 31 commands | **Claude Code leads** |
-| Skills | PASS: 194 skills | PASS: 37 skills | **Claude Code leads** |
+| Skills | PASS: 195 skills | PASS: 37 skills | **Claude Code leads** |
 | Hooks | PASS: 8 event types | PASS: 11 events | **OpenCode has more!** |
 | Rules | PASS: 29 rules | PASS: 13 instructions | **Claude Code leads** |
 | MCP Servers | PASS: 14 servers | PASS: Full | **Full parity** |
@@ -1080,7 +1308,7 @@ VCP is the **first plugin to maximize every major AI coding tool**. Here's how e
 |---------|------------|------------|-----------|----------|
 | **Agents** | 47 | Shared (AGENTS.md) | Shared (AGENTS.md) | 12 |
 | **Commands** | 79 | Shared | Instruction-based | 31 |
-| **Skills** | 194 | Shared | 10 (native format) | 37 |
+| **Skills** | 195 | Shared | 10 (native format) | 37 |
 | **Hook Events** | 8 types | 15 types | None yet | 11 types |
 | **Hook Scripts** | 20+ scripts | 16 scripts (DRY adapter) | N/A | Plugin hooks |
 | **Rules** | 34 (common + lang) | 34 (YAML frontmatter) | Instruction-based | 13 instructions |

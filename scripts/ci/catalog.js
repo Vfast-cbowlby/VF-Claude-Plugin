@@ -609,19 +609,20 @@ function renderMarkdown(result) {
 }
 
 function checkSkillCatalogEntries(readmeContent, catalog) {
-  const listedSkills = new Set();
   const catalogSection = readmeContent.match(/^## Skills Catalog\b[\s\S]*?^---/m);
-  if (catalogSection) {
-    const entryPattern = /\|\s*`([a-z][a-z0-9-]+)`\s*\|/g;
-    let match;
-    while ((match = entryPattern.exec(catalogSection[0])) !== null) {
-      listedSkills.add(match[1]);
-    }
+  if (!catalogSection) {
+    return [];
+  }
+
+  const listedSkills = new Set();
+  const entryPattern = /\|\s*`([a-z][a-z0-9-]+)`\s*\|/g;
+  let match;
+  while ((match = entryPattern.exec(catalogSection[0])) !== null) {
+    listedSkills.add(match[1]);
   }
 
   const allSkillNames = catalog.skills.files.map(f => f.split('/')[1]);
-  const missing = allSkillNames.filter(name => !listedSkills.has(name));
-  return missing;
+  return allSkillNames.filter(name => !listedSkills.has(name));
 }
 
 function main() {

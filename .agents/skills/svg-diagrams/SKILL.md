@@ -206,9 +206,58 @@ Use for: request routing chains, webhook processing pipelines, service call sequ
 - A table already communicates the information more clearly
 - The user explicitly requests Mermaid or ASCII
 
+## Visual Inspection Before Publishing
+
+SVG does not wrap text automatically. Every text element must be manually measured before the file is committed. Failing to do this produces invisible overflow — the text renders outside its box and is silently cropped or bleeds into adjacent elements.
+
+### Step 1 — Measure before writing long strings
+
+Calculate the safe character limit for any text line before writing it:
+
+```
+available_width  = box_width - text_x_offset - right_margin(~15px)
+chars_per_pixel  ≈ 5.0px at font-size 10 · 5.5px at font-size 10.5 · 6.0px at font-size 11 · 6.5px at font-size 12.5
+safe_char_limit  = available_width ÷ chars_per_pixel
+```
+
+Example: box width 860px, text starts at x=180, font-size 10 → available = 860 − 180 − 15 = 665px → limit ≈ 133 chars.
+
+If your string exceeds the limit, **split it into multiple `<text>` elements** at incremental y positions (add ~15px per additional line).
+
+### Step 2 — Adjust box height after adding lines
+
+When a box needs an extra text line:
+1. Increase the `height` attribute on the parent `<rect>` by the line spacing (14–16px per extra line).
+2. Shift every element below that box down by the same amount — connectors, arrows, labels, and all subsequent boxes.
+3. Update the root `<svg height>` and the full-canvas background `<rect height>` to match the new total.
+
+### Step 3 — Open in a browser before committing
+
+Open the SVG file locally (`file:///...`) in Chrome or Firefox and visually scan:
+- No text running past the right edge of its box
+- No text clipped at the bottom of a box
+- Connector arrows still point to the correct positions after any height changes
+- All step numbers and badge labels are visible
+
+### Common overflow patterns to watch
+
+| Situation | Symptom | Fix |
+|---|---|---|
+| Many method names on one line | Text bleeds outside box | Split onto 2–3 lines, increase box height |
+| Provider field paths like `payload.balances.iso_currency_code` | Long dotted paths overflow | Abbreviate to `balances.iso_currency_code` or split |
+| Comma-separated class lists | 5+ class names overflow | Use `·` separator and wrap after 3–4 names |
+| Box height unchanged after adding a line | Bottom line clips | Always add 14–16px to box height per extra line |
+
+---
+
 ## Quality Gate
 
 Before committing:
+- [ ] Every text line measured against safe_char_limit for its font size and box width
+- [ ] Box heights increased for any boxes where text lines were added
+- [ ] All downstream element y-positions updated after any height changes
+- [ ] Canvas `<svg height>` and background `<rect height>` match the total diagram height
+- [ ] File opened in a browser — no visible text overflow or clipping
 - [ ] All text fits within its bounding box at the declared canvas size
 - [ ] Font sizes are 10px or larger
 - [ ] No external URLs or `<image>` references with remote `href`

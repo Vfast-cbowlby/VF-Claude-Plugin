@@ -1874,7 +1874,7 @@ async function runTests() {
 
   if (
     test('hooks.json has required event types', () => {
-      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks.json');
+      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
 
       assert.ok(hooks.hooks.PreToolUse, 'Should have PreToolUse hooks');
@@ -1890,7 +1890,7 @@ async function runTests() {
 
   if (
     test('SessionEnd marker hook is async and cleanup-safe', () => {
-      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks.json');
+      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
       const sessionEndHooks = hooks.hooks.SessionEnd.flatMap(entry => entry.hooks);
       const markerHook = sessionEndHooks.find(hook => hook.command.includes('session-end-marker.js'));
@@ -1905,7 +1905,7 @@ async function runTests() {
 
   if (
     test('all hook commands use node or approved shell wrappers', () => {
-      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks.json');
+      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
 
       const checkHooks = hookArray => {
@@ -1935,7 +1935,7 @@ async function runTests() {
 
   if (
     test('SessionStart hook uses safe inline resolver without plugin-tree scanning', () => {
-      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks.json');
+      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
       const sessionStartHook = hooks.hooks.SessionStart?.[0]?.hooks?.[0];
 
@@ -1965,7 +1965,7 @@ async function runTests() {
   else failed++;
   if (
     test('Stop and SessionEnd hooks use the safe inline resolver when plugin root may be unset', () => {
-      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks.json');
+      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
       const stopHooks = (hooks.hooks.Stop || []).flatMap(entry => entry.hooks || []);
       const sessionEndHooks = (hooks.hooks.SessionEnd || []).flatMap(entry => entry.hooks || []);
@@ -1984,7 +1984,7 @@ async function runTests() {
   else failed++;
   if (
     test('script references use CLAUDE_PLUGIN_ROOT variable or a safe inline resolver', () => {
-      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks.json');
+      const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
 
       const checkHooks = hookArray => {

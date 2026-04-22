@@ -218,7 +218,7 @@ async function runTests() {
   let failed = 0;
 
   const scriptsDir = path.join(__dirname, '..', '..', 'scripts', 'hooks');
-  const hooksJsonPath = path.join(__dirname, '..', '..', 'hooks', 'hooks.json');
+  const hooksJsonPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
   const hooks = JSON.parse(fs.readFileSync(hooksJsonPath, 'utf8'));
 
   // ==========================================

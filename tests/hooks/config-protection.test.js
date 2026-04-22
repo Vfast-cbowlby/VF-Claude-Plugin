@@ -28,6 +28,7 @@ function runHook(input, env = {}) {
     encoding: 'utf8',
     env: {
       ...process.env,
+      CLAUDE_PLUGIN_ROOT: path.join(__dirname, '..', '..'),
       ECC_HOOK_PROFILE: 'standard',
       ...env
     },

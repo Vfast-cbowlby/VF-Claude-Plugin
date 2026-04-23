@@ -1,6 +1,6 @@
 {
   "name": "vcp",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "Complete collection of battle-tested Claude Code configs — agents, skills, hooks, rules, and legacy command shims evolved over 10+ months of intensive daily use by an Anthropic hackathon winner",
   "keywords": [
     "claude-code",

@@ -1859,8 +1859,12 @@ async function runTests() {
     passed++;
   else failed++;
 
-  // hooks.json validation
-  console.log('\nhooks.json Validation:');
+  // Hook configuration validation
+  // hooks.json is intentionally empty in the repo (no ${CLAUDE_PLUGIN_ROOT} placeholders)
+  // so Claude Code does not fail when loading the plugin directory directly.
+  // hooks-template.json holds the actual definitions; the installer substitutes
+  // ${CLAUDE_PLUGIN_ROOT} and writes the result to ~/.claude/hooks/hooks.json.
+  console.log('\nHook Configuration Validation:');
 
   if (
     test('hooks.json is valid JSON', () => {
@@ -1873,7 +1877,7 @@ async function runTests() {
   else failed++;
 
   if (
-    test('hooks.json has required event types', () => {
+    test('hooks-template.json has required event types', () => {
       const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
 
@@ -1904,7 +1908,7 @@ async function runTests() {
   else failed++;
 
   if (
-    test('all hook commands use node or approved shell wrappers', () => {
+    test('all hook commands in hooks-template.json use node or approved shell wrappers', () => {
       const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
 
@@ -1983,7 +1987,7 @@ async function runTests() {
     passed++;
   else failed++;
   if (
-    test('script references use CLAUDE_PLUGIN_ROOT variable or a safe inline resolver', () => {
+    test('hooks-template.json script references use CLAUDE_PLUGIN_ROOT variable or a safe inline resolver', () => {
       const hooksPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
       const hooks = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
 

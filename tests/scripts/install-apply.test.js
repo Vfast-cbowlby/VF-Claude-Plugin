@@ -630,7 +630,7 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('fails when source hooks.json root is not an object before copying files', () => {
+  if (test('fails when source hooks-template.json root is not an object before copying files', () => {
     const homeDir = createTempDir('install-apply-home-');
     const projectDir = createTempDir('install-apply-project-');
     const sourceHooksPath = path.join(REPO_ROOT, 'hooks', 'hooks-template.json');

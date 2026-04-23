@@ -218,6 +218,9 @@ async function runTests() {
   let failed = 0;
 
   const scriptsDir = path.join(__dirname, '..', '..', 'scripts', 'hooks');
+  // hooks-template.json holds the authoritative hook definitions with ${CLAUDE_PLUGIN_ROOT}
+  // placeholders. hooks.json is intentionally kept empty in the repo so Claude Code does not
+  // try to execute unresolved placeholders when loading the plugin directory directly.
   const hooksJsonPath = path.join(__dirname, '..', '..', 'hooks', 'hooks-template.json');
   const hooks = JSON.parse(fs.readFileSync(hooksJsonPath, 'utf8'));
 

@@ -28,6 +28,8 @@ function runHook(input, env = {}) {
     encoding: 'utf8',
     env: {
       ...process.env,
+      // Pin to repo root so ambient CLAUDE_PLUGIN_ROOT (installed plugin cache) does not
+      // redirect run-with-flags.js to the wrong script path during local development.
       CLAUDE_PLUGIN_ROOT: path.join(__dirname, '..', '..'),
       ECC_HOOK_PROFILE: 'standard',
       ...env

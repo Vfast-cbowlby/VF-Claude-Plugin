@@ -1,6 +1,6 @@
 {
   "name": "vcp",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "description": "VF Claude Plugin (ECC) plugin for OpenCode - agents, commands, hooks, and skills",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

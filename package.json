@@ -121,12 +121,12 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
-    "ajv": "^8.18.0",
+    "ajv": "^8.20.0",
     "sql.js": "^1.14.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@opencode-ai/plugin": "^1.14.20",
+    "@opencode-ai/plugin": "^1.14.30",
     "@types/node": "^25.5.2",
     "c8": "^11.0.0",
     "eslint": "^10.2.1",

@@ -14,7 +14,7 @@
       "name": "VF-Claude-Plugin",
       "source": "./",
       "description": "The most comprehensive Claude Code plugin — 38 agents, 156 skills, 72 legacy command shims, selective install profiles, and production-ready hooks for TDD, security scanning, code review, and continuous learning",
-      "version": "1.12.3",
+      "version": "1.13.0",
       "author": {
         "name": "Corey Bowlby",
         "email": "corey.bowlby@verifast.com"

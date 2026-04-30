@@ -16,11 +16,11 @@ let currentVersion = null;
 try {
   const pkg = JSON.parse(fs.readFileSync(path.join(PACKAGE_ROOT, 'package.json'), 'utf8'));
   currentVersion = pkg.version || null;
-} catch (_) {}
+} catch (_) { /* intentional noop */ }
 
 const trackerPath = path.join(os.homedir(), '.claude', 'vcp', 'installed-vcp-version.txt');
 let lastDeployed = null;
-try { lastDeployed = fs.readFileSync(trackerPath, 'utf8').trim() || null; } catch (_) {}
+try { lastDeployed = fs.readFileSync(trackerPath, 'utf8').trim() || null; } catch (_) { /* intentional noop */ }
 
 if (currentVersion && currentVersion === lastDeployed) {
   process.stdout.write(`\n  [VCP] v${currentVersion} already installed — skipping.\n\n`);
@@ -42,6 +42,6 @@ if (result.error || result.status !== 0) {
   try {
     fs.mkdirSync(path.dirname(trackerPath), { recursive: true });
     fs.writeFileSync(trackerPath, currentVersion || 'unknown');
-  } catch (_) {}
+  } catch (_) { /* intentional noop */ }
   process.stdout.write(`\n  [VCP] Core setup complete! Run 'npx vcp' for language-specific rules.\n\n`);
 }

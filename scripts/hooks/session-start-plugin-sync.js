@@ -56,13 +56,13 @@ function resolvePluginRoot() {
         }
       }
     }
-  } catch (_) {}
+  } catch (_) { /* intentional noop */ }
 
   return null;
 }
 
 let stdinData = '';
-try { stdinData = fs.readFileSync(0, 'utf8'); } catch (_) {}
+try { stdinData = fs.readFileSync(0, 'utf8'); } catch (_) { /* intentional noop */ }
 
 function passThrough() {
   if (stdinData) process.stdout.write(stdinData);

@@ -88,6 +88,7 @@
     "scripts/harness-audit.js",
     "scripts/session-inspect.js",
     "scripts/uninstall.js",
+    "scripts/post-install.js",
     "skills/",
     "AGENTS.md",
     ".claude-plugin/plugin.json",
@@ -104,7 +105,7 @@
     "vcp-install": "scripts/install-apply.js"
   },
   "scripts": {
-    "postinstall": "echo '\\n  vcp installed!\\n  Run: npx vcp typescript\\n  Compat: npx vcp-install typescript\\n  Docs: https://github.com/Vfast-cbowlby/VF-Claude-Plugin\\n'",
+    "postinstall": "node scripts/post-install.js",
     "catalog:check": "node scripts/ci/catalog.js --text",
     "catalog:sync": "node scripts/ci/catalog.js --write --text",
     "lint": "eslint . && markdownlint '**/*.md' --ignore node_modules",

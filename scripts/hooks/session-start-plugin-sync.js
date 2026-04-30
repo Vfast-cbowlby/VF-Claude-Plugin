@@ -2,11 +2,12 @@
 /**
  * session-start-plugin-sync.js
  *
- * Reinstalls VCP plugin artifacts (rules, hooks, agents, commands, skills) when
- * the VF-Claude-Plugin version changes after a `claude plugin update` run.
+ * Installs or reinstalls VCP plugin artifacts when:
+ *   - The VF-Claude-Plugin version has changed (upgrade case), OR
+ *   - No version was ever tracked AND no rules are installed (fresh install case)
  *
- * Fast path: version unchanged → passes stdin through and exits in <100ms.
- * Slow path: version changed   → runs install-apply.js, updates tracker, exits.
+ * Fast path: already up-to-date -> pass stdin through and exit in <100ms.
+ * Slow path: install needed -> npm install (if required) + install-apply.js -> exit.
  *
  * Version tracker: ~/.claude/vcp/installed-vcp-version.txt
  */
@@ -19,17 +20,49 @@ const os = require('os');
 const { spawnSync } = require('child_process');
 
 const homeDir = os.homedir();
-const installedPluginsPath = path.join(homeDir, '.claude', 'plugins', 'installed_plugins.json');
-const versionTrackerPath = path.join(homeDir, '.claude', 'vcp', 'installed-vcp-version.txt');
+const claudeDir = path.join(homeDir, '.claude');
+const installedPluginsPath = path.join(claudeDir, 'plugins', 'installed_plugins.json');
+const versionTrackerPath = path.join(claudeDir, 'vcp', 'installed-vcp-version.txt');
+const rulesCorePath = path.join(claudeDir, 'rules', 'common');
 
-// Prefer CLAUDE_PLUGIN_ROOT (set by the VCP session-start bootstrap) over fallback
-const pluginRoot = (process.env.CLAUDE_PLUGIN_ROOT || '').trim() ||
-  path.join(homeDir, '.claude', 'plugins', 'marketplaces', 'VF-Claude-Plugin');
-const installScript = path.join(pluginRoot, 'scripts', 'install-apply.js');
+const PLUGIN_SLUGS = ['vcp', 'VF-Claude-Plugin', 'ecc'];
 
-// Read stdin — required by the Claude Code hook protocol
+function resolvePluginRoot() {
+  const envRoot = (process.env.CLAUDE_PLUGIN_ROOT || '').trim();
+  if (envRoot && fs.existsSync(path.join(envRoot, 'scripts', 'install-apply.js'))) {
+    return envRoot;
+  }
+
+  for (const slug of PLUGIN_SLUGS) {
+    for (const rel of [slug, `${slug}@${slug}`, path.join('marketplace', slug)]) {
+      const candidate = path.join(claudeDir, 'plugins', rel);
+      if (fs.existsSync(path.join(candidate, 'scripts', 'install-apply.js'))) {
+        return candidate;
+      }
+    }
+  }
+
+  try {
+    for (const slug of PLUGIN_SLUGS) {
+      const cacheBase = path.join(claudeDir, 'plugins', 'cache', slug);
+      for (const org of fs.readdirSync(cacheBase, { withFileTypes: true })) {
+        if (!org.isDirectory()) continue;
+        for (const ver of fs.readdirSync(path.join(cacheBase, org.name), { withFileTypes: true })) {
+          if (!ver.isDirectory()) continue;
+          const candidate = path.join(cacheBase, org.name, ver.name);
+          if (fs.existsSync(path.join(candidate, 'scripts', 'install-apply.js'))) {
+            return candidate;
+          }
+        }
+      }
+    }
+  } catch (_) {}
+
+  return null;
+}
+
 let stdinData = '';
-try { stdinData = fs.readFileSync(0, 'utf8'); } catch (_) { /* stdin not available — safe to ignore */ }
+try { stdinData = fs.readFileSync(0, 'utf8'); } catch (_) {}
 
 function passThrough() {
   if (stdinData) process.stdout.write(stdinData);
@@ -38,19 +71,22 @@ function passThrough() {
 function getInstalledVersion() {
   try {
     const data = JSON.parse(fs.readFileSync(installedPluginsPath, 'utf8'));
-    const entries = data.plugins && data.plugins['VF-Claude-Plugin@VF-Claude-Plugin'];
-    return (entries && entries[0] && entries[0].version) || null;
+    const plugins = data.plugins || {};
+    for (const key of Object.keys(plugins)) {
+      if (PLUGIN_SLUGS.some(s => key.startsWith(s))) {
+        const entries = plugins[key];
+        const ver = entries && entries[0] && entries[0].version;
+        if (ver) return ver;
+      }
+    }
+    return null;
   } catch (_) {
     return null;
   }
 }
 
 function getLastDeployedVersion() {
-  try {
-    return fs.readFileSync(versionTrackerPath, 'utf8').trim() || null;
-  } catch (_) {
-    return null;
-  }
+  try { return fs.readFileSync(versionTrackerPath, 'utf8').trim() || null; } catch (_) { return null; }
 }
 
 function writeTrackerVersion(version) {
@@ -64,28 +100,41 @@ function writeTrackerVersion(version) {
 
 const currentVersion = getInstalledVersion();
 const lastDeployed = getLastDeployedVersion();
+const rulesInstalled = fs.existsSync(rulesCorePath);
 
-// Fast path — nothing to do
-if (!currentVersion || currentVersion === lastDeployed) {
-  passThrough();
-  process.exit(0);
-}
-
-process.stderr.write(
-  `[plugin-sync] VF-Claude-Plugin updated (${lastDeployed || 'none'} → ${currentVersion}), reinstalling VCP artifacts...\n`
+// Trigger setup when:
+// 1. Version changed (upgrade) -- installed_plugins.json has a newer version
+// 2. Fresh install -- no tracker and no rules on disk (covers missing installed_plugins.json)
+const needsSetup = (
+  (currentVersion !== null && currentVersion !== lastDeployed) ||
+  (lastDeployed === null && !rulesInstalled)
 );
 
-if (!fs.existsSync(installScript)) {
-  process.stderr.write(`[plugin-sync] WARNING: install script not found at ${installScript} — skipping\n`);
+if (!needsSetup) {
   passThrough();
   process.exit(0);
 }
 
-// Ensure npm dependencies are installed before running install-apply.js.
-// node_modules may be absent after a fresh plugin update or first install.
+const pluginRoot = resolvePluginRoot();
+const installScript = pluginRoot ? path.join(pluginRoot, 'scripts', 'install-apply.js') : null;
+
+if (!installScript || !fs.existsSync(installScript)) {
+  process.stderr.write(
+    '[plugin-sync] WARNING: could not locate install-apply.js -- ' +
+    'set CLAUDE_PLUGIN_ROOT or run: npx vcp\n'
+  );
+  passThrough();
+  process.exit(0);
+}
+
+const label = lastDeployed
+  ? `updated (${lastDeployed} -> ${currentVersion || '?'})`
+  : 'first install';
+process.stderr.write(`[plugin-sync] VF-Claude-Plugin ${label} -- running core setup...\n`);
+
 const nodeModulesPath = path.join(pluginRoot, 'node_modules');
 if (!fs.existsSync(nodeModulesPath)) {
-  process.stderr.write(`[plugin-sync] node_modules missing — running npm install...\n`);
+  process.stderr.write('[plugin-sync] node_modules missing -- running npm install...\n');
   const npmInstall = spawnSync('npm', ['install', '--prefer-offline', '--no-audit', '--no-fund'], {
     encoding: 'utf8',
     env: process.env,
@@ -95,28 +144,29 @@ if (!fs.existsSync(nodeModulesPath)) {
   });
   if (npmInstall.error || npmInstall.status !== 0) {
     const reason = npmInstall.error ? npmInstall.error.message : `exit ${npmInstall.status}`;
-    process.stderr.write(`[plugin-sync] ERROR: npm install failed (${reason}) — reinstall skipped\n`);
+    process.stderr.write(`[plugin-sync] ERROR: npm install failed (${reason}) -- run: npx vcp\n`);
     if (npmInstall.stderr) process.stderr.write(npmInstall.stderr);
     passThrough();
     process.exit(0);
   }
-  process.stderr.write(`[plugin-sync] npm install complete.\n`);
+  process.stderr.write('[plugin-sync] npm install complete.\n');
 }
 
-const result = spawnSync(process.execPath, ['scripts/install-apply.js', '--target', 'claude', '--profile', 'core'], {
-  encoding: 'utf8',
-  env: process.env,
-  cwd: pluginRoot,
-  timeout: 120000,
-});
+const result = spawnSync(
+  process.execPath,
+  ['scripts/install-apply.js', '--target', 'claude', '--profile', 'core'],
+  { encoding: 'utf8', env: process.env, cwd: pluginRoot, timeout: 120000 }
+);
 
 if (result.error || result.status !== 0) {
   const reason = result.error ? result.error.message : `exit ${result.status}`;
-  process.stderr.write(`[plugin-sync] ERROR: reinstall failed (${reason})\n`);
+  process.stderr.write(`[plugin-sync] ERROR: setup failed (${reason}) -- run: npx vcp\n`);
   if (result.stderr) process.stderr.write(result.stderr);
 } else {
-  writeTrackerVersion(currentVersion);
-  process.stderr.write(`[plugin-sync] VCP artifacts reinstalled for v${currentVersion}.\n`);
+  writeTrackerVersion(currentVersion || 'installed');
+  process.stderr.write(
+    `[plugin-sync] VCP core setup complete${currentVersion ? ` (v${currentVersion})` : ''}.\n`
+  );
 }
 
 passThrough();
